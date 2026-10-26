@@ -1,0 +1,740 @@
+{
+  "schema_version": 1,
+  "max_output_tokens": 256,
+  "interval_seconds": 15,
+  "automatic_retries": false,
+  "results": [
+    {
+      "timestamp": "2026-10-26T07:47:32.351089+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.2,
+      "repetition": 1,
+      "question": "What is LoRA?",
+      "response": "**LoRA** stands for **Low-Rank Adaptation**. \n\nIt is a popular and highly efficient technique used in Artificial Intelligence (AI) to **fine-tune large language models (LLMs)**—like GPT models, Stable Diffusion (for images), or LLaMA—without needing massive amounts of computing power.\n\nHere is a breakdown of why it matters, how it works, and why it has become the standard in the AI community.\n\n---\n\n### 1. The Problem LoRA Solves\nTraining a modern AI model from scratch costs millions of dollars and requires thousands of specialized computer chips (GPUs). Even *full fine-tuning* (updating all the parameters of an already trained model) is extremely expensive and requires massive hardware.\n\nImagine you have a giant textbook (the base AI model) and you want to teach it a specific new subject (like medical diagnosis or speaking in the style of Shakespeare). Traditionally, you would have to rewrite or heavily edit almost the entire book. LoRA does something much smarter: it adds a small, separate notebook of sticky notes with the new information, leaving the original textbook untouched.\n\n### 2. How LoRA Works (The Simple Version)\nInside an AI model, knowledge is",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:47:34 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=2127",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "**LoRA** stands for **Low-Rank Adaptation**. \n\nIt is a popular and highly efficient technique used in Artificial Intelligence (AI) to **fine-tune large language models (LLMs)**—like GPT models, Stable Diffusion (for images), or LLaMA—without needing massive amounts of computing power.\n\nHere is a breakdown of why it matters, how it works, and why it has become the standard in the AI community.\n\n---\n\n### 1. The Problem LoRA Solves\nTraining a modern AI model from scratch costs millions of dollars and requires thousands of specialized computer chips (GPUs). Even *full fine-tuning* (updating all the parameters of an already trained model) is extremely expensive and requires massive hardware.\n\nImagine you have a giant textbook (the base AI model) and you want to teach it a specific new subject (like medical diagnosis or speaking in the style of Shakespeare). Traditionally, you would have to rewrite or heavily edit almost the entire book. LoRA does something much smarter: it adds a small, separate notebook of sticky notes with the new information, leaving the original textbook untouched.\n\n### 2. How LoRA Works (The Simple Version)\nInside an AI model, knowledge is",
+                  "thought_signature": "EmAKXgFpFH0TMYpAMtGC7UKODybj-EAzfFLMkq7PNZ4_Yk2rrBdX5W9uydwDSnkCrvtfBHRUmk9gxH7PO6sJDLO14CpYPqpePF_ZGsAVAkyAwUSxMzXBKfu9RfDZGdoSSqs="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "MAX_TOKENS",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "lAXfaqP2L_nvrfcP9M_0sAQ",
+        "usage_metadata": {
+          "candidates_token_count": 252,
+          "prompt_token_count": 6,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 6
+            }
+          ],
+          "total_token_count": 258
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 6,
+      "candidate_tokens": 252,
+      "total_tokens": 258,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 2.2201750409985834
+    },
+    {
+      "timestamp": "2026-10-26T07:47:49.577404+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.2,
+      "repetition": 2,
+      "question": "What is LoRA?",
+      "response": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and generative AI—to fine-tune large pre-trained models.\n\nTo understand why LoRA is such a big deal, it helps to look at the problem it solves.\n\n---\n\n### The Problem: Fine-Tuning is Expensive\nLarge Language Models (LLMs) like GPT-4, LLaMA, or Stable Diffusion contain billions of parameters (the internal \"weights\" that determine how the model makes decisions). \n\nTraditionally, if you wanted to adapt one of these massive models for a specific task (e.g., teaching it to speak medical jargon or draw in a specific anime style), you had to perform **full fine-tuning**. This meant updating *every single parameter* in the model. \n* **The downside:** This requires massive computing power, huge amounts of memory, and results in massive file sizes for every single custom model you create.\n\n### The LoRA Solution: A Shortcut\nLoRA avoids updating all the parameters. Instead, it operates on a simple premise: **When you adapt a model to a new task, you don't",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:47:51 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1534",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and generative AI—to fine-tune large pre-trained models.\n\nTo understand why LoRA is such a big deal, it helps to look at the problem it solves.\n\n---\n\n### The Problem: Fine-Tuning is Expensive\nLarge Language Models (LLMs) like GPT-4, LLaMA, or Stable Diffusion contain billions of parameters (the internal \"weights\" that determine how the model makes decisions). \n\nTraditionally, if you wanted to adapt one of these massive models for a specific task (e.g., teaching it to speak medical jargon or draw in a specific anime style), you had to perform **full fine-tuning**. This meant updating *every single parameter* in the model. \n* **The downside:** This requires massive computing power, huge amounts of memory, and results in massive file sizes for every single custom model you create.\n\n### The LoRA Solution: A Shortcut\nLoRA avoids updating all the parameters. Instead, it operates on a simple premise: **When you adapt a model to a new task, you don't",
+                  "thought_signature": "EmAKXgFpFH0TQUDZFPpqyIXUrLLY2jKSqM3qvoC8-jXFx1FkfWyfIIoAv4osDIDC3tHWJi7YfSBoEC2KYpTa2BEcsql7GC2LPzU2ouireP7fFFpzcVyox4YccRy0qe2x7ho="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "MAX_TOKENS",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "pQXfaqmbOK-Q0-kPj46Y2QM",
+        "usage_metadata": {
+          "candidates_token_count": 252,
+          "prompt_token_count": 6,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 6
+            }
+          ],
+          "total_token_count": 258
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 6,
+      "candidate_tokens": 252,
+      "total_tokens": 258,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.6077594170001248
+    },
+    {
+      "timestamp": "2026-10-26T07:48:06.191286+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.2,
+      "repetition": 3,
+      "question": "What is LoRA?",
+      "response": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and Generative AI—to **fine-tune large language models (LLMs) and diffusion models** (like Stable Diffusion) with a fraction of the computational power normally required.\n\nTo understand LoRA, it helps to first understand the problem it solves.\n\n---\n\n### The Problem: Fine-Tuning is Expensive\nImagine you have a massive AI model like GPT-3, which has 175 billion parameters (the internal \"knobs and dials\" the AI uses to make decisions). \n\n* **Traditional Fine-Tuning:** If you want to train this model on your own specific data (e.g., medical records or legal documents), standard methods require you to adjust *all* 175 billion parameters. This requires massive computing power, expensive GPUs, and lots of storage space for every new task.\n\n### The LoRA Solution: A Shortcut\nLoRA introduces a clever shortcut. Instead of changing the original, massive model, **LoRA freezes the original model completely** and attaches a tiny, separate set of trainable parameters (called \"adapters\")",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:48:08 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1981",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and Generative AI—to **fine-tune large language models (LLMs) and diffusion models** (like Stable Diffusion) with a fraction of the computational power normally required.\n\nTo understand LoRA, it helps to first understand the problem it solves.\n\n---\n\n### The Problem: Fine-Tuning is Expensive\nImagine you have a massive AI model like GPT-3, which has 175 billion parameters (the internal \"knobs and dials\" the AI uses to make decisions). \n\n* **Traditional Fine-Tuning:** If you want to train this model on your own specific data (e.g., medical records or legal documents), standard methods require you to adjust *all* 175 billion parameters. This requires massive computing power, expensive GPUs, and lots of storage space for every new task.\n\n### The LoRA Solution: A Shortcut\nLoRA introduces a clever shortcut. Instead of changing the original, massive model, **LoRA freezes the original model completely** and attaches a tiny, separate set of trainable parameters (called \"adapters\")",
+                  "thought_signature": "EmAKXgFpFH0TUolFjyRxkmLudp0zp5ruQz0amBF_rNLnMYi8qhQX7o-eHkrmWTQqJ2TWPrlMHHQMUDCEd4Ee-cvl0sJVxSzV8rUjvC09slgYEL6cjEZgvs7zqRc2pCa0QkM="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "MAX_TOKENS",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "tgXfaqiBJ4uz1e8PudyNwAY",
+        "usage_metadata": {
+          "candidates_token_count": 252,
+          "prompt_token_count": 6,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 6
+            }
+          ],
+          "total_token_count": 258
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 6,
+      "candidate_tokens": 252,
+      "total_tokens": 258,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 2.0478999160004605
+    },
+    {
+      "timestamp": "2026-10-26T07:48:23.245704+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.9,
+      "repetition": 1,
+      "question": "What is LoRA?",
+      "response": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and Generative AI—to **fine-tune large language models (LLMs) and image generators** (like Stable Diffusion) with a fraction of the computational power normally required.\n\nTo understand LoRA, it helps to first understand the problem it solves.\n\n---\n\n### The Problem: Full Fine-Tuning is Expensive\nImagine you have a massive AI model like GPT-3, which has 175 billion parameters (the \"knobs and dials\" the AI adjusts to learn). \n\nIf you want to train this model to do a specific job—like write medical diagnoses or adopt a specific anime art style—you traditionally have to do **full fine-tuning**. This means adjusting *every single one* of those 175 billion parameters. \n* **The drawback:** This requires massive computing power, expensive GPUs, and enormous amounts of storage for every new version of the model you create.\n\n### The LoRA Solution: Working Smarter, Not Harder\nIntroduced by researchers at Microsoft in 2021, LoRA is based on",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:48:24 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1624",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and Generative AI—to **fine-tune large language models (LLMs) and image generators** (like Stable Diffusion) with a fraction of the computational power normally required.\n\nTo understand LoRA, it helps to first understand the problem it solves.\n\n---\n\n### The Problem: Full Fine-Tuning is Expensive\nImagine you have a massive AI model like GPT-3, which has 175 billion parameters (the \"knobs and dials\" the AI adjusts to learn). \n\nIf you want to train this model to do a specific job—like write medical diagnoses or adopt a specific anime art style—you traditionally have to do **full fine-tuning**. This means adjusting *every single one* of those 175 billion parameters. \n* **The drawback:** This requires massive computing power, expensive GPUs, and enormous amounts of storage for every new version of the model you create.\n\n### The LoRA Solution: Working Smarter, Not Harder\nIntroduced by researchers at Microsoft in 2021, LoRA is based on",
+                  "thought_signature": "EmAKXgFpFH0TyrWIxgvrZXJHhoSf5IbRiL8Ztly0yuVPpSzF3QDm3BiBb2GSrFvt5PbzxucH1h_v3PzcKqfaeFiw5EjGligSxCtMCS9F00Jidm0ncksRMn5GWDOpgXgVjxY="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "MAX_TOKENS",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "xwXfarvtIt_a1e8PrMqg6Qc",
+        "usage_metadata": {
+          "candidates_token_count": 252,
+          "prompt_token_count": 6,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 6
+            }
+          ],
+          "total_token_count": 258
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 6,
+      "candidate_tokens": 252,
+      "total_tokens": 258,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.6845813330000965
+    },
+    {
+      "timestamp": "2026-10-26T07:48:39.938973+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.9,
+      "repetition": 2,
+      "question": "What is LoRA?",
+      "response": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and generative AI—to **fine-tune large language models (LLMs)** like GPT, LLaMA, or Stable Diffusion.\n\nDeveloped by researchers at Microsoft in 2021, LoRA solves a major problem in AI: **making massive models work for specific tasks without spending a fortune on computing power.**\n\nHere is a breakdown of how it works, why it matters, and where it is used.\n\n---\n\n### 1. The Problem LoRA Solves\nModern AI models are massive. For example, a model like Meta's LLaMA has 70 billion parameters (the \"knobs and dials\" that control how the AI thinks). \n\nTraditionally, if you wanted to \"fine-tune\" a model to do a specific job (like write medical diagnoses or mimic a specific artistic style), you had to retrain or adjust all 70 billion parameters. This requires:\n* Massive amounts of GPU computing power.\n* Huge amounts of storage (storing a whole new copy of the model for every task).\n\n### 2",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:48:41 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1682",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in Natural Language Processing (NLP) and generative AI—to **fine-tune large language models (LLMs)** like GPT, LLaMA, or Stable Diffusion.\n\nDeveloped by researchers at Microsoft in 2021, LoRA solves a major problem in AI: **making massive models work for specific tasks without spending a fortune on computing power.**\n\nHere is a breakdown of how it works, why it matters, and where it is used.\n\n---\n\n### 1. The Problem LoRA Solves\nModern AI models are massive. For example, a model like Meta's LLaMA has 70 billion parameters (the \"knobs and dials\" that control how the AI thinks). \n\nTraditionally, if you wanted to \"fine-tune\" a model to do a specific job (like write medical diagnoses or mimic a specific artistic style), you had to retrain or adjust all 70 billion parameters. This requires:\n* Massive amounts of GPU computing power.\n* Huge amounts of storage (storing a whole new copy of the model for every task).\n\n### 2",
+                  "thought_signature": "EmAKXgFpFH0TJhMefYQEhry13r4PhrNwZU989Df-h2Czq85yZU6c_I6uCch6A37GoFNNJJkTgWkgByVHQmmPa4Wfj_OS3urcm6LVPOW1Rg9OIXLbs01rgiY2UPiiH2vGhzs="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "MAX_TOKENS",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "2AXfao3nEez72roPlKnwCA",
+        "usage_metadata": {
+          "candidates_token_count": 252,
+          "prompt_token_count": 6,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 6
+            }
+          ],
+          "total_token_count": 258
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 6,
+      "candidate_tokens": 252,
+      "total_tokens": 258,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.7443074160000833
+    },
+    {
+      "timestamp": "2026-10-26T07:48:56.689488+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.9,
+      "repetition": 3,
+      "question": "What is LoRA?",
+      "response": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in the field of Large Language Models (LLMs) and Generative AI—to **fine-tune** massive models with a fraction of the computational power and time usually required.\n\nHere is a breakdown of what LoRA is, how it works, and why it is so important.\n\n---\n\n### 1. The Problem LoRA Solves\nImagine you have a massive AI model like GPT-3 or LLaMA, which has **billions of parameters** (the adjustable \"knobs and dials\" of the neural network). \n\n* **Traditional Fine-Tuning:** To adapt this model for a specific task (e.g., teaching it to speak medical jargon), you traditionally have to update *all* billions of parameters. This requires massive amounts of GPU memory, time, and storage. Every new task requires saving a whole new copy of the giant model.\n* **The LoRA Solution:** Instead of changing all the original parameters, LoRA keeps the original model completely **frozen** and instead trains a tiny \"sidecar\" of new parameters.\n\n---\n\n### 2. How Lo",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:48:58 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=2019",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "**LoRA** stands for **Low-Rank Adaptation**. It is a popular and efficient technique used in machine learning—specifically in the field of Large Language Models (LLMs) and Generative AI—to **fine-tune** massive models with a fraction of the computational power and time usually required.\n\nHere is a breakdown of what LoRA is, how it works, and why it is so important.\n\n---\n\n### 1. The Problem LoRA Solves\nImagine you have a massive AI model like GPT-3 or LLaMA, which has **billions of parameters** (the adjustable \"knobs and dials\" of the neural network). \n\n* **Traditional Fine-Tuning:** To adapt this model for a specific task (e.g., teaching it to speak medical jargon), you traditionally have to update *all* billions of parameters. This requires massive amounts of GPU memory, time, and storage. Every new task requires saving a whole new copy of the giant model.\n* **The LoRA Solution:** Instead of changing all the original parameters, LoRA keeps the original model completely **frozen** and instead trains a tiny \"sidecar\" of new parameters.\n\n---\n\n### 2. How Lo",
+                  "thought_signature": "EmAKXgFpFH0T8FU353D4Ftt6onVyhWsxhqdfffCCG_aQonks9Pl68au-xE-fV4MrVNqzhmgxxFWRugq6F2BtYl3N5kYJJykxLJjSJdfmOsWsmM2alEiKt__9_8KA0rdqrG0="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "MAX_TOKENS",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "6QXfarvfB4yw2roPqPGWqAQ",
+        "usage_metadata": {
+          "candidates_token_count": 252,
+          "prompt_token_count": 6,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 6
+            }
+          ],
+          "total_token_count": 258
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 6,
+      "candidate_tokens": 252,
+      "total_tokens": 258,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 2.0776940409996314
+    },
+    {
+      "timestamp": "2026-10-26T07:49:13.774186+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.2,
+      "repetition": 1,
+      "question": "What are the 3 homework levels in the AIE2026 course?",
+      "response": "I do not have access to real-time information or specific details regarding the \"AIE2026 course\" or its curriculum, so I cannot provide the 3 homework levels for it.",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:49:14 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1073",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "I do not have access to real-time information or specific details regarding the \"AIE2026 course\" or its curriculum, so I cannot provide the 3 homework levels for it.",
+                  "thought_signature": "EmAKXgFpFH0TacMEp7gQ26k1SKswuaXQh-jwGd_C_ebg2gLra6GpRqCAtDn1vCgjHpYXAE6Ut21xTXYZXkO_9kjwC7ZYPDpG6tY7a5pJ0p-4QPfxsP8frHEApc27yZi9bE0="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "STOP",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "-gXfauSKCZPorfcPkrjg4Qk",
+        "usage_metadata": {
+          "candidates_token_count": 40,
+          "prompt_token_count": 18,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 18
+            }
+          ],
+          "total_token_count": 58
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 18,
+      "candidate_tokens": 40,
+      "total_tokens": 58,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.133957708001617
+    },
+    {
+      "timestamp": "2026-10-26T07:49:29.914801+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.2,
+      "repetition": 2,
+      "question": "What are the 3 homework levels in the AIE2026 course?",
+      "response": "I do not have access to real-time information, specific course syllabi, or internal details regarding the \"AIE2026 course,\" so I cannot tell you what the 3 homework levels are.",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:49:31 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1186",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "I do not have access to real-time information, specific course syllabi, or internal details regarding the \"AIE2026 course,\" so I cannot tell you what the 3 homework levels are.",
+                  "thought_signature": "EmAKXgFpFH0TCVBdfZ5sf3P2j9Q_hPUnj23VYA6rR-57RldPQlzcgieg-la4z_SsUmQcIis0x6bCwEt6itiEaRGXJTatNjITiXRBdDUFZqBZuo9JOuFDcydtgrfuWljyG3s="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "STOP",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "CgbfapKVEaCZvr0Pl63viQw",
+        "usage_metadata": {
+          "candidates_token_count": 43,
+          "prompt_token_count": 18,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 18
+            }
+          ],
+          "total_token_count": 61
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 18,
+      "candidate_tokens": 43,
+      "total_tokens": 61,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.2388273340002343
+    },
+    {
+      "timestamp": "2026-10-26T07:49:46.160164+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.2,
+      "repetition": 3,
+      "question": "What are the 3 homework levels in the AIE2026 course?",
+      "response": "I do not have access to real-time information or specific details regarding the current curriculum, syllabus, or homework structure of the **AIE2026** course. \n\nCould you please provide more context, such as the name of the institution, platform, or instructor offering the course? With that information, I might be able to help you better!",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:49:47 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1464",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "I do not have access to real-time information or specific details regarding the current curriculum, syllabus, or homework structure of the **AIE2026** course. \n\nCould you please provide more context, such as the name of the institution, platform, or instructor offering the course? With that information, I might be able to help you better!",
+                  "thought_signature": "EmAKXgFpFH0TJA4kxL5UGs3M1cv1rvXo5XgWDYQknKxXbl6gEba26vNu8xXfWn9dZvG9VtSn8oSr70bes6-SvpXhrjxG9YdB3i5VEsLRNdmWVB4vNpCq7alKkS3tGz5CVdE="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "STOP",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "GgbfavrOHamAvr0Pzs3fsQI",
+        "usage_metadata": {
+          "candidates_token_count": 73,
+          "prompt_token_count": 18,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 18
+            }
+          ],
+          "total_token_count": 91
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 18,
+      "candidate_tokens": 73,
+      "total_tokens": 91,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.6260672919997887
+    },
+    {
+      "timestamp": "2026-10-26T07:50:02.796671+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.9,
+      "repetition": 1,
+      "question": "What are the 3 homework levels in the AIE2026 course?",
+      "response": "I do not have access to specific information about the \"AIE2026 course\" or its homework levels, as it is not part of my standard training data or current context. \n\nIf you can provide the course syllabus, the name of the institution, or the platform hosting the course, I might be able to help you find the answer!",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:50:03 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1032",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "I do not have access to specific information about the \"AIE2026 course\" or its homework levels, as it is not part of my standard training data or current context. \n\nIf you can provide the course syllabus, the name of the institution, or the platform hosting the course, I might be able to help you find the answer!",
+                  "thought_signature": "EmAKXgFpFH0TXB5Z6v88YXBy3TKnkSgEN8jPKx5Yt0tN8u-gGG0ndlhbkn3tjRsTzgtCFdmFX7JbwBmPvsLRgglnq-uoV9RcYqU-Fjjp-L2fNrR4ZRLOzPU4m5C2FbXLoCM="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "STOP",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "Kwbfarv9Btiw1e8P1q7wuAY",
+        "usage_metadata": {
+          "candidates_token_count": 72,
+          "prompt_token_count": 18,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 18
+            }
+          ],
+          "total_token_count": 90
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 18,
+      "candidate_tokens": 72,
+      "total_tokens": 90,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.0927110829998128
+    },
+    {
+      "timestamp": "2026-10-26T07:50:18.895860+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.9,
+      "repetition": 2,
+      "question": "What are the 3 homework levels in the AIE2026 course?",
+      "response": "I do not have access to specific information about the \"AIE2026 course\" or its homework levels, as it is not part of my standard training data or current context. \n\nIf you can provide the syllabus, course description, or context from where you are studying, I would be happy to help you find or summarize the information!",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:50:20 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1086",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "I do not have access to specific information about the \"AIE2026 course\" or its homework levels, as it is not part of my standard training data or current context. \n\nIf you can provide the syllabus, course description, or context from where you are studying, I would be happy to help you find or summarize the information!",
+                  "thought_signature": "EmAKXgFpFH0Tktv7s2b1tlhBjV_a5IHSJYUikEQ_lzqurm_v6iNYx4mMGG1xkLYqRxu17oVk6qFl4KH71JaPKcIV0aXwDWJn8e2iqP_RgB7QHrLAjOwaRiOJ0pGDPvAJUS0="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "STOP",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "OwbfatCxDtLs2roPjpvm0QI",
+        "usage_metadata": {
+          "candidates_token_count": 71,
+          "prompt_token_count": 18,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 18
+            }
+          ],
+          "total_token_count": 89
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 18,
+      "candidate_tokens": 71,
+      "total_tokens": 89,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.1893823749996955
+    },
+    {
+      "timestamp": "2026-10-26T07:50:35.092546+00:00",
+      "model": "gemini-3.5-flash-lite",
+      "temperature": 0.9,
+      "repetition": 3,
+      "question": "What are the 3 homework levels in the AIE2026 course?",
+      "response": "I do not have access to real-time information or specific details about the \"AIE2026 course\" or its homework levels, as my knowledge is limited to my general training data up to January 2025 and does not include specific, newly announced, or niche academic/online courses unless they are widely documented in my public training data. \n\nIf you can provide a syllabus, a course description, or context from your course materials, I would be happy to help you find or summarize the information you are looking for!",
+      "raw_response": {
+        "sdk_http_response": {
+          "headers": {
+            "x-gemini-service-tier": "standard",
+            "content-type": "application/json; charset=UTF-8",
+            "vary": "Origin, X-Origin, Referer",
+            "content-encoding": "gzip",
+            "date": "Mon, 26 Oct 2026 07:50:36 GMT",
+            "server": "scaffolding on HTTPServer2",
+            "x-xss-protection": "0",
+            "x-frame-options": "SAMEORIGIN",
+            "x-content-type-options": "nosniff",
+            "server-timing": "gfet4t7; dur=1529",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+            "transfer-encoding": "chunked"
+          }
+        },
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "I do not have access to real-time information or specific details about the \"AIE2026 course\" or its homework levels, as my knowledge is limited to my general training data up to January 2025 and does not include specific, newly announced, or niche academic/online courses unless they are widely documented in my public training data. \n\nIf you can provide a syllabus, a course description, or context from your course materials, I would be happy to help you find or summarize the information you are looking for!",
+                  "thought_signature": "EmAKXgFpFH0ToY40IrRXl8IFfVUQT2-K6WuYr_nXXAzZB8R80zwmD_hpnTsUkgwfmRDFtfzd4V1XETBB9VQ2tlqA4VMxi8eF91ImLQ1O7hyC7kFj1ZUesbFUB1sRpmTTffI="
+                }
+              ],
+              "role": "model"
+            },
+            "finish_reason": "STOP",
+            "index": 0
+          }
+        ],
+        "model_version": "gemini-3.5-flash-lite",
+        "response_id": "Swbfav_BH8jc9tMP6YG56QE",
+        "usage_metadata": {
+          "candidates_token_count": 110,
+          "prompt_token_count": 18,
+          "prompt_tokens_details": [
+            {
+              "modality": "TEXT",
+              "token_count": 18
+            }
+          ],
+          "total_token_count": 128
+        },
+        "automatic_function_calling_history": []
+      },
+      "prompt_tokens": 18,
+      "candidate_tokens": 110,
+      "total_tokens": 128,
+      "thought_tokens": null,
+      "error": null,
+      "elapsed_seconds": 1.6380939169994235
+    }
+  ]
+}
