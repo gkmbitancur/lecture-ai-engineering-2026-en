@@ -1,0 +1,96 @@
+[basic] Starting isolated experiment
+[basic] Loading pinned base model on Tesla T4
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<03:39,  1.45it/s]Loading weights:  58%|█████▊    | 185/320 [00:00<00:00, 314.60it/s]Loading weights:  90%|█████████ | 288/320 [00:01<00:00, 313.87it/s]Loading weights: 100%|██████████| 320/320 [00:01<00:00, 263.85it/s]
+[basic] Knowledge before: 1/4
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[basic] Knowledge before: 2/4
+[basic] Knowledge before: 3/4
+[basic] Knowledge before: 4/4
+[basic] before: question 1/21
+[basic] before: question 2/21
+[basic] before: question 3/21
+[basic] before: question 4/21
+[basic] before: question 5/21
+[basic] before: question 6/21
+[basic] before: question 7/21
+[basic] before: question 8/21
+[basic] before: question 9/21
+[basic] before: question 10/21
+[basic] before: question 11/21
+[basic] before: question 12/21
+[basic] before: question 13/21
+[basic] before: question 14/21
+[basic] before: question 15/21
+[basic] before: question 16/21
+[basic] before: question 17/21
+[basic] before: question 18/21
+[basic] before: question 19/21
+[basic] before: question 20/21
+[basic] before: question 21/21
+Tokenizing train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]Tokenizing train dataset: 100%|██████████| 14/14 [00:00<00:00, 803.50 examples/s]
+Building labels for train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]Building labels for train dataset: 100%|██████████| 14/14 [00:00<00:00, 2606.55 examples/s]
+Truncating train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 14/14 [00:00<00:00, 3146.01 examples/s]
+Dropping fully masked examples from train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]Dropping fully masked examples from train dataset: 100%|██████████| 14/14 [00:00<00:00, 5869.68 examples/s]
+Tokenizing eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]Tokenizing eval dataset: 100%|██████████| 7/7 [00:00<00:00, 706.15 examples/s]
+Building labels for eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]Building labels for eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1662.24 examples/s]
+Truncating eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]Truncating eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1795.95 examples/s]
+Dropping fully masked examples from eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]Dropping fully masked examples from eval dataset: 100%|██████████| 7/7 [00:00<00:00, 3162.44 examples/s]
+[basic] Training 14 records for 10 epochs; 6389760 trainable parameters
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046}.
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:43,  5.43s/it] 10%|█         | 2/20 [00:09<01:22,  4.59s/it] 15%|█▌        | 3/20 [00:14<01:24,  4.95s/it] 20%|██        | 4/20 [00:18<01:13,  4.60s/it] 25%|██▌       | 5/20 [00:24<01:13,  4.90s/it] 30%|███       | 6/20 [00:28<01:04,  4.59s/it] 35%|███▌      | 7/20 [00:33<01:02,  4.81s/it] 40%|████      | 8/20 [00:37<00:54,  4.54s/it] 45%|████▌     | 9/20 [00:42<00:52,  4.75s/it] 50%|█████     | 10/20 [00:46<00:45,  4.50s/it]                                               {'loss': '1.694', 'grad_norm': '2.965', 'learning_rate': '0.0001782', 'entropy': '1.654', 'num_tokens': '1.448e+04', 'mean_token_accuracy': '0.6514', 'epoch': '5'}
+ 50%|█████     | 10/20 [00:46<00:45,  4.50s/it]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ 55%|█████▌    | 11/20 [00:52<00:44,  4.90s/it] 60%|██████    | 12/20 [00:56<00:36,  4.60s/it] 65%|██████▌   | 13/20 [01:01<00:33,  4.78s/it] 70%|███████   | 14/20 [01:05<00:26,  4.50s/it] 75%|███████▌  | 15/20 [01:10<00:23,  4.67s/it] 80%|████████  | 16/20 [01:14<00:17,  4.45s/it] 85%|████████▌ | 17/20 [01:19<00:13,  4.64s/it] 90%|█████████ | 18/20 [01:23<00:08,  4.44s/it] 95%|█████████▌| 19/20 [01:28<00:04,  4.70s/it]100%|██████████| 20/20 [01:33<00:00,  4.59s/it]                                               {'loss': '0.07121', 'grad_norm': '0.4454', 'learning_rate': '2.507e-06', 'entropy': '0.1146', 'num_tokens': '2.895e+04', 'mean_token_accuracy': '0.9853', 'epoch': '10'}
+100%|██████████| 20/20 [01:33<00:00,  4.59s/it]                                               {'train_runtime': '94.11', 'train_samples_per_second': '1.488', 'train_steps_per_second': '0.213', 'train_loss': '0.8827', 'epoch': '10'}
+100%|██████████| 20/20 [01:34<00:00,  4.59s/it]100%|██████████| 20/20 [01:34<00:00,  4.71s/it]
+[basic] Training completed in 94.4s: {"final_logged_loss": 0.07120965123176574, "final_logged_loss_step": 20, "final_logged_loss_definition": "Last Trainer log_history loss value: interval-averaged training loss at its logged step; not necessarily final-batch loss.", "mean_train_loss": 0.882726064324379, "mean_train_loss_definition": "Trainer train() metrics train_loss, reported separately from the last logged interval loss."}
+[basic] after: question 1/21
+[basic] after: question 2/21
+[basic] after: question 3/21
+[basic] after: question 4/21
+[basic] after: question 5/21
+[basic] after: question 6/21
+[basic] after: question 7/21
+[basic] after: question 8/21
+[basic] after: question 9/21
+[basic] after: question 10/21
+[basic] after: question 11/21
+[basic] after: question 12/21
+[basic] after: question 13/21
+[basic] after: question 14/21
+[basic] after: question 15/21
+[basic] after: question 16/21
+[basic] after: question 17/21
+[basic] after: question 18/21
+[basic] after: question 19/21
+[basic] after: question 20/21
+[basic] after: question 21/21
+[basic] Knowledge after: 1/4
+[basic] Knowledge after: 2/4
+[basic] Knowledge after: 3/4
+[basic] Knowledge after: 4/4
+{
+  "scenario": "basic",
+  "status": "completed",
+  "before": {
+    "n": 21,
+    "format_rate": 0.9523809523809523,
+    "content_rate": 0.38095238095238093,
+    "both_rate": 0.38095238095238093,
+    "label": "before",
+    "seconds": 27.261189460999958
+  },
+  "after": {
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.8571428571428571,
+    "both_rate": 0.8571428571428571,
+    "label": "after",
+    "seconds": 38.9755086350001
+  },
+  "regression_count": 0,
+  "training_seconds": 94.44436606699992,
+  "result_file": "/content/hw2_results/basic/result.json"
+}

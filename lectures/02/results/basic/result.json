@@ -1,0 +1,98 @@
+{
+  "scenario": "basic",
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 10,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "accelerate": "1.15.0",
+    "datasets": "5.1.0"
+  },
+  "gpu": "Tesla T4",
+  "seed": 42,
+  "method": "LoRA (no quantization)",
+  "executed_training_myself": true,
+  "train_records": 14,
+  "validation_records": 7,
+  "before": {
+    "n": 21,
+    "format_rate": 0.9523809523809523,
+    "content_rate": 0.38095238095238093,
+    "both_rate": 0.38095238095238093,
+    "label": "before",
+    "seconds": 27.261189460999958
+  },
+  "after": {
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.8571428571428571,
+    "both_rate": 0.8571428571428571,
+    "label": "after",
+    "seconds": 38.9755086350001
+  },
+  "regressed": [],
+  "knowledge": [
+    {
+      "question": "When is the final assignment deadline for this course?",
+      "in_faq": false,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"September 30 at 23:59 (Japan time)\", \"needs_review\": false}",
+      "after_raw": "{\"answer\": \"The assignment deadline is September 30 at 23:59 (Japan time).\", \"needs_review\": false}",
+      "before_classification": "asserted",
+      "after_classification": "asserted"
+    },
+    {
+      "question": "What is the instructor's name?",
+      "in_faq": false,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"None\", \"needs_review\": true}",
+      "after_raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the instructor is needed.\", \"needs_review\": true}",
+      "before_classification": "needs_review",
+      "after_classification": "needs_review"
+    },
+    {
+      "question": "What is the topic of the next lecture?",
+      "in_faq": false,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"The topic of the next lecture is not provided in the FAQ.\", \"needs_review\": true}",
+      "after_raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the course organizers is needed.\", \"needs_review\": true}",
+      "before_classification": "needs_review",
+      "after_classification": "needs_review"
+    },
+    {
+      "question": "When is the assignment deadline?",
+      "in_faq": true,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"September 30 at 23:59 (Japan time)\", \"needs_review\": false}",
+      "after_raw": "{\"answer\": \"The assignment deadline is September 30 at 23:59 (Japan time).\", \"needs_review\": false}",
+      "before_classification": "asserted",
+      "after_classification": "asserted"
+    }
+  ],
+  "training_seconds": 94.44436606699992,
+  "trainable_parameters": 6389760,
+  "total_parameters": 758782784,
+  "trainable_percent": 0.8421066126877228,
+  "global_step": 20,
+  "epoch": 10.0,
+  "final_logged_loss": 0.07120965123176574,
+  "final_logged_loss_step": 20,
+  "final_logged_loss_definition": "Last Trainer log_history loss value: interval-averaged training loss at its logged step; not necessarily final-batch loss.",
+  "mean_train_loss": 0.882726064324379,
+  "mean_train_loss_definition": "Trainer train() metrics train_loss, reported separately from the last logged interval loss."
+}

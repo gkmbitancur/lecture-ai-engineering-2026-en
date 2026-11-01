@@ -1,0 +1,196 @@
+Implementation manual audit: all 42 before/after raw responses
+Evidence: five completed scenario JSON files copied byte-for-byte from work/suite_partial_impl/implementation. No adapter file was downloaded or invented.
+Manifest status completed; recorded runner hash matches run_experiments_v1.py. Every saved format/content judgment was recomputed from the frozen prepared gold and original checkers and matched.
+Before: format 21/21, content 6/21 (6/15 grounded, 0/6 unknown). After: format 21/21, content 18/21 (14/15 grounded, 4/6 unknown).
+Training: 186.80664432799995 s, 40 steps, final logged interval loss 0.016424600780010224 at step 40, aggregate train_loss 0.4495649617165327.
+Formal regressions list is empty: none of the six both-check passes was lost. This DOES NOT mean no substantive behavior regressed.
+Hidden semantic regressions: Wednesday pickup yes/no (before correct Yes fails required detailed keywords, after wrong Monday returns); late return (before acknowledges no penalty evidence, after Monday schedule with false flag); monthly reservation cap (before correctly acknowledges absent limit, after substitutes three simultaneous items with false flag).
+Known rubric artifacts: bare 3 for item cap and Yes to supported yes/no questions fail because keywords demand fuller facts; missing Confirmation makes reasonable source-absence statements fail. Some metric improvements are fuller wording rather than new facts.
+Knowledge probes reproduce transfer/delivery improvements (unsupported No,true -> explicit confirmation,true), monthly cap degradation (correct source absence,true -> simultaneous item limit,false), and stable correct pickup control. All inputs include FAQ.
+
+faq_01 | What is the collection window for my reservation?
+Expected gold: {"needs_review": false, "must_include": ["Wednesday", "18:00", "19:00"]}
+Before: {"answer": "Wednesday from 18:00 to 19:00", "needs_review": false}
+After: {"answer": "Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.", "needs_review": false}
+Automated before/after: [True, True]
+Manual interpretation: Correct pickup schedule before and after; after also states location.
+
+faq_02 | Where and when do I pick up my reserved gear?
+Expected gold: {"needs_review": false, "must_include": ["Wednesday", "18:00", "19:00"]}
+Before: {"answer": "Wednesday at 18:00 to 19:00", "needs_review": false}
+After: {"answer": "Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.", "needs_review": false}
+Automated before/after: [True, True]
+Manual interpretation: Correct schedule before; omits requested location but keyword check accepts it. After adds club room.
+
+faq_03 | Is Wednesday evening the equipment collection time?
+Expected gold: {"needs_review": false, "must_include": ["Wednesday", "18:00", "19:00"]}
+Before: {"answer": "Yes", "needs_review": false}
+After: {"answer": "Return equipment to the club room on Monday from 17:00 to 18:00.", "needs_review": false}
+Automated before/after: [False, False]
+Manual interpretation: Before Yes is correct for the supported yes/no question but lacks detailed keywords. After gives Monday return schedule, a real semantic regression hidden by fail->fail.
+
+faq_04 | When does the standard loan period end?
+Expected gold: {"needs_review": false, "must_include": ["7", "days"]}
+Before: {"answer": "7 calendar days", "needs_review": false}
+After: {"answer": "The standard equipment loan lasts 7 calendar days.", "needs_review": false}
+Automated before/after: [True, True]
+Manual interpretation: Correct seven-calendar-day duration before and after.
+
+faq_05 | What length of time does a usual equipment loan cover?
+Expected gold: {"needs_review": false, "must_include": ["7", "days"]}
+Before: {"answer": "7 calendar days", "needs_review": false}
+After: {"answer": "The standard equipment loan lasts 7 calendar days.", "needs_review": false}
+Automated before/after: [True, True]
+Manual interpretation: Correct duration before and after.
+
+faq_06 | Does the normal loan run for seven calendar days?
+Expected gold: {"needs_review": false, "must_include": ["7", "days"]}
+Before: {"answer": "Yes", "needs_review": false}
+After: {"answer": "The standard equipment loan lasts 7 calendar days.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before Yes substantively correct but fails literal detailed keywords; after states full duration.
+
+faq_07 | Where should I enter an equipment reservation?
+Expected gold: {"needs_review": false, "must_include": ["club lending portal", "Equipment Reservations"]}
+Before: {"answer": "Equipment Reservations", "needs_review": true}
+After: {"answer": "Reserve equipment through the club lending portal under Equipment Reservations.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before gives section only and wrong review flag; after provides portal,section,and false flag.
+
+faq_08 | Tell me the website and section used to book club equipment.
+Expected gold: {"needs_review": false, "must_include": ["club lending portal", "Equipment Reservations"]}
+Before: {"answer": "Equipment Reservations", "needs_review": true}
+After: {"answer": "Reserve equipment through the club lending portal under Equipment Reservations.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before gives section only and wrong flag; after gives full booking instruction.
+
+faq_09 | How should a member submit a gear reservation?
+Expected gold: {"needs_review": false, "must_include": ["club lending portal", "Equipment Reservations"]}
+Before: {"answer": "The member should reserve equipment through the club lending portal under Equipment Reservations.", "needs_review": true}
+After: {"answer": "Reserve equipment through the club lending portal under Equipment Reservations.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before already correct booking text but wrong true flag; after corrects flag.
+
+faq_10 | Can a member check out four items together?
+Expected gold: {"needs_review": false, "must_include": ["3", "items"]}
+Before: {"answer": "No", "needs_review": true}
+After: {"answer": "Each member may borrow up to 3 items at the same time.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before No is directionally correct but wrong true flag; after states 3-item policy with false flag.
+
+faq_11 | What is one member's equipment checkout cap?
+Expected gold: {"needs_review": false, "must_include": ["3", "items"]}
+Before: {"answer": "3", "needs_review": false}
+After: {"answer": "Each member may borrow up to 3 items at the same time.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before 3 substantively answers count but fails required items substring; after full policy passes.
+
+faq_12 | How many borrowed pieces can be recorded against my membership at the same time?
+Expected gold: {"needs_review": false, "must_include": ["3", "items"]}
+Before: {"answer": "3", "needs_review": false}
+After: {"answer": "Each member may borrow up to 3 items at the same time.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before 3 substantively answers count but fails required items substring; after full policy passes.
+
+faq_13 | What is the return window for borrowed gear?
+Expected gold: {"needs_review": false, "must_include": ["Monday", "17:00", "18:00"]}
+Before: {"answer": "Monday from 17:00 to 18:00", "needs_review": false}
+After: {"answer": "Return equipment to the club room on Monday from 17:00 to 18:00.", "needs_review": false}
+Automated before/after: [True, True]
+Manual interpretation: Correct return schedule before and after.
+
+faq_14 | Where and when is the equipment hand-back session?
+Expected gold: {"needs_review": false, "must_include": ["Monday", "17:00", "18:00"]}
+Before: {"answer": "Monday from 17:00 to 18:00", "needs_review": false}
+After: {"answer": "Return equipment to the club room on Monday from 17:00 to 18:00.", "needs_review": false}
+Automated before/after: [True, True]
+Manual interpretation: Before correct schedule lacks requested place but passes keywords; after includes club room.
+
+faq_15 | Are returns handled on Monday in the late afternoon?
+Expected gold: {"needs_review": false, "must_include": ["Monday", "17:00", "18:00"]}
+Before: {"answer": "Yes", "needs_review": false}
+After: {"answer": "Return equipment to the club room on Monday from 17:00 to 18:00.", "needs_review": false}
+Automated before/after: [False, True]
+Manual interpretation: Before Yes correct but lacks required schedule keywords; after full return policy passes.
+
+faq_16 | What happens if equipment is returned late?
+Expected gold: {"needs_review": true, "must_include": ["Confirmation"]}
+Before: {"answer": "No specific penalty is mentioned in the FAQ for returning equipment late.", "needs_review": true}
+After: {"answer": "Return equipment to the club room on Monday from 17:00 to 18:00.", "needs_review": false}
+Automated before/after: [False, False]
+Manual interpretation: Before valid source-absence statement and true flag fail only Confirmation keyword. After substitutes return time for absent late policy with false flag: substantive regression,still automated fail.
+
+faq_17 | Is there a waiting list when all items are booked?
+Expected gold: {"needs_review": true, "must_include": ["Confirmation"]}
+Before: {"answer": "No", "needs_review": false}
+After: {"answer": "This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.", "needs_review": true}
+Automated before/after: [False, True]
+Manual interpretation: Before unsupported No,false; after proper source-aware confirmation,true.
+
+faq_18 | Can I borrow equipment during the winter closure?
+Expected gold: {"needs_review": true, "must_include": ["Confirmation"]}
+Before: {"answer": "No", "needs_review": false}
+After: {"answer": "This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.", "needs_review": true}
+Automated before/after: [False, True]
+Manual interpretation: Before unsupported No,false; after proper confirmation,true.
+
+faq_19 | Can I transfer my reservation to another member?
+Expected gold: {"needs_review": true, "must_include": ["Confirmation"]}
+Before: {"answer": "No", "needs_review": true}
+After: {"answer": "This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.", "needs_review": true}
+Automated before/after: [False, True]
+Manual interpretation: Before unsupported No despite true flag; after explicit confirmation,true.
+
+faq_20 | Does the club deliver borrowed gear to my home?
+Expected gold: {"needs_review": true, "must_include": ["Confirmation"]}
+Before: {"answer": "No", "needs_review": true}
+After: {"answer": "This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.", "needs_review": true}
+Automated before/after: [False, True]
+Manual interpretation: Before unsupported No despite true flag; after explicit confirmation,true.
+
+faq_21 | How many reservations can I make in a month?
+Expected gold: {"needs_review": true, "must_include": ["Confirmation"]}
+Before: {"answer": "The FAQ does not specify the maximum number of reservations a member can make in a month.", "needs_review": true}
+After: {"answer": "Each member may borrow up to 3 items at the same time.", "needs_review": false}
+Automated before/after: [False, False]
+Manual interpretation: Before correctly states monthly reservation limit absent,true; fails only Confirmation keyword. After conflates monthly reservations with three simultaneous items,false: substantive regression hidden by fail->fail.
+
+Knowledge probe raw outputs:
+[
+  {
+    "question": "Can I transfer my reservation to another member?",
+    "in_faq": false,
+    "faq_provided": true,
+    "before_raw": "{\"answer\": \"No\", \"needs_review\": true}",
+    "after_raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+    "before_classification": "needs_review",
+    "after_classification": "needs_review"
+  },
+  {
+    "question": "Does the club deliver borrowed gear to my home?",
+    "in_faq": false,
+    "faq_provided": true,
+    "before_raw": "{\"answer\": \"No\", \"needs_review\": true}",
+    "after_raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+    "before_classification": "needs_review",
+    "after_classification": "needs_review"
+  },
+  {
+    "question": "How many reservations can I make in a month?",
+    "in_faq": false,
+    "faq_provided": true,
+    "before_raw": "{\"answer\": \"The FAQ does not specify the maximum number of reservations a member can make in a month.\", \"needs_review\": true}",
+    "after_raw": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+    "before_classification": "needs_review",
+    "after_classification": "asserted"
+  },
+  {
+    "question": "When can I collect reserved equipment?",
+    "in_faq": true,
+    "faq_provided": true,
+    "before_raw": "{\"answer\": \"Wednesday from 18:00 to 19:00\", \"needs_review\": false}",
+    "after_raw": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+    "before_classification": "asserted",
+    "after_classification": "asserted"
+  }
+]

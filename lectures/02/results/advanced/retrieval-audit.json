@@ -1,0 +1,221 @@
+{
+  "review_method": "Qualitative audit of all 24 retrieved responses against the frozen source",
+  "rows": [
+    {
+      "id": "advanced_01",
+      "category": "term_name",
+      "question": "Describe which weights LoRA trains and how it represents the update.",
+      "expected_source_id": "lora",
+      "retrieved_source_id": "lora",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_02",
+      "category": "term_name",
+      "question": "Under PEFT, what fraction or kind of parameters is trained?",
+      "expected_source_id": "peft",
+      "retrieved_source_id": "peft",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_03",
+      "category": "term_name",
+      "question": "How does QLoRA combine compression and adapter training?",
+      "expected_source_id": "qlora",
+      "retrieved_source_id": "qlora",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_04",
+      "category": "term_name",
+      "question": "Explain the memory benefit and possible accuracy cost of quantization.",
+      "expected_source_id": "quantization",
+      "retrieved_source_id": "quantization",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_05",
+      "category": "term_name",
+      "question": "For supervised fine-tuning, what does each training example pair together?",
+      "expected_source_id": "sft",
+      "retrieved_source_id": "sft",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_06",
+      "category": "term_name",
+      "question": "When is fine-tuning appropriate, and how should fresh facts usually be supplied?",
+      "expected_source_id": "fine-tuning",
+      "retrieved_source_id": "fine-tuning",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_07",
+      "category": "term_name",
+      "question": "In training terminology, how much data does one epoch traverse?",
+      "expected_source_id": "epoch",
+      "retrieved_source_id": "epoch",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_08",
+      "category": "term_name",
+      "question": "How would overfitting affect training versus unseen examples, and how can we detect it?",
+      "expected_source_id": "overfitting",
+      "retrieved_source_id": "overfitting",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_09",
+      "category": "paraphrase",
+      "question": "What limits how much conversation history plus a generated reply can fit into one model call?",
+      "expected_source_id": "context-window",
+      "retrieved_source_id": "context-window",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_10",
+      "category": "paraphrase",
+      "question": "Which setting changes how random the next-token choice is, and what happens when it is lowered?",
+      "expected_source_id": "temperature",
+      "retrieved_source_id": "token",
+      "qualitative_match": false,
+      "note": "Incidental token alias in next-token displaced the intended temperature concept."
+    },
+    {
+      "id": "advanced_11",
+      "category": "paraphrase",
+      "question": "What do we call a convincing model answer that invents facts, and how might external evidence help?",
+      "expected_source_id": "hallucination",
+      "retrieved_source_id": "fine-tuning",
+      "qualitative_match": false,
+      "note": "Weak lexical overlap selected fine-tuning instead of hallucination; does not identify the asked phenomenon."
+    },
+    {
+      "id": "advanced_12",
+      "category": "paraphrase",
+      "question": "Why might an agent receive HTTP 429 after sending many requests in a short period?",
+      "expected_source_id": "rate-limit",
+      "retrieved_source_id": "ai-agent",
+      "qualitative_match": false,
+      "note": "Incidental agent name displaced rate-limit interpretation of HTTP429."
+    },
+    {
+      "id": "advanced_13",
+      "category": "paraphrase",
+      "question": "What kind of system repeatedly chooses tools, inspects their results, and decides the next step toward a goal?",
+      "expected_source_id": "ai-agent",
+      "retrieved_source_id": "ai-agent",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_14",
+      "category": "paraphrase",
+      "question": "When a model requests a function call with arguments, which component actually executes it?",
+      "expected_source_id": "tool",
+      "retrieved_source_id": "tool",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_15",
+      "category": "paraphrase",
+      "question": "How can an application constrain a model response to fields and types so downstream code can process it?",
+      "expected_source_id": "structured-output",
+      "retrieved_source_id": null,
+      "qualitative_match": false,
+      "note": "No match despite a known structured-output concept; lexical no-match is not proof of absence."
+    },
+    {
+      "id": "advanced_16",
+      "category": "paraphrase",
+      "question": "Which open protocol lets compatible AI apps reuse external tools and data exposed by a server?",
+      "expected_source_id": "mcp",
+      "retrieved_source_id": "mcp",
+      "qualitative_match": true,
+      "note": "Correct glossary definition retrieved."
+    },
+    {
+      "id": "advanced_17",
+      "category": "absent",
+      "question": "How does Direct Preference Optimization learn from preference pairs?",
+      "expected_source_id": null,
+      "retrieved_source_id": null,
+      "qualitative_match": true,
+      "note": "No glossary match; appropriate membership abstention for this test term. No inference about general factual unknowability."
+    },
+    {
+      "id": "advanced_18",
+      "category": "absent",
+      "question": "Describe the role of the clipped objective in Proximal Policy Optimization.",
+      "expected_source_id": null,
+      "retrieved_source_id": null,
+      "qualitative_match": true,
+      "note": "No glossary match; appropriate membership abstention for this test term. No inference about general factual unknowability."
+    },
+    {
+      "id": "advanced_19",
+      "category": "absent",
+      "question": "What stages are involved in Reinforcement Learning from Human Feedback?",
+      "expected_source_id": null,
+      "retrieved_source_id": null,
+      "qualitative_match": true,
+      "note": "No glossary match; appropriate membership abstention for this test term. No inference about general factual unknowability."
+    },
+    {
+      "id": "advanced_20",
+      "category": "absent",
+      "question": "How does a Mixture of Experts model route tokens to specialists?",
+      "expected_source_id": null,
+      "retrieved_source_id": null,
+      "qualitative_match": true,
+      "note": "No glossary match; appropriate membership abstention for this test term. No inference about general factual unknowability."
+    },
+    {
+      "id": "advanced_21",
+      "category": "absent",
+      "question": "How does a diffusion model learn to remove noise from a sample?",
+      "expected_source_id": null,
+      "retrieved_source_id": null,
+      "qualitative_match": true,
+      "note": "No glossary match; appropriate membership abstention for this test term. No inference about general factual unknowability."
+    },
+    {
+      "id": "advanced_22",
+      "category": "absent",
+      "question": "How does cosine similarity compare two embedding vectors?",
+      "expected_source_id": null,
+      "retrieved_source_id": null,
+      "qualitative_match": true,
+      "note": "No glossary match; appropriate membership abstention for this test term. No inference about general factual unknowability."
+    },
+    {
+      "id": "advanced_23",
+      "category": "absent",
+      "question": "What does BM25 use to rank a document for a search query?",
+      "expected_source_id": null,
+      "retrieved_source_id": "lora-rank",
+      "qualitative_match": false,
+      "note": "Incidental rank alias returned LoRA rank for a BM25 ranking question."
+    },
+    {
+      "id": "advanced_24",
+      "category": "absent",
+      "question": "How does beam search keep multiple candidate continuations?",
+      "expected_source_id": null,
+      "retrieved_source_id": null,
+      "qualitative_match": true,
+      "note": "No glossary match; appropriate membership abstention for this test term. No inference about general factual unknowability."
+    }
+  ]
+}

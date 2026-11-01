@@ -1,0 +1,148 @@
+{
+  "verified_at_utc": "2026-11-01T22:06:15.670427+00:00",
+  "method": "Offline recomputation and consistency checks",
+  "status": "passed",
+  "scope": "Recomputed archived results and checked recorded evidence. No GPU retraining in this verification pass.",
+  "checks": {
+    "execution_and_controls": {
+      "completed_runs": [
+        "baseline",
+        "basic",
+        "implementation",
+        "advanced"
+      ],
+      "distinct_process_ids": 4,
+      "recorded_source_hashes_matched": 32,
+      "basic_configuration_difference": {
+        "num_train_epochs": [
+          20,
+          10
+        ]
+      },
+      "identical_baseline_basic_before_answers": 21,
+      "implementation_and_advanced_configuration_match_baseline": true
+    },
+    "data": {
+      "faq_splits": [
+        14,
+        7,
+        21
+      ],
+      "unique_questions_per_faq_dataset": 42,
+      "unknown_test_questions_per_faq_dataset": 6,
+      "glossary_entries": 58,
+      "exactly_regenerated_training_records": 116,
+      "advanced_category_counts": {
+        "term_name": 8,
+        "paraphrase": 8,
+        "absent": 8
+      },
+      "advanced_training_evaluation_question_overlap": 0
+    },
+    "faq_scoring": {
+      "raw_responses_recomputed": 189,
+      "count_denominator": 21,
+      "counts": {
+        "original_exercise/before": {
+          "format": 20,
+          "content": 8,
+          "both": 8
+        },
+        "original_exercise/after": {
+          "format": 21,
+          "content": 19,
+          "both": 19
+        },
+        "original_exercise/before_4bit": {
+          "format": 21,
+          "content": 1,
+          "both": 1
+        },
+        "baseline/before": {
+          "format": 20,
+          "content": 8,
+          "both": 8
+        },
+        "baseline/after": {
+          "format": 21,
+          "content": 19,
+          "both": 19
+        },
+        "basic/before": {
+          "format": 20,
+          "content": 8,
+          "both": 8
+        },
+        "basic/after": {
+          "format": 21,
+          "content": 18,
+          "both": 18
+        },
+        "implementation/before": {
+          "format": 21,
+          "content": 6,
+          "both": 6
+        },
+        "implementation/after": {
+          "format": 21,
+          "content": 18,
+          "both": 18
+        }
+      },
+      "all_saved_judgments_and_rates_matched": true
+    },
+    "advanced_scoring": {
+      "model_answers_recomputed": 48,
+      "search_responses_reproduced": 24,
+      "all_saved_scores_matched": true,
+      "model_rates": {
+        "before": {
+          "n": 24,
+          "category_proxy_rates": {
+            "term_name": 0.625,
+            "paraphrase": 0.5,
+            "absent": 0.0
+          },
+          "known_content_proxy_rate": 0.5625,
+          "absent_membership_proxy_rate": 0.0,
+          "macro_proxy_rate": 0.375
+        },
+        "after": {
+          "n": 24,
+          "category_proxy_rates": {
+            "term_name": 0.875,
+            "paraphrase": 0.25,
+            "absent": 0.0
+          },
+          "known_content_proxy_rate": 0.5625,
+          "absent_membership_proxy_rate": 0.0,
+          "macro_proxy_rate": 0.375
+        }
+      },
+      "search_rates": {
+        "n": 24,
+        "category_proxy_rates": {
+          "term_name": 1.0,
+          "paraphrase": 0.5,
+          "absent": 0.875
+        },
+        "known_content_proxy_rate": 0.75,
+        "absent_membership_proxy_rate": 0.875,
+        "macro_proxy_rate": 0.7916666666666666
+      }
+    },
+    "training_logs": {
+      "runs_cross_checked": 4,
+      "final_interval_and_aggregate_losses_match": true,
+      "wall_clock_training_times_cover_trainer_runtimes": true
+    },
+    "runner_tests": {
+      "passed": 8,
+      "output": "[baseline] Starting isolated experiment\ntest_advanced_never_leaks_gold_and_preserves_training_records (test_runner.RunnerTests.test_advanced_never_leaks_gold_and_preserves_training_records) ... ok\ntest_basic_changes_only_epoch_count (test_runner.RunnerTests.test_basic_changes_only_epoch_count) ... ok\ntest_faq_scoring_preserves_format_content_separation (test_runner.RunnerTests.test_faq_scoring_preserves_format_content_separation) ... ok\ntest_final_logged_interval_loss_is_distinct_from_mean (test_runner.RunnerTests.test_final_logged_interval_loss_is_distinct_from_mean) ... ok\ntest_knowledge_probes_include_faq_without_targets (test_runner.RunnerTests.test_knowledge_probes_include_faq_without_targets) ... ok\ntest_process_guard_and_output_preservation (test_runner.RunnerTests.test_process_guard_and_output_preservation) ... ok\ntest_reference_and_implementation_mapping (test_runner.RunnerTests.test_reference_and_implementation_mapping) ... ok\ntest_retrieval_uses_only_question_and_source_and_is_deterministic (test_runner.RunnerTests.test_retrieval_uses_only_question_and_source_and_is_deterministic) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.005s\n\nOK\n"
+    }
+  },
+  "limits": [
+    "Matching the fixed scorer does not prove factual correctness; see the qualitative answer audits.",
+    "One seed and small evaluation sets do not establish robust generalization."
+  ]
+}

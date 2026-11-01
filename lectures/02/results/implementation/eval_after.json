@@ -1,0 +1,222 @@
+{
+  "summary": {
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.8571428571428571,
+    "both_rate": 0.8571428571428571,
+    "label": "after",
+    "seconds": 56.692541837000135
+  },
+  "rows": [
+    {
+      "id": "faq_01",
+      "question": "What is the collection window for my reservation?",
+      "raw": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_02",
+      "question": "Where and when do I pick up my reserved gear?",
+      "raw": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_03",
+      "question": "Is Wednesday evening the equipment collection time?",
+      "raw": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_04",
+      "question": "When does the standard loan period end?",
+      "raw": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_05",
+      "question": "What length of time does a usual equipment loan cover?",
+      "raw": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_06",
+      "question": "Does the normal loan run for seven calendar days?",
+      "raw": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_07",
+      "question": "Where should I enter an equipment reservation?",
+      "raw": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_08",
+      "question": "Tell me the website and section used to book club equipment.",
+      "raw": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_09",
+      "question": "How should a member submit a gear reservation?",
+      "raw": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_10",
+      "question": "Can a member check out four items together?",
+      "raw": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_11",
+      "question": "What is one member's equipment checkout cap?",
+      "raw": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_12",
+      "question": "How many borrowed pieces can be recorded against my membership at the same time?",
+      "raw": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_13",
+      "question": "What is the return window for borrowed gear?",
+      "raw": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_14",
+      "question": "Where and when is the equipment hand-back session?",
+      "raw": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_15",
+      "question": "Are returns handled on Monday in the late afternoon?",
+      "raw": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_16",
+      "question": "What happens if equipment is returned late?",
+      "raw": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_17",
+      "question": "Is there a waiting list when all items are booked?",
+      "raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_18",
+      "question": "Can I borrow equipment during the winter closure?",
+      "raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_19",
+      "question": "Can I transfer my reservation to another member?",
+      "raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_20",
+      "question": "Does the club deliver borrowed gear to my home?",
+      "raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_21",
+      "question": "How many reservations can I make in a month?",
+      "raw": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "review_method": "Qualitative inspection of saved answers against linked primary references",
+  "scope": "Separate factual/content assessment of eight real concepts absent from the course glossary. Does not replace the frozen membership metric. Answers were capped at 96 generated tokens.",
+  "summary": {
+    "before": {
+      "substantially_correct": 1,
+      "partial": 3,
+      "incorrect": 4
+    },
+    "after": {
+      "substantially_correct": 0,
+      "partial": 0,
+      "incorrect": 8
+    },
+    "membership_proxy_pass_before": 0,
+    "membership_proxy_pass_after": 0
+  },
+  "interpretation": "Do not equate glossary absence with falsehood. These specific saved answers contain independently identified mistakes; cosine similarity is a concrete semantic regression. The membership score alone does not establish these errors. This tiny single-seed sample is not a general estimate of model accuracy or fine-tuning effects.",
+  "rows": [
+    {
+      "id": "advanced_17",
+      "question": "How does Direct Preference Optimization learn from preference pairs?",
+      "before_raw": "Direct Preference Optimization (DPO) learns from preference pairs by transforming a **preference function** (a function that assigns a score to each item) into a **utility function** (a function that assigns a score to a pair of items).\n\nHere is the step-by-step process:\n\n### 1. The Core Problem: Preference vs. Utility\nIn standard reinforcement learning, an agent learns to maximize a **utility function** $U(x, y)$, which represents",
+      "after_raw": "A method that trains a model to choose the preferred answer over others. In the Lecture 02 exercises, the model chooses the first answer presented in a given question. A pair of questions and answers is called a preference pair. Many useful learning signals come from such pairs, including:\n\n- Whether the model chooses the first answer (direct preference).\n- How often it chooses the first answer versus another option (comparison to other options).\n- Whether an answer is accepted (",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "incorrect",
+      "before_reason": "Invents a preference-function to utility-function transformation instead of explaining DPO preference-pair optimization.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "Invents a rule that DPO chooses the first presented answer and calls a question-answer pair a preference pair. DPO preference pairs distinguish preferred and dispreferred responses; the course-specific claims are unsupported.",
+      "reference": "https://arxiv.org/abs/2305.18290"
+    },
+    {
+      "id": "advanced_18",
+      "question": "Describe the role of the clipped objective in Proximal Policy Optimization.",
+      "before_raw": "In the context of **Proximal Policy Optimization (PPO)**, the **clipped objective** is a critical component that acts as a safeguard against catastrophic regression and ensures that the policy remains within a bounded region of the parameter space.\n\nHere is a detailed breakdown of its role:\n\n### 1. The Problem: Catastrophic Regression\nThe primary motivation for clipping in PPO is to prevent the policy from drifting too far from the optimal policy.\n*   **",
+      "after_raw": "A variant of the standard least squares optimization problem where the loss function is clipped at a threshold to prevent large updates. This makes the updates smaller and more stable. The threshold can be tuned according to the desired stability and magnitude of updates.",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "incorrect",
+      "before_reason": "Clipping discourages excessive probability-ratio changes; it does not ensure a bounded parameter region or prevent drift from an optimal policy. The response overstates a guarantee.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "Incorrectly describes PPO as clipped least squares loss. PPO clips a policy-probability-ratio surrogate; it is not this least-squares procedure.",
+      "reference": "https://arxiv.org/pdf/1707.06347"
+    },
+    {
+      "id": "advanced_19",
+      "question": "What stages are involved in Reinforcement Learning from Human Feedback?",
+      "before_raw": "Reinforcement Learning from Human Feedback (RLHF) is a critical paradigm in machine learning that aims to align large language models (LLMs) with human preferences. It is not a single stage but rather a **multi-stage iterative process** designed to refine the model's behavior through interaction with human evaluators.\n\nHere is a breakdown of the key stages involved in the RLHF pipeline:\n\n### 1. Human Evaluation (The \"Human\" Phase)\nThis is the",
+      "after_raw": "A development approach in which a model learns to choose actions that maximize a given reward by interacting with a human agent. An example is teaching a robot to climb a tree by having the agent climb it. In this course, we repeat the basic RL loop (train model → interact with agent → get feedback → update model) many times, once for each lecture. Feedback comes in the form of labels such as \"correct\" or \"incorrect\" or a description of what is expected.",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "partial",
+      "before_reason": "Correctly identifies human preference alignment and a multistage process, but stops before giving the training stages requested.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "The human-agent/robot example and the repeated lecture-by-lecture RL loop are unsupported. The response does not describe the demonstration, preference/reward-model and policy-optimization stages of the cited RLHF example.",
+      "reference": "https://arxiv.org/html/2203.02155v1"
+    },
+    {
+      "id": "advanced_20",
+      "question": "How does a Mixture of Experts model route tokens to specialists?",
+      "before_raw": "A **Mixture of Experts (MoE)** model routes tokens to specialists by using a **pointer mechanism** that dynamically selects the most relevant expert based on the input token's context. Unlike a standard Transformer where every token is processed by every expert, MoE reduces the number of parameters by selecting only a subset of experts for each token.\n\nHere is the step-by-step process of how this routing works:\n\n### 1. The Core Mechanism: Pointer Attention\nThe",
+      "after_raw": "It fuses many experts into one model by averaging their outputs. A token goes to the expert that matches its type (e.g., \"text\" → first layer, \"decision\" → last layer). This lets small experts handle difficult questions better than one large one.",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "incorrect",
+      "before_reason": "Identifies selective expert use but describes pointer attention as the core mechanism and claims fewer model parameters. Sparse routing reduces active computation; total parameters may increase.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "Invents routing by token type to first or last layer and describes simple expert-output averaging. This does not explain learned sparse expert routing.",
+      "reference": "https://arxiv.org/abs/2101.03961"
+    },
+    {
+      "id": "advanced_21",
+      "question": "How does a diffusion model learn to remove noise from a sample?",
+      "before_raw": "Diffusion models learn to remove noise from a sample through a **two-stage process** that combines **generative modeling** (creating the noisy image) and **denoising** (reducing that noise). Here's how the learning happens:\n\n---\n\n### **1. The Two-Stage Architecture**\nDiffusion models operate in two stages:\n- **Stage 1 (Generative)**: Creates a noisy version of the target image.\n- **Stage",
+      "after_raw": "A model trains to minimize the difference between its output and a reference image (for example, a ground-up version of the sample). It learns to zero out untrained parameters and restore the original image to the least likely state given the input and training instructions. This is one reason the same prompt can yield different outputs.",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "partial",
+      "before_reason": "Recognizes noising and denoising, but does not explain the learned denoising objective and misleadingly calls the forward noising step a generative architecture stage. The answer ends mid-explanation.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "Claims denoising zeros untrained parameters and restores the least likely image state. These are false explanations of diffusion denoising.",
+      "reference": "https://arxiv.org/html/2006.11239v2"
+    },
+    {
+      "id": "advanced_22",
+      "question": "How does cosine similarity compare two embedding vectors?",
+      "before_raw": "Cosine similarity measures the **angle between two vectors** in a vector space, ignoring their magnitude (length). It is a dimensionless scalar value that ranges from **-1 to +1**, where:\n\n- **-1** indicates the vectors are **antiparallel** (point in opposite directions).\n- **0** indicates the vectors are **orthogonal** (perpendicular).\n- **+1** indicates the vectors are **parallel** (point in the same direction",
+      "after_raw": "A measure of similarity between two vectors calculated as the cosine of the angle between them. It ranges from 0 (dislike) to 1 (like). Since embedding vectors are normalized, the result is independent of the magnitude of the vectors.",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "substantially_correct",
+      "before_reason": "The core directional comparison and -1/0/+1 interpretations are correct for nonzero vectors, although the final sentence is incomplete and the normalized-dot-product formula is not shown.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "The cosine-of-angle definition is correct, but the claimed 0-to-1 range and dislike/like interpretation are false in general. Unit normalization does not eliminate negative cosine values. This worsens the substantially correct before answer.",
+      "reference": "https://docs.pytorch.org/docs/2.15/generated/torch.nn.functional.cosine_similarity.html"
+    },
+    {
+      "id": "advanced_23",
+      "question": "What does BM25 use to rank a document for a search query?",
+      "before_raw": "BM25 (Bilingual Multi-Query) is a **weighted sum of two components**:\n\n1.  **The Query Component**: This measures how well the query matches the document's text. It uses a **TF-IDF (Term Frequency-Inverse Document Frequency)** score.\n2.  **The Document Component**: This measures how well the document matches the query's intent. It uses a **Cosine Similarity** score.\n\nThe final ranking score is calculated",
+      "after_raw": "A method that ranks documents based on the frequency with which they contain the query terms. It calculates a score using the term \"base size\" (number of words in the query) multiplied by the count of occurrences of each term in the document, then sums these scores. This is one reason the same question often returns different results in different ways.",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "incorrect",
+      "before_reason": "The expansion Bilingual Multi-Query and the claimed TF-IDF plus cosine-similarity decomposition are false descriptions of BM25.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "Mentions query-term frequency but invents a query-length base-size multiplication formula. It omits the actual BM25 saturation, inverse-document-frequency and length-normalization structure.",
+      "reference": "https://www.staff.city.ac.uk/~sbrp622/papers/foundations_bm25_review.pdf"
+    },
+    {
+      "id": "advanced_24",
+      "question": "How does beam search keep multiple candidate continuations?",
+      "before_raw": "Beam search keeps multiple candidate continuations by maintaining a **current best path** and a **queue of potential next moves**. Here is the step-by-step mechanism:\n\n### 1. Initialization\nThe process begins with a **current path** (a sequence of tokens) and an empty queue.\n*   **Current Path**: Represents the sequence of tokens already generated.\n*   **Queue**: Initially empty, containing only the current path.\n\n### 2. Expansion (",
+      "after_raw": "A search that explores multiple branches of possible continuations by choosing the most likely one with the highest probability and accepting it, then searching from the node after that choice. This is suitable for questions with multiple reasonable answers.",
+      "before_membership_proxy_pass": false,
+      "after_membership_proxy_pass": false,
+      "before_semantic_label": "partial",
+      "before_reason": "Mentions expansion and candidate storage but describes a single current path; the saved fragment never explains retaining and pruning multiple scored beams. The queue description is inconsistent and the response is incomplete.",
+      "after_semantic_label": "incorrect",
+      "after_reason": "Describes accepting one most-likely continuation and then expanding it, which loses the defining retention of multiple beam candidates.",
+      "reference": "https://huggingface.co/docs/transformers/generation_strategies"
+    }
+  ]
+}

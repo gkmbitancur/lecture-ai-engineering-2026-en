@@ -1,0 +1,222 @@
+{
+  "summary": {
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.2857142857142857,
+    "both_rate": 0.2857142857142857,
+    "label": "before",
+    "seconds": 19.292036384999847
+  },
+  "rows": [
+    {
+      "id": "faq_01",
+      "question": "What is the collection window for my reservation?",
+      "raw": "{\"answer\": \"Wednesday from 18:00 to 19:00\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_02",
+      "question": "Where and when do I pick up my reserved gear?",
+      "raw": "{\"answer\": \"Wednesday at 18:00 to 19:00\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_03",
+      "question": "Is Wednesday evening the equipment collection time?",
+      "raw": "{\"answer\": \"Yes\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_04",
+      "question": "When does the standard loan period end?",
+      "raw": "{\"answer\": \"7 calendar days\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_05",
+      "question": "What length of time does a usual equipment loan cover?",
+      "raw": "{\"answer\": \"7 calendar days\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_06",
+      "question": "Does the normal loan run for seven calendar days?",
+      "raw": "{\"answer\": \"Yes\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_07",
+      "question": "Where should I enter an equipment reservation?",
+      "raw": "{\"answer\": \"Equipment Reservations\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_08",
+      "question": "Tell me the website and section used to book club equipment.",
+      "raw": "{\"answer\": \"Equipment Reservations\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_09",
+      "question": "How should a member submit a gear reservation?",
+      "raw": "{\"answer\": \"The member should reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_10",
+      "question": "Can a member check out four items together?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_11",
+      "question": "What is one member's equipment checkout cap?",
+      "raw": "{\"answer\": \"3\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_12",
+      "question": "How many borrowed pieces can be recorded against my membership at the same time?",
+      "raw": "{\"answer\": \"3\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_13",
+      "question": "What is the return window for borrowed gear?",
+      "raw": "{\"answer\": \"Monday from 17:00 to 18:00\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_14",
+      "question": "Where and when is the equipment hand-back session?",
+      "raw": "{\"answer\": \"Monday from 17:00 to 18:00\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_15",
+      "question": "Are returns handled on Monday in the late afternoon?",
+      "raw": "{\"answer\": \"Yes\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "id": "faq_16",
+      "question": "What happens if equipment is returned late?",
+      "raw": "{\"answer\": \"No specific penalty is mentioned in the FAQ for returning equipment late.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_17",
+      "question": "Is there a waiting list when all items are booked?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_18",
+      "question": "Can I borrow equipment during the winter closure?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_19",
+      "question": "Can I transfer my reservation to another member?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_20",
+      "question": "Does the club deliver borrowed gear to my home?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "id": "faq_21",
+      "question": "How many reservations can I make in a month?",
+      "raw": "{\"answer\": \"The FAQ does not specify the maximum number of reservations a member can make in a month.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    }
+  ]
+}

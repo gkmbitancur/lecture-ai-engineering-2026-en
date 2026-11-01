@@ -1,0 +1,967 @@
+{
+  "schema_version": 1,
+  "training_file": "glossary_sft.jsonl",
+  "training_records": 116,
+  "training_policy": "All unmodified script records used for training; no validation subset; no claim of held-out-term factual generalization.",
+  "evaluation_input": "Exactly one plain-text user message containing question. No FAQ, JSON schema, source text, extra system instruction, or expected answer. Use identical chat template and decoding before/after.",
+  "purpose": "Definition generalization on known terms and source-membership-aware abstention stress test on absent terms.",
+  "rubric": {
+    "normalization": "casefold; replace all runs of non-ASCII letters/digits with one space; strip. Match each alternative as a substring of normalized output. Partial stems (e.g. quantiz, generaliz) are intentional.",
+    "pass_rule": "Nonempty text, at least one matched alternative per required concept group, and no forbidden phrase. Report known-content and absent-membership proxy rates separately; macro average the three categories.",
+    "limits": "Keyword score is a proxy, not semantic truth. Negation and contradictions beyond explicit forbidden phrases may fool it. Absent scoring cannot prove no unsupported definition; manually audit all absent outputs and disagreements against raw text. Do not report JSON format_rate for this plain-text task.",
+    "membership_limitation": "Training script provides only definitions of known entries, with no unknown/abstention examples or explicit glossary membership inventory. Eval supplies no glossary context. General pretrained knowledge may answer absent terms correctly in the real world but fail this source-aware abstention target. Therefore this is a difficult membership stress test, not evidence of general factual error.",
+    "manual_review": "Inspect each raw answer for contradictions and unsupported factual clauses. Preserve automated proxy separately from adjudicated judgment; never adjust keywords after viewing outputs without labeling a post-hoc analysis."
+  },
+  "examples": [
+    {
+      "id": "advanced_01",
+      "category": "term_name",
+      "term_id": "lora",
+      "term": "LoRA",
+      "question": "Describe which weights LoRA trains and how it represents the update.",
+      "expected_source_membership": true,
+      "expected_answer": "A PEFT method that freezes pretrained weights, represents weight updates as a low-rank product of two small matrices, and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "lora",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "freezes",
+            "frozen",
+            "unchanged",
+            "fixed"
+          ],
+          [
+            "low rank",
+            "lowrank"
+          ],
+          [
+            "matrices",
+            "matrix"
+          ]
+        ],
+        "forbidden_phrases": [
+          "trains all weights",
+          "updates all pretrained weights"
+        ]
+      }
+    },
+    {
+      "id": "advanced_02",
+      "category": "term_name",
+      "term_id": "peft",
+      "term": "PEFT",
+      "question": "Under PEFT, what fraction or kind of parameters is trained?",
+      "expected_source_membership": true,
+      "expected_answer": "An umbrella term for methods that train only a small subset of model parameters or a small set of added parameters instead of all parameters. This can greatly reduce GPU memory and storage requirements. LoRA is a representative example.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "peft",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "small subset",
+            "small set",
+            "few parameters",
+            "subset of parameters",
+            "fraction of parameters"
+          ],
+          [
+            "parameter",
+            "parameters",
+            "weights"
+          ]
+        ],
+        "forbidden_phrases": [
+          "trains every parameter",
+          "updates all parameters"
+        ]
+      }
+    },
+    {
+      "id": "advanced_03",
+      "category": "term_name",
+      "term_id": "qlora",
+      "term": "QLoRA",
+      "question": "How does QLoRA combine compression and adapter training?",
+      "expected_source_membership": true,
+      "expected_answer": "A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "qlora",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "quantiz",
+            "4 bit",
+            "four bit"
+          ],
+          [
+            "lora",
+            "low rank"
+          ]
+        ],
+        "forbidden_phrases": [
+          "full precision base weights only"
+        ]
+      }
+    },
+    {
+      "id": "advanced_04",
+      "category": "term_name",
+      "term_id": "quantization",
+      "term": "Quantization",
+      "question": "Explain the memory benefit and possible accuracy cost of quantization.",
+      "expected_source_membership": true,
+      "expected_answer": "A technique for representing model weights with fewer bits (for example, from 16 bits to 4 bits) to reduce memory use and computation. Accuracy may decrease slightly.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "quantization",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "fewer bits",
+            "lower precision",
+            "reduce precision",
+            "reduced precision",
+            "4 bit",
+            "four bit"
+          ],
+          [
+            "memory"
+          ],
+          [
+            "accuracy",
+            "quality",
+            "precision loss"
+          ]
+        ],
+        "forbidden_phrases": [
+          "guarantees identical accuracy"
+        ]
+      }
+    },
+    {
+      "id": "advanced_05",
+      "category": "term_name",
+      "term_id": "sft",
+      "term": "Supervised Fine-Tuning (SFT)",
+      "question": "For supervised fine-tuning, what does each training example pair together?",
+      "expected_source_membership": true,
+      "expected_answer": "A method of further training a model using pairs of inputs and desired outputs, such as questions and reference answers. A representative method for teaching instruction-following behavior.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "sft",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "input",
+            "question",
+            "prompt"
+          ],
+          [
+            "output",
+            "answer",
+            "response"
+          ],
+          [
+            "desired",
+            "reference",
+            "target",
+            "correct",
+            "demonstration",
+            "label"
+          ]
+        ],
+        "forbidden_phrases": [
+          "no target outputs are used"
+        ]
+      }
+    },
+    {
+      "id": "advanced_06",
+      "category": "term_name",
+      "term_id": "fine-tuning",
+      "term": "Fine-tuning",
+      "question": "When is fine-tuning appropriate, and how should fresh facts usually be supplied?",
+      "expected_source_membership": true,
+      "expected_answer": "Further training a pretrained model on data suited to a specific task or format. It is suitable for teaching output format, tone, or behavior in a specific domain. For up-to-date facts, consulting external data through tools or RAG is often more suitable.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "fine-tuning",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "pretrained",
+            "pre trained",
+            "existing model"
+          ],
+          [
+            "format",
+            "tone",
+            "behavior",
+            "behaviour",
+            "specific task"
+          ],
+          [
+            "external",
+            "rag",
+            "retrieval",
+            "tools"
+          ]
+        ],
+        "forbidden_phrases": [
+          "best way to guarantee current facts"
+        ]
+      }
+    },
+    {
+      "id": "advanced_07",
+      "category": "term_name",
+      "term_id": "epoch",
+      "term": "Epoch",
+      "question": "In training terminology, how much data does one epoch traverse?",
+      "expected_source_membership": true,
+      "expected_answer": "One pass through the entire training dataset is one epoch. Too many epochs can cause overfitting.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "epoch",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "one",
+            "single",
+            "once"
+          ],
+          [
+            "entire",
+            "whole",
+            "all",
+            "full"
+          ],
+          [
+            "training dataset",
+            "training data",
+            "dataset"
+          ]
+        ],
+        "forbidden_phrases": [
+          "one epoch is one batch"
+        ]
+      }
+    },
+    {
+      "id": "advanced_08",
+      "category": "term_name",
+      "term_id": "overfitting",
+      "term": "Overfitting",
+      "question": "How would overfitting affect training versus unseen examples, and how can we detect it?",
+      "expected_source_membership": true,
+      "expected_answer": "A state in which the model fits training data excessively and performs worse on unseen inputs. Detect it by measuring performance on validation data not used for training.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "overfitting",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "training"
+          ],
+          [
+            "unseen",
+            "validation",
+            "new inputs",
+            "new data"
+          ],
+          [
+            "worse",
+            "poor",
+            "degrad",
+            "fail",
+            "generaliz",
+            "generalis"
+          ]
+        ],
+        "forbidden_phrases": [
+          "improves all unseen inputs"
+        ]
+      }
+    },
+    {
+      "id": "advanced_09",
+      "category": "paraphrase",
+      "term_id": "context-window",
+      "term": "Context window",
+      "question": "What limits how much conversation history plus a generated reply can fit into one model call?",
+      "expected_source_membership": true,
+      "expected_answer": "The maximum total number of input and output tokens an LLM can handle in one call. Conversation history and tool results must also fit within this limit, making the choice of what to pass to the model important.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "context-window",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "input",
+            "history"
+          ],
+          [
+            "output",
+            "reply",
+            "response",
+            "generated"
+          ],
+          [
+            "token"
+          ],
+          [
+            "maximum",
+            "limit",
+            "capacity"
+          ]
+        ],
+        "forbidden_phrases": [
+          "unlimited context"
+        ]
+      }
+    },
+    {
+      "id": "advanced_10",
+      "category": "paraphrase",
+      "term_id": "temperature",
+      "term": "temperature",
+      "question": "Which setting changes how random the next-token choice is, and what happens when it is lowered?",
+      "expected_source_membership": true,
+      "expected_answer": "A setting that adjusts randomness when choosing the next token. Lower values make outputs more stable; higher values make them more varied. This is one reason the same question can yield different answers.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "temperature",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "random",
+            "variability",
+            "varied",
+            "diversity"
+          ],
+          [
+            "lower",
+            "low value",
+            "decrease",
+            "reducing"
+          ],
+          [
+            "stable",
+            "determin",
+            "consistent",
+            "predictable",
+            "less random"
+          ]
+        ],
+        "forbidden_phrases": [
+          "lower values increase randomness"
+        ]
+      }
+    },
+    {
+      "id": "advanced_11",
+      "category": "paraphrase",
+      "term_id": "hallucination",
+      "term": "Hallucination",
+      "question": "What do we call a convincing model answer that invents facts, and how might external evidence help?",
+      "expected_source_membership": true,
+      "expected_answer": "The phenomenon of an LLM generating plausible content that is factually incorrect or nonexistent. It is more likely when asked about things the model does not know, such as recent information or organization- or course-specific details. Mitigations include consulting external data through tools, asking for evidence, and detecting errors through evaluation.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "hallucination",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "plausible",
+            "convincing",
+            "confident",
+            "realistic"
+          ],
+          [
+            "incorrect",
+            "false",
+            "nonexistent",
+            "fabricat",
+            "invent"
+          ],
+          [
+            "external",
+            "evidence",
+            "tools",
+            "data",
+            "retrieval"
+          ]
+        ],
+        "forbidden_phrases": [
+          "always factually correct"
+        ]
+      }
+    },
+    {
+      "id": "advanced_12",
+      "category": "paraphrase",
+      "term_id": "rate-limit",
+      "term": "Rate limit",
+      "question": "Why might an agent receive HTTP 429 after sending many requests in a short period?",
+      "expected_source_membership": true,
+      "expected_answer": "A limit on requests or tokens within a given time period. Exceeding it returns errors such as HTTP 429. Free tiers have particularly strict limits, and agents reach them easily because they call the LLM multiple times for one question.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "rate-limit",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "limit",
+            "quota",
+            "allowance"
+          ],
+          [
+            "request",
+            "token"
+          ],
+          [
+            "time",
+            "period",
+            "minute",
+            "second",
+            "window"
+          ]
+        ],
+        "forbidden_phrases": [
+          "429 means success"
+        ]
+      }
+    },
+    {
+      "id": "advanced_13",
+      "category": "paraphrase",
+      "term_id": "ai-agent",
+      "term": "AI agent",
+      "question": "What kind of system repeatedly chooses tools, inspects their results, and decides the next step toward a goal?",
+      "expected_source_membership": true,
+      "expected_answer": "A system that achieves a goal through a loop in which an LLM decides to call tools, examines the results, and decides its next action. Its basic structure is \"model + loop + tools\".",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "ai-agent",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "model",
+            "llm"
+          ],
+          [
+            "loop",
+            "repeat",
+            "iterat"
+          ],
+          [
+            "tool"
+          ],
+          [
+            "goal",
+            "task",
+            "objective"
+          ]
+        ],
+        "forbidden_phrases": [
+          "never uses tools"
+        ]
+      }
+    },
+    {
+      "id": "advanced_14",
+      "category": "paraphrase",
+      "term_id": "tool",
+      "term": "Tool (Tool use / Function calling)",
+      "question": "When a model requests a function call with arguments, which component actually executes it?",
+      "expected_source_membership": true,
+      "expected_answer": "A function made available for the model to call. The model looks at its name, description, and argument types, chooses arguments when needed, and requests a call; the program executes it. Used for search, calculations, file operations, external API calls, and more.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "tool",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "function",
+            "tool"
+          ],
+          [
+            "model",
+            "llm"
+          ],
+          [
+            "program",
+            "application",
+            "runtime",
+            "host",
+            "code executes",
+            "system executes"
+          ]
+        ],
+        "forbidden_phrases": [
+          "the model directly executes the function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_15",
+      "category": "paraphrase",
+      "term_id": "structured-output",
+      "term": "Structured output",
+      "question": "How can an application constrain a model response to fields and types so downstream code can process it?",
+      "expected_source_membership": true,
+      "expected_answer": "A mechanism for receiving model outputs according to specified types or a JSON schema. This makes programmatic postprocessing easier. In Pydantic AI, specify a Pydantic model in output_type.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "structured-output",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "schema",
+            "types",
+            "typed",
+            "type"
+          ],
+          [
+            "json",
+            "structured"
+          ],
+          [
+            "process",
+            "pars",
+            "programmatic",
+            "validat"
+          ]
+        ],
+        "forbidden_phrases": [
+          "no schema or types"
+        ]
+      }
+    },
+    {
+      "id": "advanced_16",
+      "category": "paraphrase",
+      "term_id": "mcp",
+      "term": "MCP (Model Context Protocol)",
+      "question": "Which open protocol lets compatible AI apps reuse external tools and data exposed by a server?",
+      "expected_source_membership": true,
+      "expected_answer": "An open standard protocol connecting AI applications to external tools and data sources. Tools exposed through an MCP server can be used in a common way from compatible agents and editors (MCP clients). In Lecture 05, you will experience this by turning glossary search into an MCP server.",
+      "reference": {
+        "file": "data/glossary.json",
+        "id": "mcp",
+        "field": "definition"
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "open",
+            "standard"
+          ],
+          [
+            "protocol"
+          ],
+          [
+            "tool",
+            "data"
+          ],
+          [
+            "client",
+            "compatible",
+            "application",
+            "apps",
+            "agent"
+          ]
+        ],
+        "forbidden_phrases": [
+          "closed proprietary protocol"
+        ]
+      }
+    },
+    {
+      "id": "advanced_17",
+      "category": "absent",
+      "term_id": null,
+      "term": "Direct Preference Optimization",
+      "question": "How does Direct Preference Optimization learn from preference pairs?",
+      "expected_source_membership": false,
+      "expected_answer": "Direct Preference Optimization is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_18",
+      "category": "absent",
+      "term_id": null,
+      "term": "Proximal Policy Optimization",
+      "question": "Describe the role of the clipped objective in Proximal Policy Optimization.",
+      "expected_source_membership": false,
+      "expected_answer": "Proximal Policy Optimization is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_19",
+      "category": "absent",
+      "term_id": null,
+      "term": "Reinforcement Learning from Human Feedback",
+      "question": "What stages are involved in Reinforcement Learning from Human Feedback?",
+      "expected_source_membership": false,
+      "expected_answer": "Reinforcement Learning from Human Feedback is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_20",
+      "category": "absent",
+      "term_id": null,
+      "term": "Mixture of Experts",
+      "question": "How does a Mixture of Experts model route tokens to specialists?",
+      "expected_source_membership": false,
+      "expected_answer": "Mixture of Experts is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_21",
+      "category": "absent",
+      "term_id": null,
+      "term": "Diffusion model",
+      "question": "How does a diffusion model learn to remove noise from a sample?",
+      "expected_source_membership": false,
+      "expected_answer": "Diffusion model is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_22",
+      "category": "absent",
+      "term_id": null,
+      "term": "Cosine similarity",
+      "question": "How does cosine similarity compare two embedding vectors?",
+      "expected_source_membership": false,
+      "expected_answer": "Cosine similarity is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_23",
+      "category": "absent",
+      "term_id": null,
+      "term": "BM25",
+      "question": "What does BM25 use to rank a document for a search query?",
+      "expected_source_membership": false,
+      "expected_answer": "BM25 is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    },
+    {
+      "id": "advanced_24",
+      "category": "absent",
+      "term_id": null,
+      "term": "Beam search",
+      "question": "How does beam search keep multiple candidate continuations?",
+      "expected_source_membership": false,
+      "expected_answer": "Beam search is not covered by the supplied course glossary. A glossary-backed definition cannot be provided; consult an additional source.",
+      "reference": {
+        "file": "data/glossary.json",
+        "membership_check": "No term or alias matches this term, case-insensitively."
+      },
+      "rubric": {
+        "all_concept_groups": [
+          [
+            "glossary"
+          ],
+          [
+            "not covered",
+            "not included",
+            "not listed",
+            "not found",
+            "not contain",
+            "does not cover",
+            "does not include",
+            "does not contain",
+            "absent",
+            "no entry",
+            "no definition",
+            "not in"
+          ]
+        ],
+        "forbidden_phrases": [
+          "is a method",
+          "is an algorithm",
+          "is a technique",
+          "refers to",
+          "is a metric",
+          "is a model",
+          "is a search algorithm",
+          "is a ranking function"
+        ]
+      }
+    }
+  ]
+}

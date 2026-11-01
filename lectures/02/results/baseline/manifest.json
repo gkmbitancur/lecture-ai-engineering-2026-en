@@ -1,0 +1,49 @@
+{
+  "scenario": "baseline",
+  "status": "completed",
+  "pid": 7216,
+  "fresh_process_required": true,
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    },
+    "work_dir": "/content/qlora_lab",
+    "drive_dir": "/content/drive/MyDrive/aie2026/qlora_lab"
+  },
+  "seed": 42,
+  "python": "3.13.16",
+  "source_sha256": {
+    "notebooks/lora_format_tuning.ipynb": "6f92482023aac18149265cf35e1b3ef6fa6e34a335d9dfa8f9ee5e1d3383d807",
+    "scripts/make_sft_dataset.py": "fb0c571558cf29fd6c4cc15add61128542f25f15bdd1a13b0e789bdb1b58cc41",
+    "data/glossary.json": "d13b2497fb1ac10612c88683e7e1934a200790732a0157cf5acac9e6fc5441ba",
+    "lectures/02/prepared/implementation_data.json": "5244baa55e1cad88e7a06f245ac1754e619685bf7fab9eca1507c5a5ce65a398",
+    "lectures/02/prepared/advanced_eval.json": "cb0289d740462f0114a50dab0346684da8bbad722b82f31f67e39f29200907e1",
+    "lectures/02/prepared/glossary_sft.jsonl": "8ce5765fbf60d889204bd7b49b2ae3976b903755932ebe19416b22bcdd0f1103",
+    "lectures/02/prepared/score_advanced.py": "684fa89f27c90e20d911f6d173c73957a1f4e6a956fffa1303634e0be4517f94",
+    "lectures/02/run_experiments.py": "2b4eea6f0875748fe714f60181f64bc2505492a88eeff419cefb88732e8aa967"
+  },
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "accelerate": "1.15.0",
+    "datasets": "5.1.0"
+  },
+  "gpu": "Tesla T4",
+  "gpu_total_memory_bytes": 15637086208,
+  "train_records": 14,
+  "validation_records": 7,
+  "trainable_parameters": 6389760,
+  "total_parameters": 758782784
+}
