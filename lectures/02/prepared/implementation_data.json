@@ -1,0 +1,519 @@
+{
+  "FAQ": {
+    "pickup": "Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.",
+    "duration": "The standard equipment loan lasts 7 calendar days.",
+    "booking": "Reserve equipment through the club lending portal under Equipment Reservations.",
+    "limit": "Each member may borrow up to 3 items at the same time.",
+    "return": "Return equipment to the club room on Monday from 17:00 to 18:00."
+  },
+  "GROUNDED": {
+    "pickup": [
+      [
+        "When can I collect reserved equipment?",
+        "Tell me the equipment pickup schedule.",
+        "Which day and time is collection at the club room?",
+        "What is the collection window for my reservation?"
+      ],
+      [
+        "Wednesday",
+        "18:00",
+        "19:00"
+      ]
+    ],
+    "duration": [
+      [
+        "How long is a standard equipment loan?",
+        "What is the normal borrowing period?",
+        "For how many calendar days can I keep borrowed items?",
+        "When does the standard loan period end?"
+      ],
+      [
+        "7",
+        "days"
+      ]
+    ],
+    "booking": [
+      [
+        "How do I reserve equipment?",
+        "Where can I book an item to borrow?",
+        "Which portal section handles equipment reservations?",
+        "Where should I enter an equipment reservation?"
+      ],
+      [
+        "club lending portal",
+        "Equipment Reservations"
+      ]
+    ],
+    "limit": [
+      [
+        "How many items may I borrow at once?",
+        "What is the simultaneous borrowing limit?",
+        "What is the maximum number of items one member can have on loan?",
+        "Can a member check out four items together?"
+      ],
+      [
+        "3",
+        "items"
+      ]
+    ],
+    "return": [
+      [
+        "When should I bring borrowed equipment back?",
+        "Tell me the return desk schedule.",
+        "Which day and hours are set for returns at the club room?",
+        "What is the return window for borrowed gear?"
+      ],
+      [
+        "Monday",
+        "17:00",
+        "18:00"
+      ]
+    ]
+  },
+  "UNGROUNDED": [
+    "May I renew an equipment loan?",
+    "Is there a deposit for borrowing equipment?",
+    "Can a nonmember borrow club equipment?",
+    "What happens if equipment is returned late?",
+    "Can I cancel a reservation?",
+    "Can another member collect equipment for me?",
+    "How far ahead can I reserve an item?",
+    "Is there a waiting list when all items are booked?"
+  ],
+  "TEST_EXTRA_GROUNDED": {
+    "pickup": [
+      "Where and when do I pick up my reserved gear?",
+      "Is Wednesday evening the equipment collection time?"
+    ],
+    "duration": [
+      "What length of time does a usual equipment loan cover?",
+      "Does the normal loan run for seven calendar days?"
+    ],
+    "booking": [
+      "Tell me the website and section used to book club equipment.",
+      "How should a member submit a gear reservation?"
+    ],
+    "limit": [
+      "What is one member's equipment checkout cap?",
+      "How many borrowed pieces can be recorded against my membership at the same time?"
+    ],
+    "return": [
+      "Where and when is the equipment hand-back session?",
+      "Are returns handled on Monday in the late afternoon?"
+    ]
+  },
+  "TEST_EXTRA_UNGROUNDED": [
+    "Can I borrow equipment during the winter closure?",
+    "Can I transfer my reservation to another member?",
+    "Does the club deliver borrowed gear to my home?",
+    "How many reservations can I make in a month?"
+  ],
+  "UNGROUNDED_ANSWER": "This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.",
+  "train": [
+    {
+      "question": "When can I collect reserved equipment?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Tell me the equipment pickup schedule.",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "How long is a standard equipment loan?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "What is the normal borrowing period?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "How do I reserve equipment?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Where can I book an item to borrow?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "How many items may I borrow at once?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "What is the simultaneous borrowing limit?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "When should I bring borrowed equipment back?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Tell me the return desk schedule.",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "May I renew an equipment loan?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "Is there a deposit for borrowing equipment?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "Can I cancel a reservation?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "Can another member collect equipment for me?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    }
+  ],
+  "valid": [
+    {
+      "question": "Which day and time is collection at the club room?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "For how many calendar days can I keep borrowed items?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Which portal section handles equipment reservations?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "What is the maximum number of items one member can have on loan?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Which day and hours are set for returns at the club room?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Can a nonmember borrow club equipment?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "How far ahead can I reserve an item?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    }
+  ],
+  "test": [
+    {
+      "question": "What is the collection window for my reservation?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Where and when do I pick up my reserved gear?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Is Wednesday evening the equipment collection time?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "When does the standard loan period end?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "What length of time does a usual equipment loan cover?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Does the normal loan run for seven calendar days?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"The standard equipment loan lasts 7 calendar days.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Where should I enter an equipment reservation?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Tell me the website and section used to book club equipment.",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "How should a member submit a gear reservation?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Reserve equipment through the club lending portal under Equipment Reservations.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Can a member check out four items together?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "What is one member's equipment checkout cap?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "How many borrowed pieces can be recorded against my membership at the same time?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "What is the return window for borrowed gear?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Where and when is the equipment hand-back session?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "Are returns handled on Monday in the late afternoon?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"Return equipment to the club room on Monday from 17:00 to 18:00.\", \"needs_review\": false}",
+      "needs_review": false
+    },
+    {
+      "question": "What happens if equipment is returned late?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "Is there a waiting list when all items are booked?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "Can I borrow equipment during the winter closure?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "Can I transfer my reservation to another member?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "Does the club deliver borrowed gear to my home?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    },
+    {
+      "question": "How many reservations can I make in a month?",
+      "faq": "- Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\n- The standard equipment loan lasts 7 calendar days.\n- Reserve equipment through the club lending portal under Equipment Reservations.\n- Each member may borrow up to 3 items at the same time.\n- Return equipment to the club room on Monday from 17:00 to 18:00.",
+      "target": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "needs_review": true
+    }
+  ],
+  "gold": {
+    "What is the collection window for my reservation?": {
+      "needs_review": false,
+      "must_include": [
+        "Wednesday",
+        "18:00",
+        "19:00"
+      ]
+    },
+    "Where and when do I pick up my reserved gear?": {
+      "needs_review": false,
+      "must_include": [
+        "Wednesday",
+        "18:00",
+        "19:00"
+      ]
+    },
+    "Is Wednesday evening the equipment collection time?": {
+      "needs_review": false,
+      "must_include": [
+        "Wednesday",
+        "18:00",
+        "19:00"
+      ]
+    },
+    "When does the standard loan period end?": {
+      "needs_review": false,
+      "must_include": [
+        "7",
+        "days"
+      ]
+    },
+    "What length of time does a usual equipment loan cover?": {
+      "needs_review": false,
+      "must_include": [
+        "7",
+        "days"
+      ]
+    },
+    "Does the normal loan run for seven calendar days?": {
+      "needs_review": false,
+      "must_include": [
+        "7",
+        "days"
+      ]
+    },
+    "Where should I enter an equipment reservation?": {
+      "needs_review": false,
+      "must_include": [
+        "club lending portal",
+        "Equipment Reservations"
+      ]
+    },
+    "Tell me the website and section used to book club equipment.": {
+      "needs_review": false,
+      "must_include": [
+        "club lending portal",
+        "Equipment Reservations"
+      ]
+    },
+    "How should a member submit a gear reservation?": {
+      "needs_review": false,
+      "must_include": [
+        "club lending portal",
+        "Equipment Reservations"
+      ]
+    },
+    "Can a member check out four items together?": {
+      "needs_review": false,
+      "must_include": [
+        "3",
+        "items"
+      ]
+    },
+    "What is one member's equipment checkout cap?": {
+      "needs_review": false,
+      "must_include": [
+        "3",
+        "items"
+      ]
+    },
+    "How many borrowed pieces can be recorded against my membership at the same time?": {
+      "needs_review": false,
+      "must_include": [
+        "3",
+        "items"
+      ]
+    },
+    "What is the return window for borrowed gear?": {
+      "needs_review": false,
+      "must_include": [
+        "Monday",
+        "17:00",
+        "18:00"
+      ]
+    },
+    "Where and when is the equipment hand-back session?": {
+      "needs_review": false,
+      "must_include": [
+        "Monday",
+        "17:00",
+        "18:00"
+      ]
+    },
+    "Are returns handled on Monday in the late afternoon?": {
+      "needs_review": false,
+      "must_include": [
+        "Monday",
+        "17:00",
+        "18:00"
+      ]
+    },
+    "What happens if equipment is returned late?": {
+      "needs_review": true,
+      "must_include": [
+        "Confirmation"
+      ]
+    },
+    "Is there a waiting list when all items are booked?": {
+      "needs_review": true,
+      "must_include": [
+        "Confirmation"
+      ]
+    },
+    "Can I borrow equipment during the winter closure?": {
+      "needs_review": true,
+      "must_include": [
+        "Confirmation"
+      ]
+    },
+    "Can I transfer my reservation to another member?": {
+      "needs_review": true,
+      "must_include": [
+        "Confirmation"
+      ]
+    },
+    "Does the club deliver borrowed gear to my home?": {
+      "needs_review": true,
+      "must_include": [
+        "Confirmation"
+      ]
+    },
+    "How many reservations can I make in a month?": {
+      "needs_review": true,
+      "must_include": [
+        "Confirmation"
+      ]
+    }
+  }
+}

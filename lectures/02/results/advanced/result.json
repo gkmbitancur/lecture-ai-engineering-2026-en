@@ -1,0 +1,84 @@
+{
+  "scenario": "advanced",
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "accelerate": "1.15.0",
+    "datasets": "5.1.0"
+  },
+  "gpu": "Tesla T4",
+  "seed": 42,
+  "method": "LoRA (no quantization)",
+  "executed_training_myself": true,
+  "train_records": 116,
+  "validation_records": 0,
+  "before": {
+    "n": 24,
+    "category_proxy_rates": {
+      "term_name": 0.625,
+      "paraphrase": 0.5,
+      "absent": 0.0
+    },
+    "known_content_proxy_rate": 0.5625,
+    "absent_membership_proxy_rate": 0.0,
+    "macro_proxy_rate": 0.375,
+    "label": "before",
+    "seconds": 117.16668945500032
+  },
+  "after": {
+    "n": 24,
+    "category_proxy_rates": {
+      "term_name": 0.875,
+      "paraphrase": 0.25,
+      "absent": 0.0
+    },
+    "known_content_proxy_rate": 0.5625,
+    "absent_membership_proxy_rate": 0.0,
+    "macro_proxy_rate": 0.375,
+    "label": "after",
+    "seconds": 84.31496388300002
+  },
+  "regressed": [
+    {
+      "id": "advanced_11",
+      "question": "What do we call a convincing model answer that invents facts, and how might external evidence help?"
+    },
+    {
+      "id": "advanced_12",
+      "question": "Why might an agent receive HTTP 429 after sending many requests in a short period?"
+    },
+    {
+      "id": "advanced_16",
+      "question": "Which open protocol lets compatible AI apps reuse external tools and data exposed by a server?"
+    }
+  ],
+  "knowledge": [],
+  "training_seconds": 651.86195851,
+  "trainable_parameters": 6389760,
+  "total_parameters": 758782784,
+  "trainable_percent": 0.8421066126877228,
+  "global_step": 300,
+  "epoch": 20.0,
+  "final_logged_loss": 0.07271328568458557,
+  "final_logged_loss_step": 300,
+  "final_logged_loss_definition": "Last Trainer log_history loss value: interval-averaged training loss at its logged step; not necessarily final-batch loss.",
+  "mean_train_loss": 0.3191915229956309,
+  "mean_train_loss_definition": "Trainer train() metrics train_loss, reported separately from the last logged interval loss."
+}

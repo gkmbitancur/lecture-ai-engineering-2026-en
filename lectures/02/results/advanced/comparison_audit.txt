@@ -1,0 +1,209 @@
+Advanced: known-question before/after comparison audit
+Method: Qualitative review of saved model answers. Scope: only the 16 known questions; absent questions are audited separately by the main workflow.
+Inputs: eval_before.json,eval_after.json,advanced_eval.json,original data/glossary.json. Fixed proxy unchanged. Both phase judgments use substantially_correct/partial/incorrect criteria in the two known audit JSON files.
+Proxy named terms 5/8 -> 7/8; paraphrases 4/8 -> 2/8; known 9/16 -> 9/16. Three gains (advanced_01,04,09), three losses (11,12,16). Aggregate balance conceals different concepts and keyword artifacts.
+Reported proxy regressions: 11 loses hallucination naming but gains evidence discussion (mixed); 12 remains substantively correct about rate limits/429 but lacks time-window keyword (false negative); 16 wrong HTTP/2 before and wrong Copilot Chat after (before false positive, not a demonstrated new semantic regression).
+Clear improvements: QLoRA source definition becomes complete; context-window explanation becomes accurate. Named-item score gain does not guarantee mechanism fidelity: LoRA factorizes model vs updates, PEFT conflates bit width with parameter selection. Quantization was already substantively correct before, but only after wording matches proxy.
+Training: 20 epochs, 116 records, no validation subset, 300 steps, 651.86195851 s; final logged interval loss 0.07271328568458557 at step 300; aggregate train_loss 0.3191915229956309; trainable 6,389,760 / 758,782,784 parameters (0.8421066127%).
+These are measured results of this fixed-seed model/data/generation setup; no blanket improvement conclusion follows. The 96-token budget and incomplete pretraining outputs are part of the comparison. No rubric or source edited.
+
+advanced_01 | Describe which weights LoRA trains and how it represents the update.
+Reference definition: A PEFT method that freezes pretrained weights, represents weight updates as a low-rank product of two small matrices, and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.
+Before raw: In the context of **LoRA (Low-Rank Adaptation)**, the weights are not updated directly by the entire model. Instead, they are updated using a **projection** operation that maps the model's current weights to a much smaller, low-dimensional subspace.
+
+Here is a detailed breakdown of how the weights are trained and how the update is represented mathematically.
+
+### 1. The Core Concept: Projection
+The fundamental mechanism of LoRA is the **projection
+After raw: A PEFT method that freezes pretrained weights, represents the model as a low-rank product of two small matrices, and updates only those small matrices. It trains only a small set of weights and saves the results (adapters) in a small package. The Lecture 02 exercises cover LoRA.
+Proxy before/after: [False, True]
+Qualitative labels before/after: incorrect / partial
+After review: It correctly states that pretrained weights are frozen and only small matrices are updated, but says the model itself is represented as a low-rank product. LoRA factorizes the weight update, not the whole model. Thus the proxy pass conceals a material mechanism error within an otherwise improved answer.
+
+advanced_02 | Under PEFT, what fraction or kind of parameters is trained?
+Reference definition: An umbrella term for methods that train only a small subset of model parameters or a small set of added parameters instead of all parameters. This can greatly reduce GPU memory and storage requirements. LoRA is a representative example.
+Before raw: In the context of **PEFT (Parameter-Efficient Fine-Tuning)**, specifically within the **LoRA (Low-Rank Adaptation)** framework, the fraction of parameters trained is determined by the **rank** of the learned matrix.
+
+Here is the breakdown of the mechanics:
+
+### 1. The Core Mechanism
+PEFT uses a low-rank matrix $L$ of size $d \times d$, where $d$ is the **rank**.
+After raw: A fraction of the total model parameters is trained. For example, with 8-bit quantization, only a small subset of the original 64-bit parameters is trained, leaving the rest untouched. This can greatly reduce GPU memory and storage requirements.
+Proxy before/after: [True, True]
+Qualitative labels before/after: incorrect / incorrect
+After review: The general statement that only a fraction/small subset is trained is correct, but the example wrongly ties this to 8-bit quantization of original 64-bit parameters. Quantization changes numerical representation and does not by itself select the trainable subset; the 64-bit premise is also unsupported. The proxy again accepts subset/parameter words despite a wrong explanatory account.
+
+advanced_03 | How does QLoRA combine compression and adapter training?
+Reference definition: A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.
+Before raw: QLoRA (Quantized LoRA) is a technique that combines **quantization** (compression) with **adapter training** to significantly reduce the computational cost and memory footprint of large language models (LLMs) while maintaining high performance.
+
+Here is a step-by-step breakdown of how these two components work together:
+
+### 1. The Core Concept: Quantization
+The first step is **quantization**.
+- **Problem**: Standard LLMs are massive (
+After raw: A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.
+Proxy before/after: [True, True]
+Qualitative labels before/after: partial / substantially_correct
+After review: The response reproduces the source definition: quantize base-model weights, for example to 4 bits, then train with LoRA. It accurately links compression, adapter training, and smaller GPU memory use. This is a clear improvement from the incomplete before introduction.
+
+advanced_04 | Explain the memory benefit and possible accuracy cost of quantization.
+Reference definition: A technique for representing model weights with fewer bits (for example, from 16 bits to 4 bits) to reduce memory use and computation. Accuracy may decrease slightly.
+Before raw: Quantization is a fundamental technique in machine learning that reduces the precision of numerical values by converting them into a smaller set of values. While it offers significant performance gains, it introduces trade-offs regarding memory usage and the potential for accuracy loss.
+
+Here is a detailed explanation of the memory benefit and the possible accuracy cost of quantization.
+
+### 1. Memory Benefit: The "Memory Efficiency" Advantage
+
+The primary motivation for quantization is **memory efficiency**. In deep learning models
+After raw: A technique for representing model weights with fewer bits (for example, from 16 bits to 4 bits) to reduce memory use and computation. Accuracy may decrease slightly, as shown in the Table 2.1 exercises.
+Proxy before/after: [False, True]
+Qualitative labels before/after: substantially_correct / substantially_correct
+After review: The core explanation of fewer-bit weights, reduced memory/computation, and possible accuracy loss is correct. The added claim that this is shown in 'Table 2.1 exercises' is unsupported by the source definition and should not be treated as a verified citation. The before answer already expressed the essential trade-off correctly; the proxy gain partly reflects matching phrasing rather than new conceptual correctness.
+
+advanced_05 | For supervised fine-tuning, what does each training example pair together?
+Reference definition: A method of further training a model using pairs of inputs and desired outputs, such as questions and reference answers. A representative method for teaching instruction-following behavior.
+Before raw: In supervised fine-tuning (SFT), each training example pair consists of two distinct elements:
+
+1.  **The Input (Prompt)**: This is the text or data that the model processes. It is the "instruction" or the content the model needs to understand.
+2.  **The Output (Label)**: This is the expected response or the correct answer that the model should generate based on the input. It is the "target" or the ground truth
+After raw: A pair consisting of a input vector followed by a target output (for example, a label or a prediction). In this course, each example is one lecture question with the expected answer provided in the text or homework.
+Proxy before/after: [True, True]
+Qualitative labels before/after: substantially_correct / substantially_correct
+After review: It correctly pairs input with target/desired output, which answers the central question. 'Input vector' and 'prediction' are more generic supervised-learning wording than the source's instruction/reference-answer description; the course-specific elaboration is not established by the glossary. Those caveats do not overturn the accurate central pair.
+
+advanced_06 | When is fine-tuning appropriate, and how should fresh facts usually be supplied?
+Reference definition: Further training a pretrained model on data suited to a specific task or format. It is suitable for teaching output format, tone, or behavior in a specific domain. For up-to-date facts, consulting external data through tools or RAG is often more suitable.
+Before raw: Fine-tuning is a process of adjusting a large language model (LLM) to improve its performance on specific tasks or domains. It is generally considered appropriate when the following conditions are met:
+
+1.  **Domain Specificity**: The model has already learned general knowledge but lacks specific expertise in a niche field (e.g., medical, legal, or specialized engineering).
+2.  **Task Requirements**: The specific task requires high precision, context awareness, or adherence to strict
+After raw: Appropriate when teaching a model about a specific domain or task (for example, medical terminology in a medical question). When introducing facts for the first time, it is often better to ask the model to infer them through general knowledge rather than having the model search the web or use external tools.
+Proxy before/after: [False, False]
+Qualitative labels before/after: partial / incorrect
+After review: It recommends inferring fresh facts from general knowledge rather than using external search/tools, directly contradicting the source's guidance for up-to-date facts. The domain/task sentence is relevant but does not rescue the wrong central recommendation.
+
+advanced_07 | In training terminology, how much data does one epoch traverse?
+Reference definition: One pass through the entire training dataset is one epoch. Too many epochs can cause overfitting.
+Before raw: In the context of machine learning training, the term **"one epoch"** refers to a single pass through the dataset during the training process.
+
+Here is the breakdown of what one epoch traverses:
+
+1.  **Data Points**: It traverses the **entire dataset** (the collection of all training samples).
+2.  **Batch Size**: It traverses the **entire batch** of data. In standard training, this batch is typically a fixed number of
+After raw: One pass through the entire training dataset is one epoch. Too much data or too many epochs can cause overfitting and instability.
+Proxy before/after: [True, True]
+Qualitative labels before/after: substantially_correct / partial
+After review: The epoch definition is correct: one pass through the entire training dataset. However, it adds that 'too much data' causes overfitting and instability, which is not the source claim and is a misleading generalization. Too many epochs is the relevant source warning. The proxy passes without evaluating this added claim.
+
+advanced_08 | How would overfitting affect training versus unseen examples, and how can we detect it?
+Reference definition: A state in which the model fits training data excessively and performs worse on unseen inputs. Detect it by measuring performance on validation data not used for training.
+Before raw: Overfitting occurs when a model learns the training data too well, capturing noise and specific patterns rather than the underlying generalizable rules. This leads to a sharp decline in performance on **unseen examples** (new data not used during training).
+
+Here is a breakdown of how overfitting affects training versus unseen examples and the methods to detect it.
+
+### 1. Impact on Training vs. Unseen Examples
+
+The core distinction lies in the **generalization capability**
+After raw: A state in which the model fits training data excessively and performs worse on unseen inputs. Detect it by measuring performance on validation data not used for training, and by detecting excessive fit by measuring accuracy on training data not used for training.
+Proxy before/after: [True, True]
+Qualitative labels before/after: partial / partial
+After review: The definition and held-out validation advice are correct. The added recommendation to measure 'training data not used for training' is self-contradictory and makes the detection guidance less coherent. This correct core plus erroneous extension is not a clean reference answer despite proxy success.
+
+advanced_09 | What limits how much conversation history plus a generated reply can fit into one model call?
+Reference definition: The maximum total number of input and output tokens an LLM can handle in one call. Conversation history and tool results must also fit within this limit, making the choice of what to pass to the model important.
+Before raw: The specific number of tokens (characters) that a model can fit into a single call is determined by the **model's architecture and the specific tokenization strategy** it uses. There is no single universal number like "100 tokens" for all models; instead, it depends on the following factors:
+
+### 1. Tokenization Strategy (The Most Critical Factor)
+The model does not count every single character as a separate token. Instead, it uses a **token
+After raw: The model has a maximum total token count for a single call. Conversation history and the generated text must fit within that limit, making the choice of what to pass to the model important.
+Proxy before/after: [False, True]
+Qualitative labels before/after: incorrect / substantially_correct
+After review: It correctly explains a maximum total token budget shared by conversation history and generated text. Naming 'context window' is unnecessary when the functional limit is accurately described. This is a substantive improvement over the before answer's tokenization-centered explanation.
+
+advanced_10 | Which setting changes how random the next-token choice is, and what happens when it is lowered?
+Reference definition: A setting that adjusts randomness when choosing the next token. Lower values make outputs more stable; higher values make them more varied. This is one reason the same question can yield different answers.
+Before raw: The setting that controls how random the next-token choice is is **`random_seed`** (or `seed` in some contexts like `torch` or `numpy`).
+
+When this setting is **lowered** (or set to a very small value), the randomness of the next token generation is significantly reduced. This is because the random number generator (RNG) uses the seed to generate a sequence of pseudo-random numbers. If the seed is small, the sequence of numbers
+After raw: A setting that adjusts randomness for the next token. Lower the value makes choices more likely to match the previous token; raise it makes them more likely to differ. In Pydantic AI, this is configured in the editor at Tools (advanced) → Randomness.
+Proxy before/after: [False, False]
+Qualitative labels before/after: incorrect / incorrect
+After review: It no longer names random_seed but still fails to identify temperature correctly: lower values do not specifically make the next token match the previous token. The claimed Pydantic AI editor Tools->Randomness path is unsupported by the source. This remains a conceptual error rather than merely missing a rubric synonym.
+
+advanced_11 | What do we call a convincing model answer that invents facts, and how might external evidence help?
+Reference definition: The phenomenon of an LLM generating plausible content that is factually incorrect or nonexistent. It is more likely when asked about things the model does not know, such as recent information or organization- or course-specific details. Mitigations include consulting external data through tools, asking for evidence, and detecting errors through evaluation.
+Before raw: In academic and professional contexts, a convincing model answer that invents facts is typically called a **fabricated answer** or, more specifically, a **hallucinated answer**.
+
+When an AI or a human writer generates a response that presents information as if it were real, without any source verification, it is often referred to as **hallucination**. This occurs when the model generates content that is factually incorrect, irrelevant, or misleading.
+
+### How External Evidence Helps
+After raw: A model answer that claims facts not present in the prompt or textbook are correct. Detecting it is one reason AI engineering matters: if the model believes something true, it will claim it true in its answer. Evidence—such as citations, logical implications, and known results—can help disprove false claims and support true ones.
+Proxy before/after: [True, False]
+Qualitative labels before/after: partial / partial
+After review: It discusses unsupported factual claims and gives a reasonable role for evidence in confirming or refuting claims, but fails to name hallucination and describes source-absent facts too broadly: being absent from a prompt/textbook does not itself make a fact false. Compared with before, correct naming is lost while the previously missing evidence discussion is added. The proxy pass->fail is a mixed semantic change, not a simple wholesale deterioration.
+
+advanced_12 | Why might an agent receive HTTP 429 after sending many requests in a short period?
+Reference definition: A limit on requests or tokens within a given time period. Exceeding it returns errors such as HTTP 429. Free tiers have particularly strict limits, and agents reach them easily because they call the LLM multiple times for one question.
+Before raw: An HTTP 429 (Too Many Requests) error typically occurs when a server detects that a client has sent too many requests within a short time window. This is a standard response from rate-limiting mechanisms designed to prevent abuse and ensure fair usage of network resources.
+
+Here are the most common reasons why an agent might receive this error:
+
+### 1. Excessive Request Frequency
+The most direct cause is simply sending too many requests in a very short time. If
+After raw: A rate limit has been reached. The server has rejected the request and returns 429 Too Many Requests. If you continue sending requests in the same way, you will also hit the limit and receive the same response.
+Proxy before/after: [True, False]
+Qualitative labels before/after: substantially_correct / substantially_correct
+After review: It correctly explains that a rate limit is reached and the server returns 429 Too Many Requests. The proxy rejects it solely because no explicit time/period/window alternative appears. The question already supplies the short-period context; the answer's central diagnosis remains correct. Therefore this reported regression is chiefly a keyword false negative, not a demonstrated loss of HTTP429 understanding.
+
+advanced_13 | What kind of system repeatedly chooses tools, inspects their results, and decides the next step toward a goal?
+Reference definition: A system that achieves a goal through a loop in which an LLM decides to call tools, examines the results, and decides its next action. Its basic structure is "model + loop + tools".
+Before raw: The system you are describing is most likely a **Decision-Making System** (or a **Decision Support System**).
+
+In this context, the system operates on a core loop where it:
+1.  **Chooses a tool**: It selects the appropriate method, algorithm, or heuristic to solve a specific problem.
+2.  **Inspects results**: It evaluates the output of that tool against the criteria defined in the system's rules.
+3.  **
+After raw: A system that repeatedly selects tools based on its goal, examines the results, and decides the next step. Examples include Agent (Pydantic AI's framework for this), Editor (Claude Desktop or Copilot Chat), and Developer (Cursor or LAN).
+Proxy before/after: [False, False]
+Qualitative labels before/after: incorrect / partial
+After review: It accurately describes goal-directed tool selection and result inspection and mentions Agent, but omits the defining LLM component. The Editor/Developer taxonomy and the Cursor-or-LAN example are unsupported and confused. The loop description improves on the before generic decision-support label, but the answer remains incomplete and unreliable as a definition.
+
+advanced_14 | When a model requests a function call with arguments, which component actually executes it?
+Reference definition: A function made available for the model to call. The model looks at its name, description, and argument types, chooses arguments when needed, and requests a call; the program executes it. Used for search, calculations, file operations, external API calls, and more.
+Before raw: In most modern programming models (including Python, JavaScript, Java, C#, and others), when a model requests a function call with arguments, **the actual execution happens in the calling language's runtime environment**, not in the model itself.
+
+Here’s how it works:
+
+1. **Model Request**: The model (e.g., a Python `LLM` or a JavaScript `API`) sends a request to the underlying runtime (e.g., `python -m http.server
+After raw: The program (the model + tools + user interface combined) executes call requests. Agent programming makes the relationship between the model and the program more explicit.
+Proxy before/after: [True, True]
+Qualitative labels before/after: substantially_correct / substantially_correct
+After review: It correctly assigns execution to the program rather than to model text generation. The parenthetical whole-application description is imprecise but does not change the accurate central answer about which component runs requested calls.
+
+advanced_15 | How can an application constrain a model response to fields and types so downstream code can process it?
+Reference definition: A mechanism for receiving model outputs according to specified types or a JSON schema. This makes programmatic postprocessing easier. In Pydantic AI, specify a Pydantic model in output_type.
+Before raw: To constrain a model response to specific fields and types, you need to leverage the **Schema** (or **Schema Definition**) that the model generates. This is the most robust and flexible approach because it allows you to define the exact structure of the output without hardcoding every possible field.
+
+Here is a step-by-step guide on how to implement this:
+
+### 1. Understand the Core Concept: Schema Definition
+The model does not know what fields you want. Instead,
+After raw: Adding constraints such as required fields, data type checks, and output format specifications in the model instructions or a separate configuration section lets downstream code react to unmet constraints (punishing errors, suggesting fixes, or reporting them). In Pydantic AI, specify constraints in the tool constraints section of pydantic AI / agents / editor / vue-samples/03-apimongo.py.
+Proxy before/after: [False, False]
+Qualitative labels before/after: partial / partial
+After review: It mentions useful fields/type/output constraints and downstream checking, but provides no clear schema/output_type mechanism and invents an unsupported Pydantic AI tool-constraints configuration path. Thus some relevant concept understanding is present while the concrete implementation advice is unreliable.
+
+advanced_16 | Which open protocol lets compatible AI apps reuse external tools and data exposed by a server?
+Reference definition: An open standard protocol connecting AI applications to external tools and data sources. Tools exposed through an MCP server can be used in a common way from compatible agents and editors (MCP clients). In Lecture 05, you will experience this by turning glossary search into an MCP server.
+Before raw: The open protocol you are looking for is **HTTP/2**.
+
+While HTTP/1.1 is the standard for the underlying transport layer, **HTTP/2** is the protocol that enables **Stateless Streaming** and **Multi-Client Support**, which are the critical features for allowing compatible AI apps to reuse external tools and data without requiring a full reconnection or re-authentication for every request.
+
+Here is how HTTP/2 achieves this:
+
+*   **State
+After raw: Copilot Chat. It lets compatible AI apps reuse tools exposed through a MCP server and share data with the server by exposing variables and outputs through MCP.
+Proxy before/after: [True, False]
+Qualitative labels before/after: incorrect / incorrect
+After review: It answers Copilot Chat, a client/application, rather than naming MCP as the requested protocol, despite mentioning MCP servers afterward. Before it incorrectly answered HTTP/2. The before proxy pass was a false positive; losing that pass does not establish a new semantic regression because neither answer identifies the requested protocol correctly.

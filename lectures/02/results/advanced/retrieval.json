@@ -1,0 +1,645 @@
+{
+  "summary": {
+    "n": 24,
+    "category_proxy_rates": {
+      "term_name": 1.0,
+      "paraphrase": 0.5,
+      "absent": 0.875
+    },
+    "known_content_proxy_rate": 0.75,
+    "absent_membership_proxy_rate": 0.875,
+    "macro_proxy_rate": 0.7916666666666666
+  },
+  "caution": "Keyword proxy only; manually audit every raw output, especially absent-term outputs.",
+  "rows": [
+    {
+      "id": "advanced_01",
+      "category": "term_name",
+      "raw": "A PEFT method that freezes pretrained weights, represents weight updates as a low-rank product of two small matrices, and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "freezes"
+        ],
+        [
+          "low rank"
+        ],
+        [
+          "matrices"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_02",
+      "category": "term_name",
+      "raw": "An umbrella term for methods that train only a small subset of model parameters or a small set of added parameters instead of all parameters. This can greatly reduce GPU memory and storage requirements. LoRA is a representative example.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "small subset",
+          "small set"
+        ],
+        [
+          "parameter",
+          "parameters"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_03",
+      "category": "term_name",
+      "raw": "A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "quantiz",
+          "4 bit"
+        ],
+        [
+          "lora"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_04",
+      "category": "term_name",
+      "raw": "A technique for representing model weights with fewer bits (for example, from 16 bits to 4 bits) to reduce memory use and computation. Accuracy may decrease slightly.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "fewer bits",
+          "4 bit"
+        ],
+        [
+          "memory"
+        ],
+        [
+          "accuracy"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_05",
+      "category": "term_name",
+      "raw": "A method of further training a model using pairs of inputs and desired outputs, such as questions and reference answers. A representative method for teaching instruction-following behavior.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "input",
+          "question"
+        ],
+        [
+          "output",
+          "answer"
+        ],
+        [
+          "desired",
+          "reference"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_06",
+      "category": "term_name",
+      "raw": "Further training a pretrained model on data suited to a specific task or format. It is suitable for teaching output format, tone, or behavior in a specific domain. For up-to-date facts, consulting external data through tools or RAG is often more suitable.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "pretrained"
+        ],
+        [
+          "format",
+          "tone",
+          "behavior",
+          "specific task"
+        ],
+        [
+          "external",
+          "rag",
+          "tools"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_07",
+      "category": "term_name",
+      "raw": "One pass through the entire training dataset is one epoch. Too many epochs can cause overfitting.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "one"
+        ],
+        [
+          "entire"
+        ],
+        [
+          "training dataset",
+          "training data",
+          "dataset"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_08",
+      "category": "term_name",
+      "raw": "A state in which the model fits training data excessively and performs worse on unseen inputs. Detect it by measuring performance on validation data not used for training.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "training"
+        ],
+        [
+          "unseen",
+          "validation"
+        ],
+        [
+          "worse"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_09",
+      "category": "paraphrase",
+      "raw": "The maximum total number of input and output tokens an LLM can handle in one call. Conversation history and tool results must also fit within this limit, making the choice of what to pass to the model important.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "input",
+          "history"
+        ],
+        [
+          "output"
+        ],
+        [
+          "token"
+        ],
+        [
+          "maximum",
+          "limit"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_10",
+      "category": "paraphrase",
+      "raw": "The smallest unit an LLM uses to process text. Text is split into fragments of words or characters. API charges, rate limits, and context window sizes are often counted in tokens. Tokenization varies by language; for example, Japanese tends to require more tokens per character than English.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_11",
+      "category": "paraphrase",
+      "raw": "Further training a pretrained model on data suited to a specific task or format. It is suitable for teaching output format, tone, or behavior in a specific domain. For up-to-date facts, consulting external data through tools or RAG is often more suitable.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [],
+        [
+          "external",
+          "tools",
+          "data"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_12",
+      "category": "paraphrase",
+      "raw": "A system that achieves a goal through a loop in which an LLM decides to call tools, examines the results, and decides its next action. Its basic structure is \"model + loop + tools\".",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_13",
+      "category": "paraphrase",
+      "raw": "A system that achieves a goal through a loop in which an LLM decides to call tools, examines the results, and decides its next action. Its basic structure is \"model + loop + tools\".",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "model",
+          "llm"
+        ],
+        [
+          "loop"
+        ],
+        [
+          "tool"
+        ],
+        [
+          "goal"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_14",
+      "category": "paraphrase",
+      "raw": "A function made available for the model to call. The model looks at its name, description, and argument types, chooses arguments when needed, and requests a call; the program executes it. Used for search, calculations, file operations, external API calls, and more.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "function"
+        ],
+        [
+          "model"
+        ],
+        [
+          "program"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_15",
+      "category": "paraphrase",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_16",
+      "category": "paraphrase",
+      "raw": "An open standard protocol connecting AI applications to external tools and data sources. Tools exposed through an MCP server can be used in a common way from compatible agents and editors (MCP clients). In Lecture 05, you will experience this by turning glossary search into an MCP server.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "open",
+          "standard"
+        ],
+        [
+          "protocol"
+        ],
+        [
+          "tool",
+          "data"
+        ],
+        [
+          "client",
+          "compatible",
+          "application",
+          "agent"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_17",
+      "category": "absent",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "glossary"
+        ],
+        [
+          "not covered"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_18",
+      "category": "absent",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "glossary"
+        ],
+        [
+          "not covered"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_19",
+      "category": "absent",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "glossary"
+        ],
+        [
+          "not covered"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_20",
+      "category": "absent",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "glossary"
+        ],
+        [
+          "not covered"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_21",
+      "category": "absent",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "glossary"
+        ],
+        [
+          "not covered"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_22",
+      "category": "absent",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "glossary"
+        ],
+        [
+          "not covered"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_23",
+      "category": "absent",
+      "raw": "A hyperparameter that determines the size of the low-rank matrices used in LoRA. A larger value increases expressive capacity, but also increases the number of trainable parameters and memory use.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    },
+    {
+      "id": "advanced_24",
+      "category": "absent",
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "glossary"
+        ],
+        [
+          "not covered"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true
+    }
+  ],
+  "retrieval": [
+    {
+      "id": "advanced_01",
+      "question": "Describe which weights LoRA trains and how it represents the update.",
+      "source_id": "lora",
+      "raw": "A PEFT method that freezes pretrained weights, represents weight updates as a low-rank product of two small matrices, and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_02",
+      "question": "Under PEFT, what fraction or kind of parameters is trained?",
+      "source_id": "peft",
+      "raw": "An umbrella term for methods that train only a small subset of model parameters or a small set of added parameters instead of all parameters. This can greatly reduce GPU memory and storage requirements. LoRA is a representative example.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_03",
+      "question": "How does QLoRA combine compression and adapter training?",
+      "source_id": "qlora",
+      "raw": "A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_04",
+      "question": "Explain the memory benefit and possible accuracy cost of quantization.",
+      "source_id": "quantization",
+      "raw": "A technique for representing model weights with fewer bits (for example, from 16 bits to 4 bits) to reduce memory use and computation. Accuracy may decrease slightly.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_05",
+      "question": "For supervised fine-tuning, what does each training example pair together?",
+      "source_id": "sft",
+      "raw": "A method of further training a model using pairs of inputs and desired outputs, such as questions and reference answers. A representative method for teaching instruction-following behavior.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_06",
+      "question": "When is fine-tuning appropriate, and how should fresh facts usually be supplied?",
+      "source_id": "fine-tuning",
+      "raw": "Further training a pretrained model on data suited to a specific task or format. It is suitable for teaching output format, tone, or behavior in a specific domain. For up-to-date facts, consulting external data through tools or RAG is often more suitable.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_07",
+      "question": "In training terminology, how much data does one epoch traverse?",
+      "source_id": "epoch",
+      "raw": "One pass through the entire training dataset is one epoch. Too many epochs can cause overfitting.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_08",
+      "question": "How would overfitting affect training versus unseen examples, and how can we detect it?",
+      "source_id": "overfitting",
+      "raw": "A state in which the model fits training data excessively and performs worse on unseen inputs. Detect it by measuring performance on validation data not used for training.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_09",
+      "question": "What limits how much conversation history plus a generated reply can fit into one model call?",
+      "source_id": "context-window",
+      "raw": "The maximum total number of input and output tokens an LLM can handle in one call. Conversation history and tool results must also fit within this limit, making the choice of what to pass to the model important.",
+      "method": "lexical_overlap",
+      "score": 0.5555555555555556
+    },
+    {
+      "id": "advanced_10",
+      "question": "Which setting changes how random the next-token choice is, and what happens when it is lowered?",
+      "source_id": "token",
+      "raw": "The smallest unit an LLM uses to process text. Text is split into fragments of words or characters. API charges, rate limits, and context window sizes are often counted in tokens. Tokenization varies by language; for example, Japanese tends to require more tokens per character than English.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_11",
+      "question": "What do we call a convincing model answer that invents facts, and how might external evidence help?",
+      "source_id": "fine-tuning",
+      "raw": "Further training a pretrained model on data suited to a specific task or format. It is suitable for teaching output format, tone, or behavior in a specific domain. For up-to-date facts, consulting external data through tools or RAG is often more suitable.",
+      "method": "lexical_overlap",
+      "score": 0.3
+    },
+    {
+      "id": "advanced_12",
+      "question": "Why might an agent receive HTTP 429 after sending many requests in a short period?",
+      "source_id": "ai-agent",
+      "raw": "A system that achieves a goal through a loop in which an LLM decides to call tools, examines the results, and decides its next action. Its basic structure is \"model + loop + tools\".",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_13",
+      "question": "What kind of system repeatedly chooses tools, inspects their results, and decides the next step toward a goal?",
+      "source_id": "ai-agent",
+      "raw": "A system that achieves a goal through a loop in which an LLM decides to call tools, examines the results, and decides its next action. Its basic structure is \"model + loop + tools\".",
+      "method": "lexical_overlap",
+      "score": 0.5454545454545454
+    },
+    {
+      "id": "advanced_14",
+      "question": "When a model requests a function call with arguments, which component actually executes it?",
+      "source_id": "tool",
+      "raw": "A function made available for the model to call. The model looks at its name, description, and argument types, chooses arguments when needed, and requests a call; the program executes it. Used for search, calculations, file operations, external API calls, and more.",
+      "method": "lexical_overlap",
+      "score": 0.75
+    },
+    {
+      "id": "advanced_15",
+      "question": "How can an application constrain a model response to fields and types so downstream code can process it?",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    },
+    {
+      "id": "advanced_16",
+      "question": "Which open protocol lets compatible AI apps reuse external tools and data exposed by a server?",
+      "source_id": "mcp",
+      "raw": "An open standard protocol connecting AI applications to external tools and data sources. Tools exposed through an MCP server can be used in a common way from compatible agents and editors (MCP clients). In Lecture 05, you will experience this by turning glossary search into an MCP server.",
+      "method": "lexical_overlap",
+      "score": 0.75
+    },
+    {
+      "id": "advanced_17",
+      "question": "How does Direct Preference Optimization learn from preference pairs?",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    },
+    {
+      "id": "advanced_18",
+      "question": "Describe the role of the clipped objective in Proximal Policy Optimization.",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    },
+    {
+      "id": "advanced_19",
+      "question": "What stages are involved in Reinforcement Learning from Human Feedback?",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    },
+    {
+      "id": "advanced_20",
+      "question": "How does a Mixture of Experts model route tokens to specialists?",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    },
+    {
+      "id": "advanced_21",
+      "question": "How does a diffusion model learn to remove noise from a sample?",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    },
+    {
+      "id": "advanced_22",
+      "question": "How does cosine similarity compare two embedding vectors?",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    },
+    {
+      "id": "advanced_23",
+      "question": "What does BM25 use to rank a document for a search query?",
+      "source_id": "lora-rank",
+      "raw": "A hyperparameter that determines the size of the low-rank matrices used in LoRA. A larger value increases expressive capacity, but also increases the number of trainable parameters and memory use.",
+      "method": "name_alias_id_span",
+      "score": null
+    },
+    {
+      "id": "advanced_24",
+      "question": "How does beam search keep multiple candidate continuations?",
+      "source_id": null,
+      "raw": "This term is not covered by the course glossary. A glossary-backed definition cannot be provided.",
+      "method": "no_match",
+      "score": null
+    }
+  ],
+  "algorithm": "Longest boundary-matched name/alias/id (>=3 chars), else lexical overlap.\n\nCourse app/tools.py searches exact names, then partial names, then definition\nsubstrings and returns up to three entries. Its query contract is one term.\nThis question-level extension uses a single longest-name hit, or intersection\nof non-stopword token sets / query tokens >=0.30 with >=3 overlapping tokens.\nEqual lexical scores resolve by glossary ID. No gold IDs enter this function.\n"
+}

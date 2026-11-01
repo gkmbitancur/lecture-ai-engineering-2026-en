@@ -1,0 +1,438 @@
+{
+  "summary": {
+    "n": 24,
+    "category_proxy_rates": {
+      "term_name": 0.875,
+      "paraphrase": 0.25,
+      "absent": 0.0
+    },
+    "known_content_proxy_rate": 0.5625,
+    "absent_membership_proxy_rate": 0.0,
+    "macro_proxy_rate": 0.375,
+    "label": "after",
+    "seconds": 84.31496388300002
+  },
+  "caution": "Keyword proxy only; manually audit every raw output, especially absent-term outputs.",
+  "rows": [
+    {
+      "id": "advanced_01",
+      "category": "term_name",
+      "raw": "A PEFT method that freezes pretrained weights, represents the model as a low-rank product of two small matrices, and updates only those small matrices. It trains only a small set of weights and saves the results (adapters) in a small package. The Lecture 02 exercises cover LoRA.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "freezes"
+        ],
+        [
+          "low rank"
+        ],
+        [
+          "matrices"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Describe which weights LoRA trains and how it represents the update."
+    },
+    {
+      "id": "advanced_02",
+      "category": "term_name",
+      "raw": "A fraction of the total model parameters is trained. For example, with 8-bit quantization, only a small subset of the original 64-bit parameters is trained, leaving the rest untouched. This can greatly reduce GPU memory and storage requirements.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "small subset"
+        ],
+        [
+          "parameter",
+          "parameters"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Under PEFT, what fraction or kind of parameters is trained?"
+    },
+    {
+      "id": "advanced_03",
+      "category": "term_name",
+      "raw": "A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "quantiz",
+          "4 bit"
+        ],
+        [
+          "lora"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does QLoRA combine compression and adapter training?"
+    },
+    {
+      "id": "advanced_04",
+      "category": "term_name",
+      "raw": "A technique for representing model weights with fewer bits (for example, from 16 bits to 4 bits) to reduce memory use and computation. Accuracy may decrease slightly, as shown in the Table 2.1 exercises.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "fewer bits",
+          "4 bit"
+        ],
+        [
+          "memory"
+        ],
+        [
+          "accuracy"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Explain the memory benefit and possible accuracy cost of quantization."
+    },
+    {
+      "id": "advanced_05",
+      "category": "term_name",
+      "raw": "A pair consisting of a input vector followed by a target output (for example, a label or a prediction). In this course, each example is one lecture question with the expected answer provided in the text or homework.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "input",
+          "question"
+        ],
+        [
+          "output",
+          "answer"
+        ],
+        [
+          "target",
+          "label"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "For supervised fine-tuning, what does each training example pair together?"
+    },
+    {
+      "id": "advanced_06",
+      "category": "term_name",
+      "raw": "Appropriate when teaching a model about a specific domain or task (for example, medical terminology in a medical question). When introducing facts for the first time, it is often better to ask the model to infer them through general knowledge rather than having the model search the web or use external tools.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [],
+        [
+          "external",
+          "tools"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "When is fine-tuning appropriate, and how should fresh facts usually be supplied?"
+    },
+    {
+      "id": "advanced_07",
+      "category": "term_name",
+      "raw": "One pass through the entire training dataset is one epoch. Too much data or too many epochs can cause overfitting and instability.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "one"
+        ],
+        [
+          "entire"
+        ],
+        [
+          "training dataset",
+          "training data",
+          "dataset"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "In training terminology, how much data does one epoch traverse?"
+    },
+    {
+      "id": "advanced_08",
+      "category": "term_name",
+      "raw": "A state in which the model fits training data excessively and performs worse on unseen inputs. Detect it by measuring performance on validation data not used for training, and by detecting excessive fit by measuring accuracy on training data not used for training.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "training"
+        ],
+        [
+          "unseen",
+          "validation"
+        ],
+        [
+          "worse"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How would overfitting affect training versus unseen examples, and how can we detect it?"
+    },
+    {
+      "id": "advanced_09",
+      "category": "paraphrase",
+      "raw": "The model has a maximum total token count for a single call. Conversation history and the generated text must fit within that limit, making the choice of what to pass to the model important.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "history"
+        ],
+        [
+          "generated"
+        ],
+        [
+          "token"
+        ],
+        [
+          "maximum",
+          "limit"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What limits how much conversation history plus a generated reply can fit into one model call?"
+    },
+    {
+      "id": "advanced_10",
+      "category": "paraphrase",
+      "raw": "A setting that adjusts randomness for the next token. Lower the value makes choices more likely to match the previous token; raise it makes them more likely to differ. In Pydantic AI, this is configured in the editor at Tools (advanced) → Randomness.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [
+          "random"
+        ],
+        [
+          "lower"
+        ],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Which setting changes how random the next-token choice is, and what happens when it is lowered?"
+    },
+    {
+      "id": "advanced_11",
+      "category": "paraphrase",
+      "raw": "A model answer that claims facts not present in the prompt or textbook are correct. Detecting it is one reason AI engineering matters: if the model believes something true, it will claim it true in its answer. Evidence—such as citations, logical implications, and known results—can help disprove false claims and support true ones.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [
+          "false"
+        ],
+        [
+          "evidence"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What do we call a convincing model answer that invents facts, and how might external evidence help?"
+    },
+    {
+      "id": "advanced_12",
+      "category": "paraphrase",
+      "raw": "A rate limit has been reached. The server has rejected the request and returns 429 Too Many Requests. If you continue sending requests in the same way, you will also hit the limit and receive the same response.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [
+          "limit"
+        ],
+        [
+          "request"
+        ],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Why might an agent receive HTTP 429 after sending many requests in a short period?"
+    },
+    {
+      "id": "advanced_13",
+      "category": "paraphrase",
+      "raw": "A system that repeatedly selects tools based on its goal, examines the results, and decides the next step. Examples include Agent (Pydantic AI's framework for this), Editor (Claude Desktop or Copilot Chat), and Developer (Cursor or LAN).",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [
+          "repeat"
+        ],
+        [
+          "tool"
+        ],
+        [
+          "goal"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What kind of system repeatedly chooses tools, inspects their results, and decides the next step toward a goal?"
+    },
+    {
+      "id": "advanced_14",
+      "category": "paraphrase",
+      "raw": "The program (the model + tools + user interface combined) executes call requests. Agent programming makes the relationship between the model and the program more explicit.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "tool"
+        ],
+        [
+          "model"
+        ],
+        [
+          "program"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "When a model requests a function call with arguments, which component actually executes it?"
+    },
+    {
+      "id": "advanced_15",
+      "category": "paraphrase",
+      "raw": "Adding constraints such as required fields, data type checks, and output format specifications in the model instructions or a separate configuration section lets downstream code react to unmet constraints (punishing errors, suggesting fixes, or reporting them). In Pydantic AI, specify constraints in the tool constraints section of pydantic AI / agents / editor / vue-samples/03-apimongo.py.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [
+          "type"
+        ],
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How can an application constrain a model response to fields and types so downstream code can process it?"
+    },
+    {
+      "id": "advanced_16",
+      "category": "paraphrase",
+      "raw": "Copilot Chat. It lets compatible AI apps reuse tools exposed through a MCP server and share data with the server by exposing variables and outputs through MCP.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [],
+        [
+          "tool",
+          "data"
+        ],
+        [
+          "compatible",
+          "apps"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Which open protocol lets compatible AI apps reuse external tools and data exposed by a server?"
+    },
+    {
+      "id": "advanced_17",
+      "category": "absent",
+      "raw": "A method that trains a model to choose the preferred answer over others. In the Lecture 02 exercises, the model chooses the first answer presented in a given question. A pair of questions and answers is called a preference pair. Many useful learning signals come from such pairs, including:\n\n- Whether the model chooses the first answer (direct preference).\n- How often it chooses the first answer versus another option (comparison to other options).\n- Whether an answer is accepted (",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does Direct Preference Optimization learn from preference pairs?"
+    },
+    {
+      "id": "advanced_18",
+      "category": "absent",
+      "raw": "A variant of the standard least squares optimization problem where the loss function is clipped at a threshold to prevent large updates. This makes the updates smaller and more stable. The threshold can be tuned according to the desired stability and magnitude of updates.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Describe the role of the clipped objective in Proximal Policy Optimization."
+    },
+    {
+      "id": "advanced_19",
+      "category": "absent",
+      "raw": "A development approach in which a model learns to choose actions that maximize a given reward by interacting with a human agent. An example is teaching a robot to climb a tree by having the agent climb it. In this course, we repeat the basic RL loop (train model → interact with agent → get feedback → update model) many times, once for each lecture. Feedback comes in the form of labels such as \"correct\" or \"incorrect\" or a description of what is expected.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What stages are involved in Reinforcement Learning from Human Feedback?"
+    },
+    {
+      "id": "advanced_20",
+      "category": "absent",
+      "raw": "It fuses many experts into one model by averaging their outputs. A token goes to the expert that matches its type (e.g., \"text\" → first layer, \"decision\" → last layer). This lets small experts handle difficult questions better than one large one.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does a Mixture of Experts model route tokens to specialists?"
+    },
+    {
+      "id": "advanced_21",
+      "category": "absent",
+      "raw": "A model trains to minimize the difference between its output and a reference image (for example, a ground-up version of the sample). It learns to zero out untrained parameters and restore the original image to the least likely state given the input and training instructions. This is one reason the same prompt can yield different outputs.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does a diffusion model learn to remove noise from a sample?"
+    },
+    {
+      "id": "advanced_22",
+      "category": "absent",
+      "raw": "A measure of similarity between two vectors calculated as the cosine of the angle between them. It ranges from 0 (dislike) to 1 (like). Since embedding vectors are normalized, the result is independent of the magnitude of the vectors.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does cosine similarity compare two embedding vectors?"
+    },
+    {
+      "id": "advanced_23",
+      "category": "absent",
+      "raw": "A method that ranks documents based on the frequency with which they contain the query terms. It calculates a score using the term \"base size\" (number of words in the query) multiplied by the count of occurrences of each term in the document, then sums these scores. This is one reason the same question often returns different results in different ways.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What does BM25 use to rank a document for a search query?"
+    },
+    {
+      "id": "advanced_24",
+      "category": "absent",
+      "raw": "A search that explores multiple branches of possible continuations by choosing the most likely one with the highest probability and accepting it, then searching from the node after that choice. This is suitable for questions with multiple reasonable answers.",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does beam search keep multiple candidate continuations?"
+    }
+  ]
+}

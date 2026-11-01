@@ -1,0 +1,140 @@
+{
+  "What is the submission deadline?": {
+    "needs_review": false,
+    "must_include": [
+      "September 30",
+      "23:59"
+    ]
+  },
+  "Tell me the submission deadline date and time": {
+    "needs_review": false,
+    "must_include": [
+      "September 30",
+      "23:59"
+    ]
+  },
+  "On what date and at what time is the assignment due?": {
+    "needs_review": false,
+    "must_include": [
+      "September 30",
+      "23:59"
+    ]
+  },
+  "Where should I submit my work?": {
+    "needs_review": false,
+    "must_include": [
+      "learning portal",
+      "Assignments"
+    ]
+  },
+  "Where do I hand in the assignment?": {
+    "needs_review": false,
+    "must_include": [
+      "learning portal",
+      "Assignments"
+    ]
+  },
+  "Tell me where to send my submission": {
+    "needs_review": false,
+    "must_include": [
+      "learning portal",
+      "Assignments"
+    ]
+  },
+  "Can I submit a format other than PDF?": {
+    "needs_review": false,
+    "must_include": [
+      "PDF"
+    ]
+  },
+  "What format should the submitted file use?": {
+    "needs_review": false,
+    "must_include": [
+      "PDF"
+    ]
+  },
+  "What file format and how many files should I submit?": {
+    "needs_review": false,
+    "must_include": [
+      "PDF"
+    ]
+  },
+  "What times are available for consultation?": {
+    "needs_review": false,
+    "must_include": [
+      "Tuesday",
+      "17:00"
+    ]
+  },
+  "Tell me the day and time of office hours": {
+    "needs_review": false,
+    "must_include": [
+      "Tuesday",
+      "17:00"
+    ]
+  },
+  "On which day and from what time can I ask questions?": {
+    "needs_review": false,
+    "must_include": [
+      "Tuesday",
+      "17:00"
+    ]
+  },
+  "Tell me how submissions after the deadline are handled": {
+    "needs_review": false,
+    "must_include": [
+      "48 hours",
+      "penalty"
+    ]
+  },
+  "What happens if I miss the submission deadline?": {
+    "needs_review": false,
+    "must_include": [
+      "48 hours",
+      "penalty"
+    ]
+  },
+  "Will an assignment submitted after the deadline be accepted?": {
+    "needs_review": false,
+    "must_include": [
+      "48 hours",
+      "penalty"
+    ]
+  },
+  "When will grades be released?": {
+    "needs_review": true,
+    "must_include": [
+      "Confirmation"
+    ]
+  },
+  "Will lecture recordings be made available?": {
+    "needs_review": true,
+    "must_include": [
+      "Confirmation"
+    ]
+  },
+  "Is there a character count limit for assignments?": {
+    "needs_review": true,
+    "must_include": [
+      "Confirmation"
+    ]
+  },
+  "Will I receive feedback on my submitted assignment?": {
+    "needs_review": true,
+    "must_include": [
+      "Confirmation"
+    ]
+  },
+  "Is a particular citation style required?": {
+    "needs_review": true,
+    "must_include": [
+      "Confirmation"
+    ]
+  },
+  "Do office hours require an appointment?": {
+    "needs_review": true,
+    "must_include": [
+      "Confirmation"
+    ]
+  }
+}

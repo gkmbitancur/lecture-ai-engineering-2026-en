@@ -1,0 +1,98 @@
+{
+  "scenario": "implementation",
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "accelerate": "1.15.0",
+    "datasets": "5.1.0"
+  },
+  "gpu": "Tesla T4",
+  "seed": 42,
+  "method": "LoRA (no quantization)",
+  "executed_training_myself": true,
+  "train_records": 14,
+  "validation_records": 7,
+  "before": {
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.2857142857142857,
+    "both_rate": 0.2857142857142857,
+    "label": "before",
+    "seconds": 19.292036384999847
+  },
+  "after": {
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.8571428571428571,
+    "both_rate": 0.8571428571428571,
+    "label": "after",
+    "seconds": 56.692541837000135
+  },
+  "regressed": [],
+  "knowledge": [
+    {
+      "question": "Can I transfer my reservation to another member?",
+      "in_faq": false,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"No\", \"needs_review\": true}",
+      "after_raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "before_classification": "needs_review",
+      "after_classification": "needs_review"
+    },
+    {
+      "question": "Does the club deliver borrowed gear to my home?",
+      "in_faq": false,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"No\", \"needs_review\": true}",
+      "after_raw": "{\"answer\": \"This FAQ does not contain that information. Confirmation from the club lending coordinator is needed.\", \"needs_review\": true}",
+      "before_classification": "needs_review",
+      "after_classification": "needs_review"
+    },
+    {
+      "question": "How many reservations can I make in a month?",
+      "in_faq": false,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"The FAQ does not specify the maximum number of reservations a member can make in a month.\", \"needs_review\": true}",
+      "after_raw": "{\"answer\": \"Each member may borrow up to 3 items at the same time.\", \"needs_review\": false}",
+      "before_classification": "needs_review",
+      "after_classification": "asserted"
+    },
+    {
+      "question": "When can I collect reserved equipment?",
+      "in_faq": true,
+      "faq_provided": true,
+      "before_raw": "{\"answer\": \"Wednesday from 18:00 to 19:00\", \"needs_review\": false}",
+      "after_raw": "{\"answer\": \"Collect reserved equipment at the club room on Wednesday from 18:00 to 19:00.\", \"needs_review\": false}",
+      "before_classification": "asserted",
+      "after_classification": "asserted"
+    }
+  ],
+  "training_seconds": 186.80664432799995,
+  "trainable_parameters": 6389760,
+  "total_parameters": 758782784,
+  "trainable_percent": 0.8421066126877228,
+  "global_step": 40,
+  "epoch": 20.0,
+  "final_logged_loss": 0.016424600780010224,
+  "final_logged_loss_step": 40,
+  "final_logged_loss_definition": "Last Trainer log_history loss value: interval-averaged training loss at its logged step; not necessarily final-batch loss.",
+  "mean_train_loss": 0.4495649617165327,
+  "mean_train_loss_definition": "Trainer train() metrics train_loss, reported separately from the last logged interval loss."
+}

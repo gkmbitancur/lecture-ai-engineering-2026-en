@@ -1,0 +1,128 @@
+{
+  "review_method": "Qualitative review of saved answers against the requested concepts",
+  "phase": "advanced_after",
+  "source_outputs": "lectures/02/results/advanced/eval_after.json",
+  "reference": "lectures/02/prepared/advanced_eval.json; data/glossary.json",
+  "label_definition": {
+    "substantially_correct": "The core answer requested is accurate, with no material factual error; every incidental detail of the glossary is not required.",
+    "partial": "Relevant correct content is present, but a requested part is missing, the mechanism is insufficiently explained, or the wording contains a material ambiguity.",
+    "incorrect": "The answer identifies the wrong concept or gives a materially wrong core mechanism."
+  },
+  "limits": "Same qualitative criteria as before; only the saved visible answer is credited. Substantially correct assesses the core requested explanation; unsupported ancillary references are explicitly noted even when they do not overturn that core. Partial is used when accurate pieces coexist with a consequential error or missing requested component. The rubric is frozen and these judgments do not replace automated rates. Absent terms are outside this audit.",
+  "rows": [
+    {
+      "id": "advanced_01",
+      "label": "partial",
+      "reason": "It correctly states that pretrained weights are frozen and only small matrices are updated, but says the model itself is represented as a low-rank product. LoRA factorizes the weight update, not the whole model. Thus the proxy pass conceals a material mechanism error within an otherwise improved answer.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_02",
+      "label": "incorrect",
+      "reason": "The general statement that only a fraction/small subset is trained is correct, but the example wrongly ties this to 8-bit quantization of original 64-bit parameters. Quantization changes numerical representation and does not by itself select the trainable subset; the 64-bit premise is also unsupported. The proxy again accepts subset/parameter words despite a wrong explanatory account.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_03",
+      "label": "substantially_correct",
+      "reason": "The response reproduces the source definition: quantize base-model weights, for example to 4 bits, then train with LoRA. It accurately links compression, adapter training, and smaller GPU memory use. This is a clear improvement from the incomplete before introduction.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_04",
+      "label": "substantially_correct",
+      "reason": "The core explanation of fewer-bit weights, reduced memory/computation, and possible accuracy loss is correct. The added claim that this is shown in 'Table 2.1 exercises' is unsupported by the source definition and should not be treated as a verified citation. The before answer already expressed the essential trade-off correctly; the proxy gain partly reflects matching phrasing rather than new conceptual correctness.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_05",
+      "label": "substantially_correct",
+      "reason": "It correctly pairs input with target/desired output, which answers the central question. 'Input vector' and 'prediction' are more generic supervised-learning wording than the source's instruction/reference-answer description; the course-specific elaboration is not established by the glossary. Those caveats do not overturn the accurate central pair.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_06",
+      "label": "incorrect",
+      "reason": "It recommends inferring fresh facts from general knowledge rather than using external search/tools, directly contradicting the source's guidance for up-to-date facts. The domain/task sentence is relevant but does not rescue the wrong central recommendation.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_07",
+      "label": "partial",
+      "reason": "The epoch definition is correct: one pass through the entire training dataset. However, it adds that 'too much data' causes overfitting and instability, which is not the source claim and is a misleading generalization. Too many epochs is the relevant source warning. The proxy passes without evaluating this added claim.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_08",
+      "label": "partial",
+      "reason": "The definition and held-out validation advice are correct. The added recommendation to measure 'training data not used for training' is self-contradictory and makes the detection guidance less coherent. This correct core plus erroneous extension is not a clean reference answer despite proxy success.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_09",
+      "label": "substantially_correct",
+      "reason": "It correctly explains a maximum total token budget shared by conversation history and generated text. Naming 'context window' is unnecessary when the functional limit is accurately described. This is a substantive improvement over the before answer's tokenization-centered explanation.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_10",
+      "label": "incorrect",
+      "reason": "It no longer names random_seed but still fails to identify temperature correctly: lower values do not specifically make the next token match the previous token. The claimed Pydantic AI editor Tools->Randomness path is unsupported by the source. This remains a conceptual error rather than merely missing a rubric synonym.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_11",
+      "label": "partial",
+      "reason": "It discusses unsupported factual claims and gives a reasonable role for evidence in confirming or refuting claims, but fails to name hallucination and describes source-absent facts too broadly: being absent from a prompt/textbook does not itself make a fact false. Compared with before, correct naming is lost while the previously missing evidence discussion is added. The proxy pass->fail is a mixed semantic change, not a simple wholesale deterioration.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_12",
+      "label": "substantially_correct",
+      "reason": "It correctly explains that a rate limit is reached and the server returns 429 Too Many Requests. The proxy rejects it solely because no explicit time/period/window alternative appears. The question already supplies the short-period context; the answer's central diagnosis remains correct. Therefore this reported regression is chiefly a keyword false negative, not a demonstrated loss of HTTP429 understanding.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_13",
+      "label": "partial",
+      "reason": "It accurately describes goal-directed tool selection and result inspection and mentions Agent, but omits the defining LLM component. The Editor/Developer taxonomy and the Cursor-or-LAN example are unsupported and confused. The loop description improves on the before generic decision-support label, but the answer remains incomplete and unreliable as a definition.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_14",
+      "label": "substantially_correct",
+      "reason": "It correctly assigns execution to the program rather than to model text generation. The parenthetical whole-application description is imprecise but does not change the accurate central answer about which component runs requested calls.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_15",
+      "label": "partial",
+      "reason": "It mentions useful fields/type/output constraints and downstream checking, but provides no clear schema/output_type mechanism and invents an unsupported Pydantic AI tool-constraints configuration path. Thus some relevant concept understanding is present while the concrete implementation advice is unreliable.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_16",
+      "label": "incorrect",
+      "reason": "It answers Copilot Chat, a client/application, rather than naming MCP as the requested protocol, despite mentioning MCP servers afterward. Before it incorrectly answered HTTP/2. The before proxy pass was a false positive; losing that pass does not establish a new semantic regression because neither answer identifies the requested protocol correctly.",
+      "proxy_pass": false
+    }
+  ],
+  "summary": {
+    "n": 16,
+    "qualitative_labels": {
+      "partial": 6,
+      "incorrect": 4,
+      "substantially_correct": 6
+    },
+    "proxy_passes": 9,
+    "clear_proxy_false_negative": [
+      "advanced_12"
+    ],
+    "material_errors_despite_proxy_pass": [
+      "advanced_01",
+      "advanced_02",
+      "advanced_07",
+      "advanced_08"
+    ]
+  }
+}

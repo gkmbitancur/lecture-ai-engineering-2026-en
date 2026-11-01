@@ -1,0 +1,156 @@
+Matched baseline vs Basic: manual raw-output audit
+Evidence: all 5 JSON files per completed scenario copied byte-for-byte from work/suite_partial/{baseline,basic} to course lectures/02/results/{baseline,basic}. No adapter files were downloaded or invented.
+All 21 before outputs (ID,question,raw) are byte-identical across the two runs; all 84 stored before/after raw response rows were inspected, with identical before outputs represented once below.
+Both after outputs have 21/21 format passes. Baseline 20 epochs content 19/21; Basic 10 epochs 18/21. Both regressions lists are empty relative to their own before evaluations.
+Cross-condition changes:10 epochs loses faq_07 (non-PDF) and faq_14 (missed deadline), gains faq_19 (feedback), shares failure faq_21 (appointment). Net decrease 1/21 = 4.7619 percentage points, not a simple one-question superseting of failures.
+20 epochs training 187.50754015099983s,final logged interval loss 0.0147929385304451 at step 40,mean train_loss 0.4510146141052246.
+10 epochs training 94.44436606699992s,final logged interval loss 0.07120965123176574 at step 20,mean train_loss 0.882726064324379.
+Both train 6,389,760 of 758,782,784 parameters (0.8421066127%).Only config difference is num_train_epochs 20 vs 10. One seed and 21 test questions do not establish a reliable optimum.
+Original notebook exercise is a separate run: same 19/21 score as matched20 epochs but different failure set; do not merge its per-question outputs with this comparison.
+
+faq_01 | What is the submission deadline?
+Before (both runs): {"answer": "September 30 at 23:59 (Japan time)", "needs_review": false}
+20 epochs: {"answer": "The assignment deadline is September 30 at 23:59 (Japan time).", "needs_review": false}
+10 epochs: {"answer": "The assignment deadline is September 30 at 23:59 (Japan time).", "needs_review": false}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All three correctly preserve deadline; before/after style difference only.
+
+faq_02 | Tell me the submission deadline date and time
+Before (both runs): {"answer": "September 30 at 23:59 (Japan time)", "needs_review": false}
+20 epochs: {"answer": "The assignment deadline is September 30 at 23:59 (Japan time).", "needs_review": false}
+10 epochs: {"answer": "The assignment deadline is September 30 at 23:59 (Japan time).", "needs_review": false}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All correctly preserve deadline; before/after style difference only.
+
+faq_03 | On what date and at what time is the assignment due?
+Before (both runs): {"answer": "September 30 at 23:59 (Japan time)", "needs_review": false}
+20 epochs: {"answer": "The assignment deadline is September 30 at 23:59 (Japan time).", "needs_review": false}
+10 epochs: {"answer": "The assignment deadline is September 30 at 23:59 (Japan time).", "needs_review": false}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All correctly preserve deadline; before/after style difference only.
+
+faq_04 | Where should I submit my work?
+Before (both runs): {"answer": "The assignment deadline is September 30 at 23:59 (Japan time). Submit through the 'Assignments' section of the learning portal. Submit one PDF file named student_id_assignment_number.pdf. Questions are welcome during office hours every Tuesday from 17:00 to 18:00. Late submissions are accepted within 48 hours of the deadline, with a grade penalty."}
+20 epochs: {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": false}
+10 epochs: {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": false}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before dumps FAQ and omits review flag. Both trained outputs give destination and false flag.
+
+faq_05 | Where do I hand in the assignment?
+Before (both runs): {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": true}
+20 epochs: {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": false}
+10 epochs: {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": false}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before destination text correct, review flag wrong. Both trained outputs correct both.
+
+faq_06 | Tell me where to send my submission
+Before (both runs): {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": true}
+20 epochs: {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": false}
+10 epochs: {"answer": "Submit through the 'Assignments' section of the learning portal.", "needs_review": false}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before destination text correct, review flag wrong. Both trained outputs correct both.
+
+faq_07 | Can I submit a format other than PDF?
+Before (both runs): {"answer": "No, you cannot submit a format other than PDF. The FAQ explicitly states that the assignment must be submitted as one PDF file named student_id_assignment_number.pdf.", "needs_review": true}
+20 epochs: {"answer": "Submit one PDF file named student_id_assignment_number.pdf.", "needs_review": false}
+10 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+Check outcomes before / 20 / 10: [False, True, False]
+Manual interpretation: 20 epochs gives PDF policy; 10 epochs unnecessarily requests confirmation. Before has correct policy but wrong flag.
+
+faq_08 | What format should the submitted file use?
+Before (both runs): {"answer": "PDF", "needs_review": false}
+20 epochs: {"answer": "Submit one PDF file named student_id_assignment_number.pdf.", "needs_review": false}
+10 epochs: {"answer": "Submit one PDF file named student_id_assignment_number.pdf.", "needs_review": false}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All answers identify PDF; trained outputs also give filename/count.
+
+faq_09 | What file format and how many files should I submit?
+Before (both runs): {"answer": "PDF", "needs_review": true}
+20 epochs: {"answer": "Submit one PDF file named student_id_assignment_number.pdf.", "needs_review": false}
+10 epochs: {"answer": "Submit one PDF file named student_id_assignment_number.pdf.", "needs_review": false}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before PDF-only answer omits count and has wrong flag. Both trained outputs give one PDF and filename.
+
+faq_10 | What times are available for consultation?
+Before (both runs): {"answer": "Tuesday from 17:00 to 18:00", "needs_review": false}
+20 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+10 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All correctly give consultation hours.
+
+faq_11 | Tell me the day and time of office hours
+Before (both runs): {"answer": "Tuesday from 17:00 to 18:00", "needs_review": false}
+20 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+10 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All correctly give office hours.
+
+faq_12 | On which day and from what time can I ask questions?
+Before (both runs): {"answer": "Tuesday from 17:00 to 18:00", "needs_review": false}
+20 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+10 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All correctly give office hours.
+
+faq_13 | Tell me how submissions after the deadline are handled
+Before (both runs): {"answer": "Late submissions are accepted within 48 hours of the deadline, with a grade penalty.", "needs_review": true}
+20 epochs: {"answer": "Late submissions are accepted within 48 hours of the deadline, with a grade penalty.", "needs_review": false}
+10 epochs: {"answer": "Late submissions are accepted within 48 hours of the deadline, with a grade penalty.", "needs_review": false}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before has correct late policy but wrong flag. Both trained outputs correct both.
+
+faq_14 | What happens if I miss the submission deadline?
+Before (both runs): {"answer": "Late submissions are accepted within 48 hours of the deadline, with a grade penalty.", "needs_review": true}
+20 epochs: {"answer": "Late submissions are accepted within 48 hours of the deadline, with a grade penalty.", "needs_review": false}
+10 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+Check outcomes before / 20 / 10: [False, True, False]
+Manual interpretation: 20 epochs gives late policy; 10 epochs evades despite evidence. Before has correct policy but wrong flag.
+
+faq_15 | Will an assignment submitted after the deadline be accepted?
+Before (both runs): {"answer": "No", "needs_review": true}
+20 epochs: {"answer": "Late submissions are accepted within 48 hours of the deadline, with a grade penalty.", "needs_review": false}
+10 epochs: {"answer": "Late submissions are accepted within 48 hours of the deadline, with a grade penalty.", "needs_review": false}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before wrongly denies late acceptance. Both trained outputs state 48-hour acceptance with penalty.
+
+faq_16 | When will grades be released?
+Before (both runs): {"answer": "Confirmation is needed", "needs_review": true}
+20 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+10 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+Check outcomes before / 20 / 10: [True, True, True]
+Manual interpretation: All properly request confirmation. Trained wording explicitly notes source absence.
+
+faq_17 | Will lecture recordings be made available?
+Before (both runs): {"answer": "No", "needs_review": false}
+20 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+10 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before unsupported denial. Both trained outputs request confirmation.
+
+faq_18 | Is there a character count limit for assignments?
+Before (both runs): {"answer": "No character count limit for assignments is mentioned in the FAQ.", "needs_review": true}
+20 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+10 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before source-absence statement is substantively appropriate but fails literal Confirmation keyword. Both trained outputs add required wording.
+
+faq_19 | Will I receive feedback on my submitted assignment?
+Before (both runs): {"answer": "Yes, questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+20 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+10 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+Check outcomes before / 20 / 10: [False, False, True]
+Manual interpretation: Before office-hours statement unsupported for feedback.20 epochs retains unrelated office-hours answer; 10 epochs correctly requests confirmation.
+
+faq_20 | Is a particular citation style required?
+Before (both runs): {"answer": "No", "needs_review": false}
+20 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+10 epochs: {"answer": "This FAQ does not contain that information. Confirmation from the course organizers is needed.", "needs_review": true}
+Check outcomes before / 20 / 10: [False, True, True]
+Manual interpretation: Before unsupported denial. Both trained outputs request confirmation.
+
+faq_21 | Do office hours require an appointment?
+Before (both runs): {"answer": "No", "needs_review": false}
+20 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+10 epochs: {"answer": "Questions are welcome during office hours every Tuesday from 17:00 to 18:00.", "needs_review": false}
+Check outcomes before / 20 / 10: [False, False, False]
+Manual interpretation: Before unsupported denial. Both trained outputs substitute office-hours schedule and false flag; no appointment policy exists.

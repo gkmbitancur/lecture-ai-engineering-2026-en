@@ -1,0 +1,78 @@
+{
+  "review_method": "Qualitative inspection of saved answers against linked primary references",
+  "scope": "Separate factual/content assessment of eight real concepts absent from the course glossary. Does not replace the frozen membership metric. Answers were capped at 96 generated tokens.",
+  "rows": [
+    {
+      "id": "advanced_17",
+      "question": "How does Direct Preference Optimization learn from preference pairs?",
+      "raw": "Direct Preference Optimization (DPO) learns from preference pairs by transforming a **preference function** (a function that assigns a score to each item) into a **utility function** (a function that assigns a score to a pair of items).\n\nHere is the step-by-step process:\n\n### 1. The Core Problem: Preference vs. Utility\nIn standard reinforcement learning, an agent learns to maximize a **utility function** $U(x, y)$, which represents",
+      "membership_proxy_pass": false,
+      "semantic_label": "incorrect",
+      "reason": "Invents a preference-function to utility-function transformation instead of explaining DPO preference-pair optimization.",
+      "reference": "https://arxiv.org/abs/2305.18290"
+    },
+    {
+      "id": "advanced_18",
+      "question": "Describe the role of the clipped objective in Proximal Policy Optimization.",
+      "raw": "In the context of **Proximal Policy Optimization (PPO)**, the **clipped objective** is a critical component that acts as a safeguard against catastrophic regression and ensures that the policy remains within a bounded region of the parameter space.\n\nHere is a detailed breakdown of its role:\n\n### 1. The Problem: Catastrophic Regression\nThe primary motivation for clipping in PPO is to prevent the policy from drifting too far from the optimal policy.\n*   **",
+      "membership_proxy_pass": false,
+      "semantic_label": "incorrect",
+      "reason": "Clipping discourages excessive probability-ratio changes; it does not ensure a bounded parameter region or prevent drift from an optimal policy. The response overstates a guarantee.",
+      "reference": "https://arxiv.org/pdf/1707.06347"
+    },
+    {
+      "id": "advanced_19",
+      "question": "What stages are involved in Reinforcement Learning from Human Feedback?",
+      "raw": "Reinforcement Learning from Human Feedback (RLHF) is a critical paradigm in machine learning that aims to align large language models (LLMs) with human preferences. It is not a single stage but rather a **multi-stage iterative process** designed to refine the model's behavior through interaction with human evaluators.\n\nHere is a breakdown of the key stages involved in the RLHF pipeline:\n\n### 1. Human Evaluation (The \"Human\" Phase)\nThis is the",
+      "membership_proxy_pass": false,
+      "semantic_label": "partial",
+      "reason": "Correctly identifies human preference alignment and a multistage process, but stops before giving the training stages requested.",
+      "reference": "https://arxiv.org/html/2203.02155v1"
+    },
+    {
+      "id": "advanced_20",
+      "question": "How does a Mixture of Experts model route tokens to specialists?",
+      "raw": "A **Mixture of Experts (MoE)** model routes tokens to specialists by using a **pointer mechanism** that dynamically selects the most relevant expert based on the input token's context. Unlike a standard Transformer where every token is processed by every expert, MoE reduces the number of parameters by selecting only a subset of experts for each token.\n\nHere is the step-by-step process of how this routing works:\n\n### 1. The Core Mechanism: Pointer Attention\nThe",
+      "membership_proxy_pass": false,
+      "semantic_label": "incorrect",
+      "reason": "Identifies selective expert use but describes pointer attention as the core mechanism and claims fewer model parameters. Sparse routing reduces active computation; total parameters may increase.",
+      "reference": "https://arxiv.org/abs/2101.03961"
+    },
+    {
+      "id": "advanced_21",
+      "question": "How does a diffusion model learn to remove noise from a sample?",
+      "raw": "Diffusion models learn to remove noise from a sample through a **two-stage process** that combines **generative modeling** (creating the noisy image) and **denoising** (reducing that noise). Here's how the learning happens:\n\n---\n\n### **1. The Two-Stage Architecture**\nDiffusion models operate in two stages:\n- **Stage 1 (Generative)**: Creates a noisy version of the target image.\n- **Stage",
+      "membership_proxy_pass": false,
+      "semantic_label": "partial",
+      "reason": "Recognizes noising and denoising, but does not explain the learned denoising objective and misleadingly calls the forward noising step a generative architecture stage. The answer ends mid-explanation.",
+      "reference": "https://arxiv.org/html/2006.11239v2"
+    },
+    {
+      "id": "advanced_22",
+      "question": "How does cosine similarity compare two embedding vectors?",
+      "raw": "Cosine similarity measures the **angle between two vectors** in a vector space, ignoring their magnitude (length). It is a dimensionless scalar value that ranges from **-1 to +1**, where:\n\n- **-1** indicates the vectors are **antiparallel** (point in opposite directions).\n- **0** indicates the vectors are **orthogonal** (perpendicular).\n- **+1** indicates the vectors are **parallel** (point in the same direction",
+      "membership_proxy_pass": false,
+      "semantic_label": "substantially_correct",
+      "reason": "The core directional comparison and -1/0/+1 interpretations are correct for nonzero vectors, although the final sentence is incomplete and the normalized-dot-product formula is not shown.",
+      "reference": "https://docs.pytorch.org/docs/2.15/generated/torch.nn.functional.cosine_similarity.html"
+    },
+    {
+      "id": "advanced_23",
+      "question": "What does BM25 use to rank a document for a search query?",
+      "raw": "BM25 (Bilingual Multi-Query) is a **weighted sum of two components**:\n\n1.  **The Query Component**: This measures how well the query matches the document's text. It uses a **TF-IDF (Term Frequency-Inverse Document Frequency)** score.\n2.  **The Document Component**: This measures how well the document matches the query's intent. It uses a **Cosine Similarity** score.\n\nThe final ranking score is calculated",
+      "membership_proxy_pass": false,
+      "semantic_label": "incorrect",
+      "reason": "The expansion Bilingual Multi-Query and the claimed TF-IDF plus cosine-similarity decomposition are false descriptions of BM25.",
+      "reference": "https://www.staff.city.ac.uk/~sbrp622/papers/foundations_bm25_review.pdf"
+    },
+    {
+      "id": "advanced_24",
+      "question": "How does beam search keep multiple candidate continuations?",
+      "raw": "Beam search keeps multiple candidate continuations by maintaining a **current best path** and a **queue of potential next moves**. Here is the step-by-step mechanism:\n\n### 1. Initialization\nThe process begins with a **current path** (a sequence of tokens) and an empty queue.\n*   **Current Path**: Represents the sequence of tokens already generated.\n*   **Queue**: Initially empty, containing only the current path.\n\n### 2. Expansion (",
+      "membership_proxy_pass": false,
+      "semantic_label": "partial",
+      "reason": "Mentions expansion and candidate storage but describes a single current path; the saved fragment never explains retaining and pruning multiple scored beams. The queue description is inconsistent and the response is incomplete.",
+      "reference": "https://huggingface.co/docs/transformers/generation_strategies"
+    }
+  ]
+}

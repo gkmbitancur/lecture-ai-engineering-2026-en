@@ -1,0 +1,126 @@
+{
+  "review_method": "Qualitative review of saved answers against the requested concepts",
+  "phase": "advanced_before",
+  "source_outputs": "work/suite_advanced_before/advanced/eval_before.json",
+  "reference": "work/course/lectures/02/prepared/advanced_eval.json; work/course/data/glossary.json",
+  "label_definition": {
+    "substantially_correct": "The core answer requested is accurate, with no material factual error; every incidental detail of the glossary is not required.",
+    "partial": "Relevant correct content is present, but a requested part is missing, the mechanism is insufficiently explained, or the wording contains a material ambiguity.",
+    "incorrect": "The answer identifies the wrong concept or gives a materially wrong core mechanism."
+  },
+  "limits": "Only the saved visible answer is judged. Many responses end mid-sentence, heading, or argument under the fixed 96-new-token limit. Exact generated token counts and finish reasons are not saved, so truncation is inferred from visible incompleteness, not asserted as measured for every response. Missing continuations are not credited. This reviews the combined model-and-generation-budget setup; it cannot establish what the model would say with more tokens. The deterministic rubric remains frozen.",
+  "rows": [
+    {
+      "id": "advanced_01",
+      "label": "incorrect",
+      "reason": "LoRA is described as projecting current model weights into a lower-dimensional subspace. The answer omits frozen pretrained weights and the trainable two-matrix low-rank update, and presents projection of weights as the fundamental mechanism. This is a material mechanism error, not merely a synonym mismatch. The answer ends mid-phrase.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_02",
+      "label": "incorrect",
+      "reason": "The response reduces the PEFT umbrella to LoRA and incorrectly describes a learned d-by-d matrix with d being rank. It does not state the defining general principle of training only a small subset or added parameters. Proxy false positive: the phrase 'fraction of parameters' satisfies the first concept group without stating that the fraction is small, and repeated parameter words satisfy the other group despite the wrong account.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_03",
+      "label": "partial",
+      "reason": "The introduction correctly links quantization/compression, adapter training, and lower memory use. The visible response does not explain that base weights are quantized while low-rank adapters are trained; it starts a lengthy quantization section and cuts off. Proxy pass establishes relevant terms, not a complete mechanism explanation.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_04",
+      "label": "substantially_correct",
+      "reason": "The visible introduction correctly describes reduced numerical precision, memory efficiency, and a possible accuracy trade-off. Proxy false negative: 'reduces the precision' expresses the fewer-bits concept but does not match the frozen alternatives such as 'reduce precision' or 'reduced precision'. The response becomes verbose and ends mid-sentence, but the essential requested trade-off is already present.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_05",
+      "label": "substantially_correct",
+      "reason": "It correctly pairs an input/prompt/instruction with the expected output/label/target. The final phrase is unfinished, but both requested components and their relationship are explicit and accurate.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_06",
+      "label": "partial",
+      "reason": "It describes adapting an already knowledgeable model for domain or task requirements, which is broadly relevant. It never answers how fresh facts should be supplied through external tools or retrieval, and cuts off during an enumerated condition. Proxy failure reflects a real missing requested part; the additional absence of the literal pretrained alternatives is less consequential than the missing fresh-fact guidance.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_07",
+      "label": "substantially_correct",
+      "reason": "It explicitly defines one epoch as one pass through the entire training dataset, satisfying the question's core. The later batch-size explanation is confusing and unfinished; traversing a batch is not itself the definition of an epoch. That caveat does not erase the clear correct definition already given, and no complete explicit assertion that one epoch equals one batch appears in the saved text.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_08",
+      "label": "partial",
+      "reason": "It accurately explains excessive fitting to training noise and worse performance on unseen examples. The question also asks how to detect overfitting; the saved output never states validation or held-out evaluation, stopping at a generalization heading. Proxy pass misses this incompleteness because its groups require training/unseen/degradation language but not a detection method.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_09",
+      "label": "incorrect",
+      "reason": "It does not identify the context window or the combined input/output token budget. Instead it foregrounds tokenization strategy as the most critical limit and initially conflates tokens with characters. Architecture and tokenization are relevant background but do not answer the specified conversation-plus-reply constraint. The final explanation cuts off.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_10",
+      "label": "incorrect",
+      "reason": "It names random_seed rather than temperature and claims that using a smaller seed reduces randomness. Seed magnitude does not control sampling randomness in that way. This is a substantive conceptual error, correctly rejected by the proxy.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_11",
+      "label": "partial",
+      "reason": "It correctly identifies hallucination/fabrication and describes plausible unsupported false content. However, the second requested part, how external evidence helps, appears only as a heading with no explanation. Proxy pass partly comes from words in the question restatement/heading, not demonstrated mitigation understanding.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_12",
+      "label": "substantially_correct",
+      "reason": "It correctly explains HTTP 429 as too many requests within a short time window and names rate limiting. Additional course-specific free-tier and multi-call-agent details are not necessary to answer this question. The trailing elaboration is incomplete, but the core answer is already complete.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_13",
+      "label": "incorrect",
+      "reason": "It identifies a generic Decision-Making/Decision Support System rather than an AI agent, then repeats tool selection and inspection without establishing the LLM-plus-loop-plus-tools architecture. That description captures part of the prompt but misses the intended narrower concept. It stops before completing the step sequence.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_14",
+      "label": "substantially_correct",
+      "reason": "It correctly states that the application/runtime executes the requested function rather than the model itself. The following language examples and http.server fragment are awkward and unfinished, but do not overturn the accurate central answer about responsibility for execution.",
+      "proxy_pass": true
+    },
+    {
+      "id": "advanced_15",
+      "label": "partial",
+      "reason": "It correctly points toward a schema and specifying output fields and types. The suggestion that this is the schema 'that the model generates' is misleading: the application supplies the required schema, and reliable schema adherence/enforcement is not explained. The answer ends before resolving that account. Some useful concept understanding is present despite failure to say the frozen JSON/structured keywords, but this is not a fully correct answer hidden solely by matching.",
+      "proxy_pass": false
+    },
+    {
+      "id": "advanced_16",
+      "label": "incorrect",
+      "reason": "It confidently answers HTTP/2 instead of MCP and adds unsupported claims about stateless streaming and reuse without reauthentication. This is a clear proxy false positive: generic open/protocol/tools/client vocabulary satisfies every group without naming the required protocol or describing MCP correctly.",
+      "proxy_pass": true
+    }
+  ],
+  "summary": {
+    "qualitative_labels": {
+      "incorrect": 6,
+      "partial": 5,
+      "substantially_correct": 5
+    },
+    "proxy_passes": 9,
+    "n": 16,
+    "clear_proxy_false_positives": [
+      "advanced_02",
+      "advanced_16"
+    ],
+    "clear_proxy_false_negatives": [
+      "advanced_04"
+    ]
+  }
+}

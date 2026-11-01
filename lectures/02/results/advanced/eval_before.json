@@ -1,0 +1,440 @@
+{
+  "summary": {
+    "n": 24,
+    "category_proxy_rates": {
+      "term_name": 0.625,
+      "paraphrase": 0.5,
+      "absent": 0.0
+    },
+    "known_content_proxy_rate": 0.5625,
+    "absent_membership_proxy_rate": 0.0,
+    "macro_proxy_rate": 0.375,
+    "label": "before",
+    "seconds": 117.16668945500032
+  },
+  "caution": "Keyword proxy only; manually audit every raw output, especially absent-term outputs.",
+  "rows": [
+    {
+      "id": "advanced_01",
+      "category": "term_name",
+      "raw": "In the context of **LoRA (Low-Rank Adaptation)**, the weights are not updated directly by the entire model. Instead, they are updated using a **projection** operation that maps the model's current weights to a much smaller, low-dimensional subspace.\n\nHere is a detailed breakdown of how the weights are trained and how the update is represented mathematically.\n\n### 1. The Core Concept: Projection\nThe fundamental mechanism of LoRA is the **projection",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [
+          "low rank"
+        ],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Describe which weights LoRA trains and how it represents the update."
+    },
+    {
+      "id": "advanced_02",
+      "category": "term_name",
+      "raw": "In the context of **PEFT (Parameter-Efficient Fine-Tuning)**, specifically within the **LoRA (Low-Rank Adaptation)** framework, the fraction of parameters trained is determined by the **rank** of the learned matrix.\n\nHere is the breakdown of the mechanics:\n\n### 1. The Core Mechanism\nPEFT uses a low-rank matrix $L$ of size $d \\times d$, where $d$ is the **rank**.",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "fraction of parameters"
+        ],
+        [
+          "parameter",
+          "parameters"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Under PEFT, what fraction or kind of parameters is trained?"
+    },
+    {
+      "id": "advanced_03",
+      "category": "term_name",
+      "raw": "QLoRA (Quantized LoRA) is a technique that combines **quantization** (compression) with **adapter training** to significantly reduce the computational cost and memory footprint of large language models (LLMs) while maintaining high performance.\n\nHere is a step-by-step breakdown of how these two components work together:\n\n### 1. The Core Concept: Quantization\nThe first step is **quantization**.\n- **Problem**: Standard LLMs are massive (",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "quantiz"
+        ],
+        [
+          "lora"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does QLoRA combine compression and adapter training?"
+    },
+    {
+      "id": "advanced_04",
+      "category": "term_name",
+      "raw": "Quantization is a fundamental technique in machine learning that reduces the precision of numerical values by converting them into a smaller set of values. While it offers significant performance gains, it introduces trade-offs regarding memory usage and the potential for accuracy loss.\n\nHere is a detailed explanation of the memory benefit and the possible accuracy cost of quantization.\n\n### 1. Memory Benefit: The \"Memory Efficiency\" Advantage\n\nThe primary motivation for quantization is **memory efficiency**. In deep learning models",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [
+          "memory"
+        ],
+        [
+          "accuracy"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Explain the memory benefit and possible accuracy cost of quantization."
+    },
+    {
+      "id": "advanced_05",
+      "category": "term_name",
+      "raw": "In supervised fine-tuning (SFT), each training example pair consists of two distinct elements:\n\n1.  **The Input (Prompt)**: This is the text or data that the model processes. It is the \"instruction\" or the content the model needs to understand.\n2.  **The Output (Label)**: This is the expected response or the correct answer that the model should generate based on the input. It is the \"target\" or the ground truth",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "input",
+          "prompt"
+        ],
+        [
+          "output",
+          "answer",
+          "response"
+        ],
+        [
+          "target",
+          "correct",
+          "label"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "For supervised fine-tuning, what does each training example pair together?"
+    },
+    {
+      "id": "advanced_06",
+      "category": "term_name",
+      "raw": "Fine-tuning is a process of adjusting a large language model (LLM) to improve its performance on specific tasks or domains. It is generally considered appropriate when the following conditions are met:\n\n1.  **Domain Specificity**: The model has already learned general knowledge but lacks specific expertise in a niche field (e.g., medical, legal, or specialized engineering).\n2.  **Task Requirements**: The specific task requires high precision, context awareness, or adherence to strict",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [
+          "specific task"
+        ],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "When is fine-tuning appropriate, and how should fresh facts usually be supplied?"
+    },
+    {
+      "id": "advanced_07",
+      "category": "term_name",
+      "raw": "In the context of machine learning training, the term **\"one epoch\"** refers to a single pass through the dataset during the training process.\n\nHere is the breakdown of what one epoch traverses:\n\n1.  **Data Points**: It traverses the **entire dataset** (the collection of all training samples).\n2.  **Batch Size**: It traverses the **entire batch** of data. In standard training, this batch is typically a fixed number of",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "one",
+          "single"
+        ],
+        [
+          "entire",
+          "all"
+        ],
+        [
+          "dataset"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "In training terminology, how much data does one epoch traverse?"
+    },
+    {
+      "id": "advanced_08",
+      "category": "term_name",
+      "raw": "Overfitting occurs when a model learns the training data too well, capturing noise and specific patterns rather than the underlying generalizable rules. This leads to a sharp decline in performance on **unseen examples** (new data not used during training).\n\nHere is a breakdown of how overfitting affects training versus unseen examples and the methods to detect it.\n\n### 1. Impact on Training vs. Unseen Examples\n\nThe core distinction lies in the **generalization capability**",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "training"
+        ],
+        [
+          "unseen",
+          "new data"
+        ],
+        [
+          "generaliz"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How would overfitting affect training versus unseen examples, and how can we detect it?"
+    },
+    {
+      "id": "advanced_09",
+      "category": "paraphrase",
+      "raw": "The specific number of tokens (characters) that a model can fit into a single call is determined by the **model's architecture and the specific tokenization strategy** it uses. There is no single universal number like \"100 tokens\" for all models; instead, it depends on the following factors:\n\n### 1. Tokenization Strategy (The Most Critical Factor)\nThe model does not count every single character as a separate token. Instead, it uses a **token",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [],
+        [
+          "token"
+        ],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What limits how much conversation history plus a generated reply can fit into one model call?"
+    },
+    {
+      "id": "advanced_10",
+      "category": "paraphrase",
+      "raw": "The setting that controls how random the next-token choice is is **`random_seed`** (or `seed` in some contexts like `torch` or `numpy`).\n\nWhen this setting is **lowered** (or set to a very small value), the randomness of the next token generation is significantly reduced. This is because the random number generator (RNG) uses the seed to generate a sequence of pseudo-random numbers. If the seed is small, the sequence of numbers",
+      "proxy_pass": false,
+      "concept_matches": [
+        [
+          "random"
+        ],
+        [
+          "lower"
+        ],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Which setting changes how random the next-token choice is, and what happens when it is lowered?"
+    },
+    {
+      "id": "advanced_11",
+      "category": "paraphrase",
+      "raw": "In academic and professional contexts, a convincing model answer that invents facts is typically called a **fabricated answer** or, more specifically, a **hallucinated answer**.\n\nWhen an AI or a human writer generates a response that presents information as if it were real, without any source verification, it is often referred to as **hallucination**. This occurs when the model generates content that is factually incorrect, irrelevant, or misleading.\n\n### How External Evidence Helps",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "convincing"
+        ],
+        [
+          "incorrect",
+          "fabricat",
+          "invent"
+        ],
+        [
+          "external",
+          "evidence"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What do we call a convincing model answer that invents facts, and how might external evidence help?"
+    },
+    {
+      "id": "advanced_12",
+      "category": "paraphrase",
+      "raw": "An HTTP 429 (Too Many Requests) error typically occurs when a server detects that a client has sent too many requests within a short time window. This is a standard response from rate-limiting mechanisms designed to prevent abuse and ensure fair usage of network resources.\n\nHere are the most common reasons why an agent might receive this error:\n\n### 1. Excessive Request Frequency\nThe most direct cause is simply sending too many requests in a very short time. If",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "limit"
+        ],
+        [
+          "request"
+        ],
+        [
+          "time",
+          "window"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Why might an agent receive HTTP 429 after sending many requests in a short period?"
+    },
+    {
+      "id": "advanced_13",
+      "category": "paraphrase",
+      "raw": "The system you are describing is most likely a **Decision-Making System** (or a **Decision Support System**).\n\nIn this context, the system operates on a core loop where it:\n1.  **Chooses a tool**: It selects the appropriate method, algorithm, or heuristic to solve a specific problem.\n2.  **Inspects results**: It evaluates the output of that tool against the criteria defined in the system's rules.\n3.  **",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        [
+          "loop"
+        ],
+        [
+          "tool"
+        ],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What kind of system repeatedly chooses tools, inspects their results, and decides the next step toward a goal?"
+    },
+    {
+      "id": "advanced_14",
+      "category": "paraphrase",
+      "raw": "In most modern programming models (including Python, JavaScript, Java, C#, and others), when a model requests a function call with arguments, **the actual execution happens in the calling language's runtime environment**, not in the model itself.\n\nHere’s how it works:\n\n1. **Model Request**: The model (e.g., a Python `LLM` or a JavaScript `API`) sends a request to the underlying runtime (e.g., `python -m http.server",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "function"
+        ],
+        [
+          "model",
+          "llm"
+        ],
+        [
+          "program",
+          "runtime"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "When a model requests a function call with arguments, which component actually executes it?"
+    },
+    {
+      "id": "advanced_15",
+      "category": "paraphrase",
+      "raw": "To constrain a model response to specific fields and types, you need to leverage the **Schema** (or **Schema Definition**) that the model generates. This is the most robust and flexible approach because it allows you to define the exact structure of the output without hardcoding every possible field.\n\nHere is a step-by-step guide on how to implement this:\n\n### 1. Understand the Core Concept: Schema Definition\nThe model does not know what fields you want. Instead,",
+      "proxy_pass": false,
+      "concept_matches": [
+        [
+          "schema",
+          "types",
+          "type"
+        ],
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How can an application constrain a model response to fields and types so downstream code can process it?"
+    },
+    {
+      "id": "advanced_16",
+      "category": "paraphrase",
+      "raw": "The open protocol you are looking for is **HTTP/2**.\n\nWhile HTTP/1.1 is the standard for the underlying transport layer, **HTTP/2** is the protocol that enables **Stateless Streaming** and **Multi-Client Support**, which are the critical features for allowing compatible AI apps to reuse external tools and data without requiring a full reconnection or re-authentication for every request.\n\nHere is how HTTP/2 achieves this:\n\n*   **State",
+      "proxy_pass": true,
+      "concept_matches": [
+        [
+          "open",
+          "standard"
+        ],
+        [
+          "protocol"
+        ],
+        [
+          "tool",
+          "data"
+        ],
+        [
+          "client",
+          "compatible",
+          "apps"
+        ]
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Which open protocol lets compatible AI apps reuse external tools and data exposed by a server?"
+    },
+    {
+      "id": "advanced_17",
+      "category": "absent",
+      "raw": "Direct Preference Optimization (DPO) learns from preference pairs by transforming a **preference function** (a function that assigns a score to each item) into a **utility function** (a function that assigns a score to a pair of items).\n\nHere is the step-by-step process:\n\n### 1. The Core Problem: Preference vs. Utility\nIn standard reinforcement learning, an agent learns to maximize a **utility function** $U(x, y)$, which represents",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does Direct Preference Optimization learn from preference pairs?"
+    },
+    {
+      "id": "advanced_18",
+      "category": "absent",
+      "raw": "In the context of **Proximal Policy Optimization (PPO)**, the **clipped objective** is a critical component that acts as a safeguard against catastrophic regression and ensures that the policy remains within a bounded region of the parameter space.\n\nHere is a detailed breakdown of its role:\n\n### 1. The Problem: Catastrophic Regression\nThe primary motivation for clipping in PPO is to prevent the policy from drifting too far from the optimal policy.\n*   **",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "Describe the role of the clipped objective in Proximal Policy Optimization."
+    },
+    {
+      "id": "advanced_19",
+      "category": "absent",
+      "raw": "Reinforcement Learning from Human Feedback (RLHF) is a critical paradigm in machine learning that aims to align large language models (LLMs) with human preferences. It is not a single stage but rather a **multi-stage iterative process** designed to refine the model's behavior through interaction with human evaluators.\n\nHere is a breakdown of the key stages involved in the RLHF pipeline:\n\n### 1. Human Evaluation (The \"Human\" Phase)\nThis is the",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What stages are involved in Reinforcement Learning from Human Feedback?"
+    },
+    {
+      "id": "advanced_20",
+      "category": "absent",
+      "raw": "A **Mixture of Experts (MoE)** model routes tokens to specialists by using a **pointer mechanism** that dynamically selects the most relevant expert based on the input token's context. Unlike a standard Transformer where every token is processed by every expert, MoE reduces the number of parameters by selecting only a subset of experts for each token.\n\nHere is the step-by-step process of how this routing works:\n\n### 1. The Core Mechanism: Pointer Attention\nThe",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does a Mixture of Experts model route tokens to specialists?"
+    },
+    {
+      "id": "advanced_21",
+      "category": "absent",
+      "raw": "Diffusion models learn to remove noise from a sample through a **two-stage process** that combines **generative modeling** (creating the noisy image) and **denoising** (reducing that noise). Here's how the learning happens:\n\n---\n\n### **1. The Two-Stage Architecture**\nDiffusion models operate in two stages:\n- **Stage 1 (Generative)**: Creates a noisy version of the target image.\n- **Stage",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does a diffusion model learn to remove noise from a sample?"
+    },
+    {
+      "id": "advanced_22",
+      "category": "absent",
+      "raw": "Cosine similarity measures the **angle between two vectors** in a vector space, ignoring their magnitude (length). It is a dimensionless scalar value that ranges from **-1 to +1**, where:\n\n- **-1** indicates the vectors are **antiparallel** (point in opposite directions).\n- **0** indicates the vectors are **orthogonal** (perpendicular).\n- **+1** indicates the vectors are **parallel** (point in the same direction",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does cosine similarity compare two embedding vectors?"
+    },
+    {
+      "id": "advanced_23",
+      "category": "absent",
+      "raw": "BM25 (Bilingual Multi-Query) is a **weighted sum of two components**:\n\n1.  **The Query Component**: This measures how well the query matches the document's text. It uses a **TF-IDF (Term Frequency-Inverse Document Frequency)** score.\n2.  **The Document Component**: This measures how well the document matches the query's intent. It uses a **Cosine Similarity** score.\n\nThe final ranking score is calculated",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "What does BM25 use to rank a document for a search query?"
+    },
+    {
+      "id": "advanced_24",
+      "category": "absent",
+      "raw": "Beam search keeps multiple candidate continuations by maintaining a **current best path** and a **queue of potential next moves**. Here is the step-by-step mechanism:\n\n### 1. Initialization\nThe process begins with a **current path** (a sequence of tokens) and an empty queue.\n*   **Current Path**: Represents the sequence of tokens already generated.\n*   **Queue**: Initially empty, containing only the current path.\n\n### 2. Expansion (",
+      "proxy_pass": false,
+      "concept_matches": [
+        [],
+        []
+      ],
+      "forbidden_matches": [],
+      "requires_manual_review": true,
+      "question": "How does beam search keep multiple candidate continuations?"
+    }
+  ]
+}
