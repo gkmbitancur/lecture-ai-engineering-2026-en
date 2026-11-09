@@ -1,0 +1,23 @@
+                 pydantic-ai v2.57.0 • Python 3.13.0
+
+      / \        agent: target • model: google:gemini-3.5-flash-lite
+     /   \         output: str | DeferredToolRequests • tools: 4 • capabilities: 0
+   /___.___\
+  /    |    \    observability: off — see every model and tool call live, with cost
+/      |      \    set it up free with Logfire and a GitHub login: https://pydantic.dev/ai-setup.md
+`---.._|_..---'    or use any OpenTelemetry backend: https://pydantic.dev/docs/ai/logfire/#otel
+
+                 goes away once observability is on — or PYDANTIC_AI_NO_BANNER=1
+[model] gemini-3.5-flash-lite
+Here is a review question from Lecture 02:
+
+**Question:** What does Pretraining mean?
+
+*(Hint: Think about the foundational training phase where a model learns language patterns and general common sense from massive amounts of text data before any task-specific fine-tuning.)*
+
+Lecture 02
+
+--- trace ---
+[tool call]   make_quiz({'lecture': 2})
+[tool return] make_quiz -> {"lecture": 2, "term": "Pretraining", "question": "What does Pretraining mean?", "answer": "The initial stage of trainin…
+[usage] RunUsage(cost=Decimal('0.0005353'), details={'text_prompt_tokens': 1151}, input_text_tokens=1151, input_tokens=1151, output_tokens=76, requests=2, tool_calls=1)

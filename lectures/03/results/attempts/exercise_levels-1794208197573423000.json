@@ -1,0 +1,9 @@
+{
+  "label": "exercise_levels",
+  "condition": "after",
+  "question": "What are the 3 homework levels in the AIE2026 course?",
+  "model": "gemini-3.5-flash-lite",
+  "started_at": "2026-11-09T07:08:23.081739+00:00",
+  "error": "UsageLimitExceeded: The next request would exceed the request_limit of 6. Consider raising the limit, or see the docs on usage limits for budget-aware patterns: https://pydantic.dev/docs/ai/core-concepts/agent/#usage-limits",
+  "elapsed_seconds": 6.582
+}

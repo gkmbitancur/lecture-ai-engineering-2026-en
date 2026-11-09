@@ -1,0 +1,169 @@
+{
+  "label": "exercise_tag",
+  "condition": "after",
+  "question": "What is a lecNN-start tag in the AIE2026 course?",
+  "model": "gemini-3.5-flash-lite",
+  "started_at": "2026-11-09T07:08:09.968712+00:00",
+  "answer": "A **lecNN-start tag** is a Git tag placed on the starting code for each lecture's exercises in the AIE2026 course repository (for example, `lec03-start`). It serves as a clean starting point for a session's exercises—meaning that even if you haven't finished the previous lecture, you can create a new working branch directly from this tag to jump into the current lecture's materials.\n\nLecture 01",
+  "requests": 2,
+  "usage": {
+    "input_tokens": 947,
+    "cache_write_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 117,
+    "input_audio_tokens": 0,
+    "cache_audio_read_tokens": 0,
+    "output_audio_tokens": 0,
+    "audio_seconds": 0,
+    "details": {
+      "text_prompt_tokens": 947
+    },
+    "cost": "0.0005766",
+    "requests": 2,
+    "tool_calls": 1
+  },
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "What is a lecNN-start tag in the AIE2026 course?",
+          "timestamp": "2026-11-09T07:08:10.043866Z",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "timestamp": "2026-11-09T07:08:10.044093Z",
+      "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+      "kind": "request",
+      "run_id": "01a1bf22-c7b2-711e-919b-fd004ca3e183",
+      "conversation_id": "01a1bf22-c7b2-711e-919b-fd01881e425b",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "search_glossary",
+          "args": {
+            "query": "lecNN-start"
+          },
+          "tool_call_id": "call_8607150829643071800",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": "google",
+          "provider_details": {
+            "thought_signature": "EmAKXgFpFH0TFRUgTOsjtvob5Zu+oZtMFEqF7ZzgCHl2IGF2SbczMu5xYaVWDGTfQFrEI7JSDZ/6Wty4DvqYo+dwpSyHDVrOB+31Ase//pr37SElmT8THoQrWd6AFe+pe74="
+          },
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 412,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 20,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "text_prompt_tokens": 412
+        },
+        "cost": "0.0001736",
+        "input_text_tokens": 412
+      },
+      "model_name": "gemini-3.5-flash-lite",
+      "timestamp": "2026-11-09T07:08:11.679135Z",
+      "kind": "response",
+      "provider_name": "google",
+      "provider_url": "https://generativelanguage.googleapis.com/",
+      "provider_details": {
+        "finish_reason": "STOP",
+        "service_tier": "standard"
+      },
+      "provider_response_id": "WnHxatWeN6LhrfcPmovUqQ4",
+      "finish_reason": "stop",
+      "run_id": "01a1bf22-c7b2-711e-919b-fd004ca3e183",
+      "conversation_id": "01a1bf22-c7b2-711e-919b-fd01881e425b",
+      "metadata": null,
+      "workspace_ref": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "search_glossary",
+          "content": "[{\"term\": \"lecNN-start tag\", \"lecture\": 1, \"definition\": \"A Git tag on the starting code for each lecture's exercises in the AIE2026 course repository (for example, lec03-start). Even if you have not finished the previous lecture, creating a branch from this tag lets you start the current lecture's exercises.\", \"related\": [\"branch\"]}]",
+          "tool_call_id": "call_8607150829643071800",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-09T07:08:11.686424Z",
+          "outcome": "success",
+          "part_kind": "tool-return"
+        }
+      ],
+      "timestamp": "2026-11-09T07:08:11.686980Z",
+      "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+      "kind": "request",
+      "run_id": "01a1bf22-c7b2-711e-919b-fd004ca3e183",
+      "conversation_id": "01a1bf22-c7b2-711e-919b-fd01881e425b",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "content": "A **lecNN-start tag** is a Git tag placed on the starting code for each lecture's exercises in the AIE2026 course repository (for example, `lec03-start`). It serves as a clean starting point for a session's exercises—meaning that even if you haven't finished the previous lecture, you can create a new working branch directly from this tag to jump into the current lecture's materials.\n\nLecture 01",
+          "id": null,
+          "provider_name": "google",
+          "provider_details": {
+            "thought_signature": "EmAKXgFpFH0TvHuasTz0OXUZhMJkvaMZUF3zUPEypk33yc9bgZPkfHdswJdBbshxoagAGLjYLUnqVrWQsO7YAM9QzDEtqx7K6net7A72hGKDr3/DAzwqJ6Xm5+6ZEJDuAM0="
+          },
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 535,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 97,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "text_prompt_tokens": 535
+        },
+        "cost": "0.0004030",
+        "input_text_tokens": 535
+      },
+      "model_name": "gemini-3.5-flash-lite",
+      "timestamp": "2026-11-09T07:08:13.047327Z",
+      "kind": "response",
+      "provider_name": "google",
+      "provider_url": "https://generativelanguage.googleapis.com/",
+      "provider_details": {
+        "finish_reason": "STOP",
+        "service_tier": "standard"
+      },
+      "provider_response_id": "XHHxavPBBfKU1e8PyLGE4As",
+      "finish_reason": "stop",
+      "run_id": "01a1bf22-c7b2-711e-919b-fd004ca3e183",
+      "conversation_id": "01a1bf22-c7b2-711e-919b-fd01881e425b",
+      "metadata": null,
+      "workspace_ref": null,
+      "failed_attempts": null,
+      "state": "complete"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "search_glossary",
+      "args": {
+        "query": "lecNN-start"
+      }
+    }
+  ],
+  "error": null,
+  "elapsed_seconds": 3.104
+}

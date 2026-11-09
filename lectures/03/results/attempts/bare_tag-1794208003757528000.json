@@ -1,0 +1,9 @@
+{
+  "label": "bare_tag",
+  "condition": "bare",
+  "question": "What is a lecNN-start tag in the AIE2026 course?",
+  "model": "gemini-3.5-flash-lite",
+  "started_at": "2026-11-09T07:05:36.124943+00:00",
+  "error": "RuntimeError: Cannot send a request, as the client has been closed.",
+  "elapsed_seconds": 0.103
+}

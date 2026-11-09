@@ -1,0 +1,29 @@
+Tools visible to the model: 4
+
+[search_glossary]
+  Search the course glossary and return definitions and the sessions that cover the terms.
+
+  Use before answering about AI engineering terms or words specific to this course (AIE2026).
+  Put only one term to look up in query (for example, "LoRA").
+  Arguments: {"query": {"type": "string"}}
+
+[get_lecture_summary]
+  Return key points from the specified session (an integer starting at 1).
+
+  Use when asked about session content or relationships, such as "What will we learn in Lecture 03?".
+  Arguments: {"lecture": {"type": "integer"}}
+
+[make_quiz]
+  Create one review question and its answer from a specified lecture's glossary.
+
+  Use when a learner requests practice or a review question. The answer comes
+  directly from the course glossary; choose the first matching term consistently.
+  Arguments: {"lecture": {"type": "integer"}}
+
+[save_learning_log]
+  Save a learner-requested study reflection after the CLI obtains approval.
+
+  Use only when asked to record learning. Pass the session number, a short topic,
+  and the reflection to save. The harness pauses before this function executes.
+  Each approved call creates a new JSON record; it never overwrites older logs.
+  Arguments: {"lecture": {"type": "integer"}, "topic": {"type": "string"}, "reflection": {"type": "string"}}

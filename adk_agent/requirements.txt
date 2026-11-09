@@ -1,0 +1,2 @@
+# Optional Advanced comparison; core course dependencies remain pinned in uv.lock.
+google-adk==2.14.0

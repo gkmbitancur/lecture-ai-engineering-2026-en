@@ -1,0 +1,197 @@
+{
+  "label": "exercise_comparison",
+  "condition": "after",
+  "question": "What is the difference between LoRA and QLoRA?",
+  "model": "gemini-3.5-flash-lite",
+  "started_at": "2026-11-09T07:10:36.885627+00:00",
+  "answer": "To understand the difference between LoRA and QLoRA, it helps to think about how they handle the model's weights and memory during fine-tuning:\n\n* **LoRA (Low-Rank Adaptation):** Freezes the original pretrained model weights and adds pairs of small, trainable low-rank matrices to approximate the weight updates. This drastically reduces the number of parameters you need to train, but the base model is typically kept in standard precision (e.g., 16-bit).\n* **QLoRA (Quantized LoRA):** Takes the concept of LoRA a step further by **quantizing** the base model's weights down to a lower precision (such as 4-bit). It then applies LoRA on top of these quantized weights. \n\nThink about it this way: LoRA reduces the number of *trainable* parameters, while QLoRA additionally shrinks the *memory footprint* of the base model itself so you can train larger models on more modest hardware. \n\nTo explore this further, consider how reducing the bit precision of the base model might affect memory usage versus model accuracy. \n\n(Lecture 02)",
+  "requests": 2,
+  "usage": {
+    "input_tokens": 1337,
+    "cache_write_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 276,
+    "input_audio_tokens": 0,
+    "cache_audio_read_tokens": 0,
+    "output_audio_tokens": 0,
+    "audio_seconds": 0,
+    "details": {
+      "text_prompt_tokens": 1337
+    },
+    "cost": "0.0010911",
+    "requests": 2,
+    "tool_calls": 2
+  },
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "What is the difference between LoRA and QLoRA?",
+          "timestamp": "2026-11-09T07:10:36.965051Z",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "timestamp": "2026-11-09T07:10:36.965427Z",
+      "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+      "kind": "request",
+      "run_id": "01a1bf25-059f-7377-99d6-2fcd52c5fed5",
+      "conversation_id": "01a1bf25-059f-7377-99d6-2fcee31e2da7",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "search_glossary",
+          "args": {
+            "query": "LoRA"
+          },
+          "tool_call_id": "call_10444157656673331947",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": "google",
+          "provider_details": {
+            "thought_signature": "EmAKXgFpFH0T/mA9pJKBI9jWsFLv0fqzH1hgSgGKd8Kluc9+aNVJ8fa/nefI0+mlwxTjakCFe58ZjUySBPSQrB0zaYeeicb6ssW8c44epho2nr6EyW2rs9WOWAcOU8WNUbQ="
+          },
+          "part_kind": "tool-call"
+        },
+        {
+          "tool_name": "search_glossary",
+          "args": {
+            "query": "QLoRA"
+          },
+          "tool_call_id": "call_10444157656673331816",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": null,
+          "provider_details": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 406,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 37,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "text_prompt_tokens": 406
+        },
+        "cost": "0.0002143",
+        "input_text_tokens": 406
+      },
+      "model_name": "gemini-3.5-flash-lite",
+      "timestamp": "2026-11-09T07:10:38.673370Z",
+      "kind": "response",
+      "provider_name": "google",
+      "provider_url": "https://generativelanguage.googleapis.com/",
+      "provider_details": {
+        "finish_reason": "STOP",
+        "service_tier": "standard"
+      },
+      "provider_response_id": "7XHxavzPFqLhrfcPmovUqQ4",
+      "finish_reason": "stop",
+      "run_id": "01a1bf25-059f-7377-99d6-2fcd52c5fed5",
+      "conversation_id": "01a1bf25-059f-7377-99d6-2fcee31e2da7",
+      "metadata": null,
+      "workspace_ref": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "search_glossary",
+          "content": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"A PEFT method that freezes pretrained weights, represents weight updates as the product of two small matrices (low-rank matrices), and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}, {\"term\": \"Rank (LoRA r)\", \"lecture\": 2, \"definition\": \"A hyperparameter that determines the size of the low-rank matrices used in LoRA. A larger value increases expressive capacity, but also increases the number of trainable parameters and memory use.\", \"related\": [\"lora\"]}, {\"term\": \"QLoRA\", \"lecture\": 2, \"definition\": \"A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.\", \"related\": [\"lora\", \"quantization\"]}]",
+          "tool_call_id": "call_10444157656673331947",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-09T07:10:38.681571Z",
+          "outcome": "success",
+          "part_kind": "tool-return"
+        },
+        {
+          "tool_name": "search_glossary",
+          "content": "[{\"term\": \"QLoRA\", \"lecture\": 2, \"definition\": \"A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.\", \"related\": [\"lora\", \"quantization\"]}, {\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"A PEFT method that freezes pretrained weights, represents weight updates as the product of two small matrices (low-rank matrices), and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}]",
+          "tool_call_id": "call_10444157656673331816",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-09T07:10:38.681659Z",
+          "outcome": "success",
+          "part_kind": "tool-return"
+        }
+      ],
+      "timestamp": "2026-11-09T07:10:38.682732Z",
+      "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+      "kind": "request",
+      "run_id": "01a1bf25-059f-7377-99d6-2fcd52c5fed5",
+      "conversation_id": "01a1bf25-059f-7377-99d6-2fcee31e2da7",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "content": "To understand the difference between LoRA and QLoRA, it helps to think about how they handle the model's weights and memory during fine-tuning:\n\n* **LoRA (Low-Rank Adaptation):** Freezes the original pretrained model weights and adds pairs of small, trainable low-rank matrices to approximate the weight updates. This drastically reduces the number of parameters you need to train, but the base model is typically kept in standard precision (e.g., 16-bit).\n* **QLoRA (Quantized LoRA):** Takes the concept of LoRA a step further by **quantizing** the base model's weights down to a lower precision (such as 4-bit). It then applies LoRA on top of these quantized weights. \n\nThink about it this way: LoRA reduces the number of *trainable* parameters, while QLoRA additionally shrinks the *memory footprint* of the base model itself so you can train larger models on more modest hardware. \n\nTo explore this further, consider how reducing the bit precision of the base model might affect memory usage versus model accuracy. \n\n(Lecture 02)",
+          "id": null,
+          "provider_name": "google",
+          "provider_details": {
+            "thought_signature": "EmAKXgFpFH0TfBqLP7f+I5gdfexf1VPAPy6drYFHLWhuIdBZXRYBn5hDPmYbgSfEGb2u/D/zS35S/khNfTjLufJc/eEydjruftBA4P0mSGCreX5vhmV2RDo2F/reNeJG09A="
+          },
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 931,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 239,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "text_prompt_tokens": 931
+        },
+        "cost": "0.0008768",
+        "input_text_tokens": 931
+      },
+      "model_name": "gemini-3.5-flash-lite",
+      "timestamp": "2026-11-09T07:10:40.396220Z",
+      "kind": "response",
+      "provider_name": "google",
+      "provider_url": "https://generativelanguage.googleapis.com/",
+      "provider_details": {
+        "finish_reason": "STOP",
+        "service_tier": "standard"
+      },
+      "provider_response_id": "73HxarzCBJXb9tMP1Keg8Ak",
+      "finish_reason": "stop",
+      "run_id": "01a1bf25-059f-7377-99d6-2fcd52c5fed5",
+      "conversation_id": "01a1bf25-059f-7377-99d6-2fcee31e2da7",
+      "metadata": null,
+      "workspace_ref": null,
+      "failed_attempts": null,
+      "state": "complete"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "search_glossary",
+      "args": {
+        "query": "LoRA"
+      }
+    },
+    {
+      "name": "search_glossary",
+      "args": {
+        "query": "QLoRA"
+      }
+    }
+  ],
+  "error": null,
+  "elapsed_seconds": 3.512
+}

@@ -16,7 +16,7 @@ import inspect
 import json
 from pathlib import Path
 
-from pydantic_ai import Agent
+from pydantic_ai import Agent, DeferredToolRequests, DeferredToolResults
 from pydantic_ai.exceptions import ModelHTTPError
 from fastmcp import Client
 from pydantic_ai.mcp import MCPToolset, StdioTransport
@@ -24,13 +24,14 @@ from pydantic_ai.messages import ToolCallPart, ToolReturnPart
 from pydantic_ai.models.google import GoogleModel
 from pydantic_ai.models.test import TestModel
 from pydantic_ai.providers.google import GoogleProvider
+from pydantic_ai.usage import RunUsage, UsageLimits
 
 from app import tools
 from app.config import MODEL, api_error_message, get_api_key
 
 INSTRUCTIONS = """\
 You are a learning support agent for the AI Engineering Pilot Course (AIE2026).
-- Always check the glossary with search_glossary before answering about terms or course-specific information.
+- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.
 - Use get_lecture_summary when asked about the content of a session.
 - If something is absent from the glossary, say "It is not in the glossary" instead of making assertions based on guesses.
 - End your answer by indicating the relevant session (Lecture NN).
@@ -38,11 +39,11 @@ You are a learning support agent for the AI Engineering Pilot Course (AIE2026).
 """
 
 # Pass the model at runtime (so tests can substitute TestModel without calling an API)
-agent = Agent(instructions=INSTRUCTIONS)
+agent = Agent(instructions=INSTRUCTIONS, output_type=[str, DeferredToolRequests])
 agent.tool_plain(tools.search_glossary)
 agent.tool_plain(tools.get_lecture_summary)
-
-# TODO(Lecture 03 exercise): create make_quiz in tools.py and register it here
+agent.tool_plain(tools.make_quiz)
+agent.tool_plain(tools.save_learning_log, requires_approval=True)
 
 # Lecture 05: MCP server configuration file. Uses the same "mcpServers" format as Claude Desktop and Cursor
 MCP_CONFIG = Path(__file__).resolve().parent / "mcp_servers.json"
@@ -110,6 +111,31 @@ def print_trace(result) -> None:
     print(f"[usage] {result.usage}")
 
 
+def run_with_approval(target: Agent, question: str, model, input_fn=input):
+    """Pause before writes, display exact arguments, and resume only after a decision.
+
+    Empty input, unrecognized input, and EOF deny the pending operation. A shared
+    request budget bounds the entire conversation, including approval resumptions.
+    """
+    usage = RunUsage()
+    limits = UsageLimits(request_limit=8, tool_calls_limit=12)
+    result = target.run_sync(question, model=model, usage=usage, usage_limits=limits)
+    while isinstance(result.output, DeferredToolRequests):
+        decisions = DeferredToolResults()
+        for call in result.output.approvals:
+            prompt = f"Allow {call.tool_name} with {json.dumps(call.args_as_dict(), ensure_ascii=False)}? [y/N] "
+            try:
+                reply = input_fn(prompt)
+            except EOFError:
+                reply = ""
+            decisions.approvals[call.tool_call_id] = reply.strip().casefold() in {"y", "yes"}
+        if result.output.calls:
+            raise RuntimeError("External deferred calls are not supported by this CLI.")
+        result = target.run_sync(model=model, message_history=result.all_messages(),
+            deferred_tool_results=decisions, usage=usage, usage_limits=limits)
+    return result
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ask the learning support agent a question")
     parser.add_argument("question", nargs="?")
@@ -129,7 +155,7 @@ def main() -> None:
     if args.mcp:
         print("[tools] MCP servers (app/mcp_servers.json)")
     try:
-        result = target.run_sync(args.question, model=build_model())
+        result = run_with_approval(target, args.question, build_model())
     except ModelHTTPError as e:
         print(api_error_message(e.status_code, str(e.body)[:200]))
         raise SystemExit(1)

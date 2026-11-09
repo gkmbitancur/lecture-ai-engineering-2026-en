@@ -1,0 +1,3 @@
+Verified 12 Pydantic/bare records, 3 ADK event traces, 2 approval outcomes, data hashes, request/token counts and quiz source fidelity.
+Successful controlled answers: 11 / 12
+Recorded controlled LLM requests: 32

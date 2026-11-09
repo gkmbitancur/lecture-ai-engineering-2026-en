@@ -1,0 +1,259 @@
+{
+  "pydantic": [
+    {
+      "record": "basic_1_after.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 1230,
+      "output_tokens": 256
+    },
+    {
+      "record": "basic_1_before.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 1184,
+      "output_tokens": 264
+    },
+    {
+      "record": "basic_2_after.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 1230,
+      "output_tokens": 234
+    },
+    {
+      "record": "basic_2_before.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 1184,
+      "output_tokens": 239
+    },
+    {
+      "record": "basic_3_after.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 1230,
+      "output_tokens": 280
+    },
+    {
+      "record": "basic_3_before.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 1184,
+      "output_tokens": 215
+    },
+    {
+      "record": "exercise_comparison.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "search_glossary",
+          "args": {
+            "query": "LoRA"
+          }
+        },
+        {
+          "name": "search_glossary",
+          "args": {
+            "query": "QLoRA"
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 1337,
+      "output_tokens": 276
+    },
+    {
+      "record": "exercise_levels.json",
+      "requests": 6,
+      "tool_calls": [
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 1
+          }
+        },
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 2
+          }
+        },
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          }
+        },
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 4
+          }
+        },
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 5
+          }
+        },
+        {
+          "name": "get_lecture_summary",
+          "args": {
+            "lecture": 6
+          }
+        }
+      ],
+      "completed": false,
+      "input_tokens": 8360,
+      "output_tokens": 96
+    },
+    {
+      "record": "exercise_quiz.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "make_quiz",
+          "args": {
+            "lecture": 2
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 899,
+      "output_tokens": 92
+    },
+    {
+      "record": "exercise_tag.json",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "search_glossary",
+          "args": {
+            "query": "lecNN-start"
+          }
+        }
+      ],
+      "completed": true,
+      "input_tokens": 947,
+      "output_tokens": 117
+    },
+    {
+      "record": "bare_levels.json",
+      "requests": 1,
+      "tool_calls": [],
+      "completed": true,
+      "input_tokens": null,
+      "output_tokens": null
+    },
+    {
+      "record": "bare_tag.json",
+      "requests": 1,
+      "tool_calls": [],
+      "completed": true,
+      "input_tokens": null,
+      "output_tokens": null
+    }
+  ],
+  "adk": [
+    {
+      "record": "adk_comparison.jsonl",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "search_glossary",
+          "args": {
+            "query": "LoRA"
+          }
+        },
+        {
+          "name": "search_glossary",
+          "args": {
+            "query": "QLoRA"
+          }
+        }
+      ],
+      "answer": "To understand the difference, it helps to look at how both approaches handle parameter-efficient fine-tuning (PEFT):\n\n* **LoRA (Low-Rank Adaptation)** freezes the pretrained model weights and represents weight updates using the product of two small, low-rank matrices. This drastically reduces the number of trainable parameters while keeping the base model in standard precision (e.g., 16-bit).\n* **QLoRA (Quantized LoRA)** builds upon LoRA by quantizing the base model weights down to a lower precision (such as 4-bit). It then applies LoRA on top of these quantized weights, which significantly reduces memory consumption and allows much larger models to be fine-tuned on smaller GPUs.\n\nThink about how quantization affects the memory footprint of the base weights during training versus leaving them unquantized. How might that trade-off impact your choice of hardware?\n\nLecture 02",
+      "input_tokens": 1461,
+      "output_tokens": 226
+    },
+    {
+      "record": "adk_levels.jsonl",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "search_glossary",
+          "args": {
+            "query": "homework levels"
+          }
+        }
+      ],
+      "answer": "The three homework levels in the AIE2026 course are:\n\n1. **Basic**: Review lecture content.\n2. **Implementation**: Write your own code.\n3. **Advanced**: Research and experimentation.\n\n*(Note: Completing any single one of these levels fulfills the homework requirement for that lecture, and as a rule, homework is not graded.)*\n\n(Lecture 1)",
+      "input_tokens": 1073,
+      "output_tokens": 101
+    },
+    {
+      "record": "adk_quiz.jsonl",
+      "requests": 2,
+      "tool_calls": [
+        {
+          "name": "make_quiz",
+          "args": {
+            "lecture": 2
+          }
+        }
+      ],
+      "answer": "Here is a review question from Lecture 02 based on the course glossary:\n\n**Question:** What does Pretraining mean?\n\n*(Hint: Think about the foundational stage of building a large language model where it learns general language patterns and common sense from massive amounts of text before any specific task tuning takes place!)*\n\n(Lecture 02)",
+      "input_tokens": 1025,
+      "output_tokens": 85
+    }
+  ]
+}
