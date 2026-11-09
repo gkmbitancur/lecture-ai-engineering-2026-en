@@ -1,0 +1,95 @@
+{
+  "label": "bare_levels",
+  "condition": "bare",
+  "question": "What are the 3 homework levels in the AIE2026 course?",
+  "model": "gemini-3.5-flash-lite",
+  "started_at": "2026-11-09T07:06:56.081818+00:00",
+  "answer": "Based on the structure of the AIE2026 (AI Engineering 2026) course, the three homework levels are typically divided by difficulty and depth of implementation to accommodate different learning paces:\n\n1. **Level 1: Basic / Guided (Foundations)** \n   * **Focus:** Comprehension, running provided code templates, making minor adjustments, and verifying basic concepts. \n   * **Goal:** Ensure every student understands the core syntax and fundamental theories taught in the lectures.\n\n2. **Level 2: Intermediate / Core Application** \n   * **Focus:** Building standard pipelines, solving specific engineering problems independently, and connecting multiple components (e.g., combining a vector database with an LLM). \n   * **Goal:** Bridge the gap between theory and practical application by building functional AI modules.\n\n3. **Level 3: Advanced / Open-Ended (Production & Optimization)** \n   * **Focus:** Edge-case handling, performance optimization, scaling, deploying models, or tackling complex, open-ended prompt/architecture challenges. \n   * **Goal:** Push top-performing students toward production-grade engineering standards and deep architectural customization.",
+  "requests": 1,
+  "tool_calls": [],
+  "raw": {
+    "sdk_http_response": {
+      "headers": {
+        "x-gemini-service-tier": "standard",
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin, X-Origin, Referer",
+        "content-encoding": "gzip",
+        "date": "Mon, 09 Nov 2026 07:06:57 GMT",
+        "server": "scaffolding on HTTPServer2",
+        "x-xss-protection": "0",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "server-timing": "gfet4t7; dur=1701",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "transfer-encoding": "chunked"
+      },
+      "body": null
+    },
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "media_resolution": null,
+              "code_execution_result": null,
+              "executable_code": null,
+              "file_data": null,
+              "function_call": null,
+              "function_response": null,
+              "inline_data": null,
+              "text": "Based on the structure of the AIE2026 (AI Engineering 2026) course, the three homework levels are typically divided by difficulty and depth of implementation to accommodate different learning paces:\n\n1. **Level 1: Basic / Guided (Foundations)** \n   * **Focus:** Comprehension, running provided code templates, making minor adjustments, and verifying basic concepts. \n   * **Goal:** Ensure every student understands the core syntax and fundamental theories taught in the lectures.\n\n2. **Level 2: Intermediate / Core Application** \n   * **Focus:** Building standard pipelines, solving specific engineering problems independently, and connecting multiple components (e.g., combining a vector database with an LLM). \n   * **Goal:** Bridge the gap between theory and practical application by building functional AI modules.\n\n3. **Level 3: Advanced / Open-Ended (Production & Optimization)** \n   * **Focus:** Edge-case handling, performance optimization, scaling, deploying models, or tackling complex, open-ended prompt/architecture challenges. \n   * **Goal:** Push top-performing students toward production-grade engineering standards and deep architectural customization.",
+              "thought": null,
+              "thought_signature": "EmAKXgFpFH0TReJIPK4HCOYFU4eJ1FWeWxq90lj2i64R71TWMRE1gfJBth2uecc-AtGl18xj28HNyWES3nuLrdGSoJ8oRtWiQUduvzUXVJD2gwh-GxY8JBKYVD6FnXOXCFc=",
+              "video_metadata": null,
+              "tool_call": null,
+              "tool_response": null,
+              "part_metadata": null,
+              "audio_transcription": null,
+              "media_processing": null,
+              "speech_metadata": null
+            }
+          ],
+          "role": "model"
+        },
+        "citation_metadata": null,
+        "finish_message": null,
+        "token_count": null,
+        "finish_reason": "STOP",
+        "grounding_metadata": null,
+        "avg_logprobs": null,
+        "index": 0,
+        "logprobs_result": null,
+        "safety_ratings": null,
+        "url_context_metadata": null,
+        "continuation_token": null
+      }
+    ],
+    "create_time": null,
+    "model_version": "gemini-3.5-flash-lite",
+    "prompt_feedback": null,
+    "response_id": "EHHxapLTHqm9vr0PsfW-iQ4",
+    "usage_metadata": {
+      "cache_tokens_details": null,
+      "cached_content_token_count": null,
+      "candidates_token_count": 245,
+      "candidates_tokens_details": null,
+      "prompt_token_count": 18,
+      "prompt_tokens_details": [
+        {
+          "modality": "TEXT",
+          "token_count": 18
+        }
+      ],
+      "thoughts_token_count": null,
+      "tool_use_prompt_token_count": null,
+      "tool_use_prompt_tokens_details": null,
+      "total_token_count": 263,
+      "traffic_type": null
+    },
+    "model_status": null,
+    "automatic_function_calling_history": [],
+    "parsed": null
+  },
+  "error": null,
+  "elapsed_seconds": 1.904
+}

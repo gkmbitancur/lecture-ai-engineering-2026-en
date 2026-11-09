@@ -1,0 +1,169 @@
+{
+  "label": "basic_3_after",
+  "condition": "after",
+  "question": "What will we learn in Lecture 03?",
+  "model": "gemini-3.5-flash-lite",
+  "started_at": "2026-11-09T07:12:05.562854+00:00",
+  "answer": "In Lecture 03, you will explore **AI Agents**, covering how they operate and how to build them. Here is a summary of what you will learn:\n\n- **The Basic Agent Structure:** Understand that an AI agent consists of a **model + loop + tools**, where an LLM calls tools, reviews the results, and decides its next action in a loop.\n- **Tools & Descriptions:** Learn how models use tool names, argument types, and descriptions to request calls, and how the wording of a description affects behavior.\n- **The Cost of the Agent Loop:** Examine how multiple LLM calls per question impact response times, charges, and rate limits.\n- **Harnesses & Frameworks:** Explore harnesses (like Pi) and frameworks—with a focus on **Pydantic AI**—to define tools, use typed outputs, and test behavior using a `TestModel` without making live API calls.\n- **Guardrails & Human-in-the-Loop:** Learn how to restrict permissions or require human confirmation for sensitive, hard-to-undo operations like file writes.\n\nIn the hands-on exercises, you will test a glossary search agent, inspect which tools and arguments were called, and add a new tool yourself!\n\n(Lecture 03)",
+  "requests": 2,
+  "usage": {
+    "input_tokens": 1230,
+    "cache_write_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 280,
+    "input_audio_tokens": 0,
+    "cache_audio_read_tokens": 0,
+    "output_audio_tokens": 0,
+    "audio_seconds": 0,
+    "details": {
+      "text_prompt_tokens": 1230
+    },
+    "cost": "0.0010690",
+    "requests": 2,
+    "tool_calls": 1
+  },
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "What will we learn in Lecture 03?",
+          "timestamp": "2026-11-09T07:12:05.641720Z",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "timestamp": "2026-11-09T07:12:05.642062Z",
+      "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+      "kind": "request",
+      "run_id": "01a1bf26-6007-768c-8ff8-d8e77030adf1",
+      "conversation_id": "01a1bf26-6007-768c-8ff8-d8e81d7b6a8b",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "get_lecture_summary",
+          "args": {
+            "lecture": 3
+          },
+          "tool_call_id": "call_12726105511114513672",
+          "tool_kind": null,
+          "id": null,
+          "provider_name": "google",
+          "provider_details": {
+            "thought_signature": "EmAKXgFpFH0TNBsm3t0x+Bl3K2zzyAOZaBR8SBLTMbX/KxIoe2fkjFarukHmLzZoOvViNx8JbuRaU3+rJg4MdSb5nw6qIr/0Ov2XrGqfPb1cZDKLmR+N6mDh+0TA+MI8I5I="
+          },
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 404,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 16,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "text_prompt_tokens": 404
+        },
+        "cost": "0.0001612",
+        "input_text_tokens": 404
+      },
+      "model_name": "gemini-3.5-flash-lite",
+      "timestamp": "2026-11-09T07:12:07.035000Z",
+      "kind": "response",
+      "provider_name": "google",
+      "provider_url": "https://generativelanguage.googleapis.com/",
+      "provider_details": {
+        "finish_reason": "STOP",
+        "service_tier": "standard"
+      },
+      "provider_response_id": "RnLxaqP3AsSw2roPsvnlqQs",
+      "finish_reason": "stop",
+      "run_id": "01a1bf26-6007-768c-8ff8-d8e77030adf1",
+      "conversation_id": "01a1bf26-6007-768c-8ff8-d8e81d7b6a8b",
+      "metadata": null,
+      "workspace_ref": null,
+      "failed_attempts": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "get_lecture_summary",
+          "content": "# Lecture 03 AI Agents\n\n## Aims\n\n- Understand that an AI agent's basic structure is \"model + loop + tools\"\n- Build and run your own learning support agent that uses tools with Pydantic AI\n\n## Key Points\n\n1. **What is an agent?**: A system that achieves a goal through a loop in which an LLM calls tools, examines the results, and decides its next action.\n2. **Tools**: The model looks at tool names, descriptions, and argument types to request a call, while the program executes it. Description wording changes behavior.\n3. **Cost of the agent loop**: Multiple LLM calls for one question have a substantial effect on response time, charges, and rate limits.\n4. **Harness**: A program such as Claude Code or Pi that wraps an LLM with a loop, tools, and a UI. Pi is a thin harness with just four built-in tools (read, write, edit, bash).\n5. **Frameworks**: Pydantic AI (the main framework here) defines tools and outputs with types and supports checking behavior without API calls using a test model (TestModel). ADK is Google's framework, and adk web lets you follow its behavior visually.\n6. **Guardrails and Human-in-the-loop**: For operations that are hard to undo, such as writes, restrict permissions or request human confirmation.\n\n## What You Will Try in the Exercises\n\n- Ask a glossary search agent the same questions as in Lecture 01 and check that the answers improve\n- Read which tools were called with which arguments\n- Add one tool\n\n## Related Terms\n\nAI agent / agent loop / tool / tool description / structured output / harness / Pi / Pydantic AI / ADK / MCP / guardrail / Human-in-the-loop / TestModel\n",
+          "tool_call_id": "call_12726105511114513672",
+          "tool_kind": null,
+          "metadata": null,
+          "timestamp": "2026-11-09T07:12:07.039554Z",
+          "outcome": "success",
+          "part_kind": "tool-return"
+        }
+      ],
+      "timestamp": "2026-11-09T07:12:07.040213Z",
+      "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+      "kind": "request",
+      "run_id": "01a1bf26-6007-768c-8ff8-d8e77030adf1",
+      "conversation_id": "01a1bf26-6007-768c-8ff8-d8e81d7b6a8b",
+      "metadata": null,
+      "state": "complete"
+    },
+    {
+      "parts": [
+        {
+          "content": "In Lecture 03, you will explore **AI Agents**, covering how they operate and how to build them. Here is a summary of what you will learn:\n\n- **The Basic Agent Structure:** Understand that an AI agent consists of a **model + loop + tools**, where an LLM calls tools, reviews the results, and decides its next action in a loop.\n- **Tools & Descriptions:** Learn how models use tool names, argument types, and descriptions to request calls, and how the wording of a description affects behavior.\n- **The Cost of the Agent Loop:** Examine how multiple LLM calls per question impact response times, charges, and rate limits.\n- **Harnesses & Frameworks:** Explore harnesses (like Pi) and frameworks—with a focus on **Pydantic AI**—to define tools, use typed outputs, and test behavior using a `TestModel` without making live API calls.\n- **Guardrails & Human-in-the-Loop:** Learn how to restrict permissions or require human confirmation for sensitive, hard-to-undo operations like file writes.\n\nIn the hands-on exercises, you will test a glossary search agent, inspect which tools and arguments were called, and add a new tool yourself!\n\n(Lecture 03)",
+          "id": null,
+          "provider_name": "google",
+          "provider_details": {
+            "thought_signature": "EmAKXgFpFH0T0WkP+uCXBzTkCfACCKo6vVzAghIPc++yjJqw3u/dUzrYJmebwUN4wZaQNx1Bz/mvXFH8B8Ec1nHMLD2V+M4soEum3KPNHgBMw/If91SML371j4zi+bWGH3k="
+          },
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 826,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 264,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "audio_seconds": 0.0,
+        "details": {
+          "text_prompt_tokens": 826
+        },
+        "cost": "0.0009078",
+        "input_text_tokens": 826
+      },
+      "model_name": "gemini-3.5-flash-lite",
+      "timestamp": "2026-11-09T07:12:09.181754Z",
+      "kind": "response",
+      "provider_name": "google",
+      "provider_url": "https://generativelanguage.googleapis.com/",
+      "provider_details": {
+        "finish_reason": "STOP",
+        "service_tier": "standard"
+      },
+      "provider_response_id": "R3Lxaq_0E8Xt2roPyJ6ykAo",
+      "finish_reason": "stop",
+      "run_id": "01a1bf26-6007-768c-8ff8-d8e77030adf1",
+      "conversation_id": "01a1bf26-6007-768c-8ff8-d8e81d7b6a8b",
+      "metadata": null,
+      "workspace_ref": null,
+      "failed_attempts": null,
+      "state": "complete"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "get_lecture_summary",
+      "args": {
+        "lecture": 3
+      }
+    }
+  ],
+  "error": null,
+  "elapsed_seconds": 3.621
+}

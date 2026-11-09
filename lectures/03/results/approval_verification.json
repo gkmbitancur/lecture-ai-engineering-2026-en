@@ -1,0 +1,275 @@
+[
+  {
+    "model": "TestModel (offline simulation)",
+    "approved": false,
+    "files_before_approval": 0,
+    "files_after_decision": 0,
+    "requested_arguments": {
+      "lecture": 3,
+      "topic": "d",
+      "reflection": "d"
+    },
+    "answer": "{\"save_learning_log\":\"The tool call was denied.\"}",
+    "saved_records": [],
+    "messages": [
+      {
+        "parts": [
+          {
+            "content": "Save a learning record.",
+            "timestamp": "2026-11-09T07:02:39.592961Z",
+            "part_kind": "user-prompt"
+          }
+        ],
+        "timestamp": "2026-11-09T07:02:39.593150Z",
+        "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+        "kind": "request",
+        "run_id": "01a1bf1d-bce2-7559-8ea6-555cf9acda88",
+        "conversation_id": "01a1bf1d-bce2-7559-8ea6-555d1e66887f",
+        "metadata": null,
+        "state": "complete"
+      },
+      {
+        "parts": [
+          {
+            "tool_name": "save_learning_log",
+            "args": {
+              "lecture": 3,
+              "topic": "d",
+              "reflection": "d"
+            },
+            "tool_call_id": "pyd_ai_tool_call_id__save_learning_log",
+            "tool_kind": null,
+            "id": null,
+            "provider_name": null,
+            "provider_details": null,
+            "part_kind": "tool-call"
+          }
+        ],
+        "usage": {
+          "input_tokens": 55,
+          "cache_write_tokens": 0,
+          "cache_read_tokens": 0,
+          "output_tokens": 9,
+          "input_audio_tokens": 0,
+          "cache_audio_read_tokens": 0,
+          "output_audio_tokens": 0,
+          "audio_seconds": 0.0,
+          "details": {},
+          "cost": null
+        },
+        "model_name": "test",
+        "timestamp": "2026-11-09T07:02:39.594087Z",
+        "kind": "response",
+        "provider_name": "test",
+        "provider_url": null,
+        "provider_details": null,
+        "provider_response_id": null,
+        "finish_reason": null,
+        "run_id": "01a1bf1d-bce2-7559-8ea6-555cf9acda88",
+        "conversation_id": "01a1bf1d-bce2-7559-8ea6-555d1e66887f",
+        "metadata": null,
+        "workspace_ref": null,
+        "failed_attempts": null,
+        "state": "complete"
+      },
+      {
+        "parts": [
+          {
+            "tool_name": "save_learning_log",
+            "content": "The tool call was denied.",
+            "tool_call_id": "pyd_ai_tool_call_id__save_learning_log",
+            "tool_kind": null,
+            "metadata": null,
+            "timestamp": "2026-11-09T07:02:39.597583Z",
+            "outcome": "denied",
+            "part_kind": "tool-return"
+          }
+        ],
+        "timestamp": "2026-11-09T07:02:39.597839Z",
+        "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+        "kind": "request",
+        "run_id": "01a1bf1d-bceb-73da-a91d-e3e785cb622f",
+        "conversation_id": "01a1bf1d-bce2-7559-8ea6-555d1e66887f",
+        "metadata": null,
+        "state": "complete"
+      },
+      {
+        "parts": [
+          {
+            "content": "{\"save_learning_log\":\"The tool call was denied.\"}",
+            "id": null,
+            "provider_name": null,
+            "provider_details": null,
+            "part_kind": "text"
+          }
+        ],
+        "usage": {
+          "input_tokens": 61,
+          "cache_write_tokens": 0,
+          "cache_read_tokens": 0,
+          "output_tokens": 17,
+          "input_audio_tokens": 0,
+          "cache_audio_read_tokens": 0,
+          "output_audio_tokens": 0,
+          "audio_seconds": 0.0,
+          "details": {},
+          "cost": null
+        },
+        "model_name": "test",
+        "timestamp": "2026-11-09T07:02:39.598177Z",
+        "kind": "response",
+        "provider_name": "test",
+        "provider_url": null,
+        "provider_details": null,
+        "provider_response_id": null,
+        "finish_reason": null,
+        "run_id": "01a1bf1d-bceb-73da-a91d-e3e785cb622f",
+        "conversation_id": "01a1bf1d-bce2-7559-8ea6-555d1e66887f",
+        "metadata": null,
+        "workspace_ref": null,
+        "failed_attempts": null,
+        "state": "complete"
+      }
+    ]
+  },
+  {
+    "model": "TestModel (offline simulation)",
+    "approved": true,
+    "files_before_approval": 0,
+    "files_after_decision": 1,
+    "requested_arguments": {
+      "lecture": 3,
+      "topic": "d",
+      "reflection": "d"
+    },
+    "answer": "{\"save_learning_log\":\"Saved learning record to learning_log/8cf57d74c2664691bd42ab4d86616108.json\"}",
+    "saved_records": [
+      {
+        "lecture": 3,
+        "topic": "d",
+        "reflection": "d",
+        "created_at": "2026-11-09T07:02:39.619048+00:00"
+      }
+    ],
+    "messages": [
+      {
+        "parts": [
+          {
+            "content": "Save a learning record.",
+            "timestamp": "2026-11-09T07:02:39.615231Z",
+            "part_kind": "user-prompt"
+          }
+        ],
+        "timestamp": "2026-11-09T07:02:39.615385Z",
+        "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+        "kind": "request",
+        "run_id": "01a1bf1d-bcfe-76e6-b8bb-1ec5ff45d5b2",
+        "conversation_id": "01a1bf1d-bcfe-76e6-b8bb-1ec6bb843ed6",
+        "metadata": null,
+        "state": "complete"
+      },
+      {
+        "parts": [
+          {
+            "tool_name": "save_learning_log",
+            "args": {
+              "lecture": 3,
+              "topic": "d",
+              "reflection": "d"
+            },
+            "tool_call_id": "pyd_ai_tool_call_id__save_learning_log",
+            "tool_kind": null,
+            "id": null,
+            "provider_name": null,
+            "provider_details": null,
+            "part_kind": "tool-call"
+          }
+        ],
+        "usage": {
+          "input_tokens": 55,
+          "cache_write_tokens": 0,
+          "cache_read_tokens": 0,
+          "output_tokens": 9,
+          "input_audio_tokens": 0,
+          "cache_audio_read_tokens": 0,
+          "output_audio_tokens": 0,
+          "audio_seconds": 0.0,
+          "details": {},
+          "cost": null
+        },
+        "model_name": "test",
+        "timestamp": "2026-11-09T07:02:39.615697Z",
+        "kind": "response",
+        "provider_name": "test",
+        "provider_url": null,
+        "provider_details": null,
+        "provider_response_id": null,
+        "finish_reason": null,
+        "run_id": "01a1bf1d-bcfe-76e6-b8bb-1ec5ff45d5b2",
+        "conversation_id": "01a1bf1d-bcfe-76e6-b8bb-1ec6bb843ed6",
+        "metadata": null,
+        "workspace_ref": null,
+        "failed_attempts": null,
+        "state": "complete"
+      },
+      {
+        "parts": [
+          {
+            "tool_name": "save_learning_log",
+            "content": "Saved learning record to learning_log/8cf57d74c2664691bd42ab4d86616108.json",
+            "tool_call_id": "pyd_ai_tool_call_id__save_learning_log",
+            "tool_kind": null,
+            "metadata": null,
+            "timestamp": "2026-11-09T07:02:39.619550Z",
+            "outcome": "success",
+            "part_kind": "tool-return"
+          }
+        ],
+        "timestamp": "2026-11-09T07:02:39.619848Z",
+        "instructions": "You are a learning support agent for the AI Engineering Pilot Course (AIE2026).\n- Check search_glossary before defining named terms or course-specific terminology. For an overview of a numbered lecture, call get_lecture_summary directly; search the glossary only if a particular term needs clarification.\n- Use get_lecture_summary when asked about the content of a session.\n- If something is absent from the glossary, say \"It is not in the glossary\" instead of making assertions based on guesses.\n- End your answer by indicating the relevant session (Lecture NN).\n- Guide learners with hints on how to think, rather than writing homework answers for them.",
+        "kind": "request",
+        "run_id": "01a1bf1d-bd00-7068-8245-ee0c4f56b6d8",
+        "conversation_id": "01a1bf1d-bcfe-76e6-b8bb-1ec6bb843ed6",
+        "metadata": null,
+        "state": "complete"
+      },
+      {
+        "parts": [
+          {
+            "content": "{\"save_learning_log\":\"Saved learning record to learning_log/8cf57d74c2664691bd42ab4d86616108.json\"}",
+            "id": null,
+            "provider_name": null,
+            "provider_details": null,
+            "part_kind": "text"
+          }
+        ],
+        "usage": {
+          "input_tokens": 61,
+          "cache_write_tokens": 0,
+          "cache_read_tokens": 0,
+          "output_tokens": 18,
+          "input_audio_tokens": 0,
+          "cache_audio_read_tokens": 0,
+          "output_audio_tokens": 0,
+          "audio_seconds": 0.0,
+          "details": {},
+          "cost": null
+        },
+        "model_name": "test",
+        "timestamp": "2026-11-09T07:02:39.620181Z",
+        "kind": "response",
+        "provider_name": "test",
+        "provider_url": null,
+        "provider_details": null,
+        "provider_response_id": null,
+        "finish_reason": null,
+        "run_id": "01a1bf1d-bd00-7068-8245-ee0c4f56b6d8",
+        "conversation_id": "01a1bf1d-bcfe-76e6-b8bb-1ec6bb843ed6",
+        "metadata": null,
+        "workspace_ref": null,
+        "failed_attempts": null,
+        "state": "complete"
+      }
+    ]
+  }
+]

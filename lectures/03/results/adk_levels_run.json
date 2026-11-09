@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--with",
+    "google-adk==2.14.0",
+    "adk",
+    "run",
+    "--jsonl",
+    "--in_memory",
+    "--timeout",
+    "90s",
+    "adk_agent/glossary_agent",
+    "What are the 3 homework levels in the AIE2026 course?"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 4.556,
+  "stderr": ""
+}
